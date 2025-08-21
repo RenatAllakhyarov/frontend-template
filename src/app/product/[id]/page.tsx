@@ -2,10 +2,12 @@
 
 import { useParams } from "next/navigation";
 
-export default function ProductPage() {
+const ProductPage = () => {
     const params = useParams<{ id: string }>();
 
     const { id: currentIdProduct } = params;
 
     return <div>Product page for product by id: {currentIdProduct}</div>;
 }
+
+export default ProductPage;

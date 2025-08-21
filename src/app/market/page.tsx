@@ -1,3 +1,5 @@
-export default function MarketPage() {
+const MarketPage = () => {
     return <div>Market page</div>;
 }
+
+export default MarketPage;
