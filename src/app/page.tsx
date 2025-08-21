@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
-const Page = () => {
+const HomePage = () => {
     redirect("/market");
-}
+};
 
-export default Page;
+export default HomePage;
