@@ -1,5 +1,3 @@
-export default function Page () {
-    return (
-        <div>Market page</div>
-    )
+export default function MarketPage() {
+    return <div>Market page</div>;
 }

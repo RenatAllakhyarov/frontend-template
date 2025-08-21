@@ -1,5 +1,3 @@
-export default function Page () {
-    return (
-        <div>Authorization page</div>
-    )
+export default function AuthorizationPage() {
+    return <div>Authorization page</div>;
 }
