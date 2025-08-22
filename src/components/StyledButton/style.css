@@ -1,0 +1,27 @@
+button {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.styled-button {
+    font-size: 12px;
+    font-weight: 100;
+    line-height: 0;
+    padding: 15px 20px;
+    border-radius: 4px;
+
+    color: rgb(97, 97, 255);
+
+    transition: background-color .35s;
+}
+
+.styled-button:enabled:hover {
+    background-color: rgb(243, 243, 244);
+
+    cursor: pointer;
+}
+
+.styled-button:disabled {
+    cursor: not-allowed;
+}

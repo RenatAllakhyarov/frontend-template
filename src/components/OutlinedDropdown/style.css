@@ -1,0 +1,116 @@
+:root {
+    --dropdown-transition: .35s;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.outlined-dropdown {
+    position: relative;
+
+    min-width: 200px;
+}
+
+.outlined-dropdown .open-button {
+    padding: 15px 10px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    transition: var(--dropdown-transition);
+
+    font-size: 14px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 1;
+
+    width: 100%;
+}
+
+.outlined-dropdown .open-button .arrow {
+    width: 20px;
+    height: 20px;
+    transform: rotate(180deg);
+
+    transition: var(--dropdown-transition);
+}
+
+.outlined-dropdown .open-button .arrow.focus {
+    transform: rotate(0deg);
+}
+
+.outlined-dropdown .open-button.focus {
+    border-color: rgb(105, 105, 209);
+}
+
+.outlined-dropdown .label {
+    position: absolute;
+
+    top: 0;
+    left: 10px;
+    transform: translateY(-100%);
+    transition: var(--dropdown-transition);
+    padding: 2px;
+    background-color: white;
+    color: gray;
+    font-size: 11px;
+
+    z-index: 2;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.outlined-dropdown .label.focus {
+    color: rgb(105, 105, 209);
+}
+
+.outlined-dropdown .helper-label {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    font-size: 11px;
+    padding: 5px 10px;
+    color: gray;
+
+    z-index: 1;
+}
+
+.outlined-dropdown .items-list {
+    position: absolute;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 0 0 4px 0 rgba(23, 28, 23, 0.58);
+    background-color: white;
+
+    z-index: 2;
+}
+
+.outlined-dropdown .items-list .item {
+    width: 100%;
+    padding: 10px 10px;
+    font-size: 14px;
+}
+
+.outlined-dropdown .items-list .item:hover {
+    background-color: rgb(243, 241, 241);
+
+    cursor: pointer;
+}
+
+.outlined-dropdown .items-list .item.selected {
+    background-color: rgb(225, 240, 250);
+}
+
+.outlined-dropdown .items-list .item.selected:hover {
+    background-color: rgb(204, 231, 249);
+}
