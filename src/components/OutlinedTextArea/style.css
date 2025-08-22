@@ -1,0 +1,60 @@
+.outlined-text-area .input-container {
+    position: relative;
+}
+
+.outlined-text-area .input-container input {
+    padding: 15px 10px;
+    border: 1px solid gray;
+    border-radius: 3px;
+
+    z-index: 1;
+
+    width: 100%;
+}
+
+.outlined-text-area .input-container input:hover {
+    border-color: black;
+}
+
+.outlined-text-area .input-container input:focus {
+    outline-color: rgb(105, 105, 209);
+}
+
+.outlined-text-area .input-container .label {
+    position: absolute;
+
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+
+    transition: 0.35s;
+
+    z-index: 2;
+
+    padding: 2px;
+    background-color: white;
+
+    color: gray;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.outlined-text-area .input-container .label.focus {
+    top: 0;
+    transform: translateY(-50%);
+
+    font-size: 11px;
+}
+
+.outlined-text-area .input-container .label.active {
+    color: rgb(105, 105, 209);
+}
+
+.outlined-text-area .helper-label {
+    font-size: 11px;
+
+    padding: 5px 10px;
+
+    color: gray;
+}

@@ -1,0 +1,21 @@
+.alert-text {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 0;
+}
+
+.alert-text.info {
+    color: rgb(66, 122, 218);
+}
+
+.alert-text.success {
+    color: rgb(66, 218, 81);
+}
+
+.alert-text.warning {
+    color: rgb(218, 145, 66);
+}
+
+.alert-text.error {
+    color: rgb(218, 76, 66);
+}
