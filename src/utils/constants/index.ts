@@ -8,8 +8,3 @@ export const enum AlertTypes {
     WARNING = "warning",
     ERROR = "error",
 }
-
-export const enum StyledLinearProgressVariants {
-    DETERMINATE = "determinate",
-    INDETERMINATE = "indeterminate",
-}
