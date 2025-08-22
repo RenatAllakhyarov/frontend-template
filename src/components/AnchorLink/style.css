@@ -1,0 +1,11 @@
+.anchor-link {
+    color: rgb(97, 97, 255);
+    text-decoration: underline;
+    text-decoration-color: rgb(148, 148, 253);
+
+    transition: .35s;
+}
+
+.anchor-link:hover {
+    text-decoration-color: rgb(97, 97, 255);
+}
