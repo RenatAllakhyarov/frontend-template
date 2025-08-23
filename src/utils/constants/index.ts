@@ -4,3 +4,9 @@ export const enum AlertTypes {
     WARNING = "warning",
     ERROR = "error",
 }
+
+export const enum RoutesUrls {
+    MARKET = "/market",
+    PRODUCT = "/product",
+    CART = "/cart",
+}
