@@ -3,7 +3,8 @@ import { type Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Market frontend template",
-    description: "A ready-to-use Next.js frontend template for building modern marketplaces",
+    description:
+        "A ready-to-use Next.js frontend template for building modern marketplaces",
 };
 
 const RootLayout = ({
