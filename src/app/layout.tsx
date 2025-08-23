@@ -1,5 +1,7 @@
+import Header from "@components/Header";
 import StoreWrapper from "@components/StoreWrapper";
 import { type Metadata } from "next";
+import "./global.css";
 
 export const metadata: Metadata = {
     title: "Market frontend template",
@@ -15,7 +17,12 @@ const RootLayout = ({
     return (
         <html lang="en">
             <body>
-                <StoreWrapper>{children}</StoreWrapper>
+                <StoreWrapper>
+                    <div className="application">
+                        <Header />
+                        <div className="page-wrapper">{children}</div>
+                    </div>
+                </StoreWrapper>
             </body>
         </html>
     );

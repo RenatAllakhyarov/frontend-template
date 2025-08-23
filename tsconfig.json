@@ -20,6 +20,7 @@
         ],
         "baseUrl": ".",
         "paths": {
+            "@public/*": ["./public/*"],
             "@api/*": ["./src/api/*"],
             "@app/*": ["./src/app/*"],
             "@assets/*": ["./src/assets/*"],
@@ -29,7 +30,6 @@
             "@store/*": ["./src/store/*"],
             "@utils/*": ["./src/utils/*"],
             "@views/*": ["./src/views/*"],
-            
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
