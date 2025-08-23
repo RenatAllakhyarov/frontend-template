@@ -8,6 +8,6 @@ const ProductPage = () => {
     const { id: currentIdProduct } = params;
 
     return <div>Product page for product by id: {currentIdProduct}</div>;
-}
+};
 
 export default ProductPage;

@@ -1,9 +1,11 @@
+import marketReducer from "@store/slices/Market"
 import applicationReducer from "@store/slices/Application";
 import { configureStore } from "@reduxjs/toolkit";
 
 const store = configureStore({
     reducer: {
         application: applicationReducer,
+        market: marketReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
