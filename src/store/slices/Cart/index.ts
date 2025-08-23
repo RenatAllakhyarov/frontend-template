@@ -1,8 +1,8 @@
-import { IMockDataProps } from "@app/product/[id]/page"
+import { IProduct } from "src/domains/product";
 import { createSlice } from "@reduxjs/toolkit";
 
 interface ICartState {
-    items: IMockDataProps[]
+    items: IProduct[]
 }
 
 const initialState: ICartState = {

@@ -1,20 +1,11 @@
 "use client";
 
 import ProductInfo from "@components/ProductInfo";
+import { IProduct } from "src/domains/product";
 import { useParams } from "next/navigation";
 import { Fragment } from "react";
 
-export interface IMockDataProps {
-    id: string,
-    title: string,
-    author: string,
-    price: number,
-    description: string,
-    stock: number,
-    createdAt: string
-}
-
-const products: IMockDataProps[] = [
+const products: IProduct[] = [
     {
         id: "1",
         title: "+7952812",
@@ -43,9 +34,7 @@ const ProductPage = () => {
     const product = products[Number(currentIdProduct)-1];
 
     return(
-        <Fragment>
-            <div>Product page for product by id: {currentIdProduct}</div>
-            
+        <Fragment>     
             <ProductInfo
                 product={product}
             />
