@@ -28,6 +28,7 @@
             "@domains/*": ["./src/domains/*"],
             "@store/*": ["./src/store/*"],
             "@utils/*": ["./src/utils/*"],
+            "@views/*": ["./src/views/*"],
             
         }
     },

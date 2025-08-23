@@ -1,34 +1,18 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IProduct } from "@domains/product";
-import  API  from "@api/index";
+import { fetchProducts } from "./thunks";
 
 export interface IMarketSliceProps {
     products: IProduct[];
-    status: "idle" | "loading" | "succeeded" | "failed";
+    isLoading: boolean;
     error: string | null;
 }
 
 const initialState: IMarketSliceProps = {
     products: [],
-    status: "idle",
+    isLoading: false,
     error: null,
-}
-
-export const fetchProducts = createAsyncThunk(
-    "market/fetchProducts",
-    async () => {
-        try {
-            const response = await API.getProducts();
-
-            return response;
-        } catch (error) {
-            if (error instanceof Error) {
-                throw new Error(error.message);
-            }
-            throw new Error("An unknown error occurred");
-        }
-    }
-);
+};
 
 const marketSlice = createSlice({
     name: "market",
@@ -37,19 +21,18 @@ const marketSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchProducts.pending, (state) => {
-                state.status = "loading";
+                state.isLoading = true;
+                state.error = null;
             })
-
             .addCase(
                 fetchProducts.fulfilled,
                 (state, action: PayloadAction<IProduct[]>) => {
-                    state.status = "succeeded";
+                    state.isLoading = false;
                     state.products = action.payload;
                 }
             )
-
             .addCase(fetchProducts.rejected, (state, action) => {
-                state.status = "failed";
+                state.isLoading = false;
                 state.error = action.error.message || "Something went wrong";
             });
     },

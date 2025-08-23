@@ -4,3 +4,9 @@ export const enum AlertTypes {
     WARNING = "warning",
     ERROR = "error",
 }
+
+export const ICON_PREFIX = "/icons"
+
+export const enum IconIds {
+    BOOK = "book.svg",
+}

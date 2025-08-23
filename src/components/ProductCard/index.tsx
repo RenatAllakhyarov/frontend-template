@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ICON_PREFIX, IconIds } from "@utils/constants";
 import { IProduct } from "@domains/product";
 import { ReactElement } from "react";
 import "./style.css";
@@ -10,7 +11,7 @@ interface IProductCardProps {
 const ProductCard = ({ product }: IProductCardProps): ReactElement => {
     const { id, title, price, author } = product;
 
-    const backupImage = "/icons/book.svg";
+    const backupImage = `${ICON_PREFIX}/${IconIds.BOOK}`;
 
     return (
         <Link href={`/product/${id}`} className="product-card">
