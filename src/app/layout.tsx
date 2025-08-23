@@ -1,5 +1,7 @@
 import StoreWrapper from "@components/StoreWrapper";
+import store from "@store/index";
 import { type Metadata } from "next";
+import { Provider } from "react-redux";
 
 export const metadata: Metadata = {
     title: "Market frontend template",
@@ -15,7 +17,9 @@ const RootLayout = ({
     return (
         <html lang="en">
             <body>
-                <StoreWrapper>{children}</StoreWrapper>
+                <Provider store={store}>
+                    <StoreWrapper>{children}</StoreWrapper>
+                </Provider>
             </body>
         </html>
     );

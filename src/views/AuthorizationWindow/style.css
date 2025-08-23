@@ -1,0 +1,13 @@
+.auth-window {
+    position: relative;
+    top: 20px;
+    left: 715px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    background-color: rgb(63, 62, 62);
+    max-width: 250px;
+    max-height: 200px;
+}
