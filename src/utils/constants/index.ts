@@ -11,3 +11,8 @@ export const ICON_SRC_SUFFIX = ".svg";
 export enum IconIds {
     BOOK = "book",
 }
+export const enum RoutesUrls {
+    MARKET = "/market",
+    PRODUCT = "/product",
+    CART = "/cart",
+}
