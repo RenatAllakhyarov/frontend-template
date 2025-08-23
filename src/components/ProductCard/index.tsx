@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IProduct } from "@domains/Product";
+import { IProduct } from "@domains/product";
 import { ReactElement } from "react";
 import "./style.css";
 
@@ -19,7 +19,7 @@ const ProductCard = ({ product }: IProductCardProps): ReactElement => {
             </div>
 
             <div className="product-information">
-                <p className="product-price">{price} ДУБЛЕЙ</p>
+                <p className="product-price">{price} ₽</p>
                 <h3 className="product-title">{title}</h3>
                 <p className="product-author">{author}</p>
             </div>

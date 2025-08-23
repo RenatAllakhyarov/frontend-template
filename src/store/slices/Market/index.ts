@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { IProduct } from "@domains/Product";
-import { API } from "@api/index";
+import { IProduct } from "@domains/product";
+import  API  from "@api/index";
 
 export interface IMarketSliceProps {
     products: IProduct[];
