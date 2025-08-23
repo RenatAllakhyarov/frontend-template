@@ -1,3 +1,4 @@
+import StyledButton from "@components/StyledButton";
 import { IMockDataProps } from "@app/product/[id]/page";
 import { useDispatch, useSelector } from "react-redux";
 import { addProductToCart } from "@store/slices/Cart";
@@ -33,18 +34,14 @@ const ProductInfo = ({
             <div>{product.stock}</div>
             <div>{product.createdAt}</div>
 
-            <button
-                style={{
-                    height: "100px",
-                    width: "100px"}}
+            <StyledButton
+                label="Add"
                 onClick={handleAddProductToCart}
-            >Add</button>
-            <button
-                style={{
-                    height: "100px",
-                    width: "100px"}}
+            />
+            <StyledButton
+                label="Cart"
                 onClick={handleCartProducts}
-            >Cart</button>
+            />
         </Fragment>
     )
 }
