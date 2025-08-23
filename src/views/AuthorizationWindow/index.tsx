@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "@hooks/index";
 import { FormEvent, ReactElement, useState } from "react";
 import { AlertTypes } from "@utils/constants";
 import { TRootState } from "@store/index";
+import { redirect } from "next/navigation";
 import "./style.css";
 
 const AuthorizationPage = (): ReactElement => {
@@ -51,6 +52,8 @@ const AuthorizationPage = (): ReactElement => {
         console.log("Password submitted:", password);
 
         dispatch(setUserRegistered(true));
+
+        redirect("/market");
     };
 
     return (
@@ -77,6 +80,7 @@ const AuthorizationPage = (): ReactElement => {
                         value={password}
                         onChange={handlePasswordChange}
                         className="code-input"
+                        placeholder="Enter the code"
                         required
                     />
                     <StyledButton type="submit" label="Code" />
