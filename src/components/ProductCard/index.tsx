@@ -8,19 +8,20 @@ interface IProductCardProps {
 }
 
 const ProductCard = ({ product }: IProductCardProps): ReactElement => {
-    const { id, name, price, images } = product;
+    const { id, title, price, author } = product;
 
-    const backupImage = "";
+    const backupImage = "/icons/book.svg";
 
     return (
         <Link href={`/product/${id}`} className="product-card">
             <div className="product-image-wrapper">
-                <img src={backupImage} alt={name} />
+                <img src={backupImage} alt={title} />
             </div>
 
             <div className="product-information">
-                <h3 className="product-name">{name}</h3>
                 <p className="product-price">{price} ДУБЛЕЙ</p>
+                <h3 className="product-title">{title}</h3>
+                <p className="product-author">{author}</p>
             </div>
         </Link>
     );

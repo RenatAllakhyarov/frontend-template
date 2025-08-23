@@ -1,107 +1,107 @@
 [
     {
         "id": "1",
-        "name": "Пуэр Шу",
+        "title": "React с нуля",
+        "author": "Иван Петров",
         "price": 1200,
-        "images": ["/images/pu_er_shu.png"],
-        "story": "Классический тёмный пуэр с глубоким вкусом земли и древесины. Отлично подходит для медитации и зимних вечеров."
+        "images": ["/images/react_book.png"]
     },
     {
         "id": "2",
-        "name": "Пуэр Шэн",
+        "title": "JavaScript глубоко",
+        "author": "Сергей Смирнов",
         "price": 1500,
-        "images": ["/images/pu_er_sheng.png"],
-        "story": "Сырой пуэр с яркой терпкостью и цветочными нотами. Со временем вкус становится мягче и глубже."
+        "images": ["/images/js_book.png"]
     },
     {
         "id": "3",
-        "name": "Да Хун Пао",
-        "price": 2200,
-        "images": ["/images/da_hong_pao.png"],
-        "story": "Знаменитый утёсный улун с карамельно-древесными оттенками. Настоящая легенда китайского чая."
+        "title": "Алгоритмы для начинающих",
+        "author": "Анна Иванова",
+        "price": 1800,
+        "images": ["/images/algorithms_book.png"]
     },
     {
         "id": "4",
-        "name": "Те Гуань Инь",
-        "price": 1800,
-        "images": ["/images/te_guan_yin.png"],
-        "story": "Железная богиня милосердия. Цветочный улун с ароматом орхидеи и мягким послевкусием."
+        "title": "CSS мастерство",
+        "author": "Мария Кузнецова",
+        "price": 1000,
+        "images": ["/images/css_book.png"]
     },
     {
         "id": "5",
-        "name": "Би Ло Чунь",
-        "price": 1600,
-        "images": ["/images/bi_luo_chun.png"],
-        "story": "Зеленый чай с нежным фруктово-цветочным ароматом. Один из десяти лучших чаёв Китая."
+        "title": "Паттерны проектирования",
+        "author": "Алексей Сидоров",
+        "price": 2000,
+        "images": ["/images/design_patterns.png"]
     },
     {
         "id": "6",
-        "name": "Лун Цзин (Колодец Дракона)",
-        "price": 2500,
-        "images": ["/images/long_jing.png"],
-        "story": "Легендарный зелёный чай с орехово-карамельным вкусом. Производится только в Ханчжоу."
+        "title": "Node.js в действии",
+        "author": "Дмитрий Ковалев",
+        "price": 1700,
+        "images": ["/images/node_book.png"]
     },
     {
         "id": "7",
-        "name": "Хуан Шань Мао Фэн",
-        "price": 1900,
-        "images": ["/images/huang_shan_mao_feng.png"],
-        "story": "Зелёный чай с гор Хуаншань. Обладает мягким сладковатым вкусом и ароматом весенней зелени."
+        "title": "Python для всех",
+        "author": "Ольга Лебедева",
+        "price": 1300,
+        "images": ["/images/python_book.png"]
     },
     {
         "id": "8",
-        "name": "Цзинь Цзюнь Мэй",
-        "price": 2800,
-        "images": ["/images/jin_jun_mei.png"],
-        "story": "Элитный красный чай из молодых почек. Сладковато-медовый вкус с нотками шоколада."
+        "title": "Машинное обучение простыми словами",
+        "author": "Николай Соколов",
+        "price": 2100,
+        "images": ["/images/ml_book.png"]
     },
     {
         "id": "9",
-        "name": "Дянь Хун",
-        "price": 1700,
-        "images": ["/images/dian_hong.png"],
-        "story": "Красный чай из Юньнани. Яркий, насыщенный, с оттенками мёда и сухофруктов."
+        "title": "Docker и Kubernetes",
+        "author": "Андрей Морозов",
+        "price": 1900,
+        "images": ["/images/docker_book.png"]
     },
     {
         "id": "10",
-        "name": "Кимун (Ци Мэнь Хун Ча)",
-        "price": 2000,
-        "images": ["/images/qimen.png"],
-        "story": "Один из самых известных красных чаёв. С нежным дымным ароматом и сладким послевкусием."
+        "title": "TypeScript для начинающих",
+        "author": "Елена Фролова",
+        "price": 1400,
+        "images": ["/images/ts_book.png"]
     },
     {
         "id": "11",
-        "name": "Бай Му Дань",
-        "price": 1400,
-        "images": ["/images/bai_mu_dan.png"],
-        "story": "Белый чай 'Белый пион'. Легкий, освежающий, с травянистым ароматом и сладким вкусом."
+        "title": "Чистый код",
+        "author": "Роберт Мартин",
+        "price": 2500,
+        "images": ["/images/clean_code.png"]
     },
     {
         "id": "12",
-        "name": "Бай Хао Инь Чжень",
-        "price": 2600,
-        "images": ["/images/bai_hao_yin_zhen.png"],
-        "story": "Белые серебряные иглы. Элитный белый чай с мягким, нежным и сладковатым вкусом."
+        "title": "Архитектура приложений",
+        "author": "Игорь Захаров",
+        "price": 2200,
+        "images": ["/images/architecture_book.png"]
     },
     {
         "id": "13",
-        "name": "Лю Ань Гуа Пянь",
-        "price": 1800,
-        "images": ["/images/liu_an_gua_pian.png"],
-        "story": "Зелёный чай с цельными листьями. Вкус свежий, густой, с лёгкой сладостью."
+        "title": "Git и командная работа",
+        "author": "Павел Орлов",
+        "price": 1100,
+        "images": ["/images/git_book.png"]
     },
     {
         "id": "14",
-        "name": "Ань Цзи Бай Ча",
-        "price": 2300,
-        "images": ["/images/an_ji_bai_cha.png"],
-        "story": "Особый сорт зелёного чая с высоким содержанием аминокислот. Очень мягкий и сладковатый."
+        "title": "Основы компьютерных сетей",
+        "author": "Виктория Белова",
+        "price": 1600,
+        "images": ["/images/networks_book.png"]
     },
     {
         "id": "15",
-        "name": "Лао Ча То",
-        "price": 1600,
-        "images": ["/images/lao_cha_tou.png"],
-        "story": "Старые чайные головы — особая форма пуэра Шу. Мягкий вкус с нотками чернослива и шоколада."
+        "title": "Современные базы данных",
+        "author": "Максим Егоров",
+        "price": 2300,
+        "images": ["/images/db_book.png"]
     }
 ]
