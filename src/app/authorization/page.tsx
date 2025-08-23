@@ -1,11 +1,7 @@
 import AuthorizationWindow from "src/views/AuthorizationWindow";
 
 const AuthorizationPage = () => {
-    return (
-        <div className="auth-page">
-            <AuthorizationWindow />
-        </div>
-    );
+    return <AuthorizationWindow />;
 };
 
 export default AuthorizationPage;

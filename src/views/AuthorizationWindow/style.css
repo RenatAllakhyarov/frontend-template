@@ -1,4 +1,4 @@
-.auth-window {
+.auth-page {
     position: relative;
     top: 20px;
     left: 715px;
@@ -6,8 +6,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: aliceblue;
-    background-color: rgb(63, 62, 62);
+    color: rgb(230, 233, 235);
+    background-color: rgb(78, 78, 78);
     max-width: 250px;
-    max-height: 200px;
+    max-height: 350px;
+    border-radius: 5px;
+    border: 1px solid rgb(59, 59, 59);
 }

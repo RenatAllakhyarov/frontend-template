@@ -1,5 +1,11 @@
+import ProtectedRoute from "@components/ProtectedRoute";
+
 const MarketPage = () => {
-    return <div>Market page</div>;
-}
+    return (
+        <ProtectedRoute>
+            =<div>Market page</div>
+        </ProtectedRoute>
+    );
+};
 
 export default MarketPage;

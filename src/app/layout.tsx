@@ -1,3 +1,4 @@
+import ProtectedRoute from "@components/ProtectedRoute";
 import StoreWrapper from "@components/StoreWrapper";
 import store from "@store/index";
 import { type Metadata } from "next";
@@ -17,9 +18,7 @@ const RootLayout = ({
     return (
         <html lang="en">
             <body>
-                <Provider store={store}>
-                    <StoreWrapper>{children}</StoreWrapper>
-                </Provider>
+                <StoreWrapper>{children}</StoreWrapper>
             </body>
         </html>
     );
