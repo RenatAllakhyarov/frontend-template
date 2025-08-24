@@ -95,13 +95,16 @@ const OutlinedDropdown = ({
                 onClick={openDropdown}
             >
                 <p>{getLabelByValue(list, value)}</p>
-                <img className={`arrow${focusClassSuffix}`} src={dropdownIcon} alt="dropdown arrow icon"></img>
+                <img
+                    className={`arrow${focusClassSuffix}`}
+                    src={dropdownIcon}
+                    alt="dropdown arrow icon"
+                ></img>
             </button>
             <p className={`helper-label`}>{helperLabel}</p>
             {isOpened && (
                 <div className={itemsListClass} onClick={handleSelect}>
                     {list.map((itemData) => (
-
                         <button
                             key={itemData.label}
                             className={`item${getSelectedItemClassSuffix(

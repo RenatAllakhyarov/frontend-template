@@ -1,5 +1,8 @@
-const MarketPage = () => {
-    return <div>Market page</div>;
-};
+import MarketPage from "@views/MarketPage";
+import { ReactElement } from "react";
 
-export default MarketPage;
+const Market = (): ReactElement => {
+    return <MarketPage />;
+}
+
+export default Market;
