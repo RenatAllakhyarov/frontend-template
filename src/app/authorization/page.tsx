@@ -1,7 +1,7 @@
-import AuthorizationWindow from "src/views/AuthorizationWindow";
+import AuthorizationPage from "src/views/AuthorizationPage";
 
-const AuthorizationPage = () => {
-    return <AuthorizationWindow />;
+const Authorization = () => {
+    return <AuthorizationPage />;
 };
 
-export default AuthorizationPage;
+export default Authorization;

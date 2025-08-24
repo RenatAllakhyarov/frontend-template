@@ -5,29 +5,12 @@ export const validateEmailWithMessage = (
         return { isValid: false, message: "Email is required" };
     }
 
-    if (email.indexOf("@") === -1) {
-        return { isValid: false, message: "Email must contain @ symbol" };
-    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const parts = email.split("@");
-    const localPart = parts[0];
-    const domain = parts[1];
-
-    if (!localPart || !domain) {
+    if (!emailRegex.test(email)) {
         return {
             isValid: false,
-            message: "Email must have local part and domain",
-        };
-    }
-
-    if (domain.indexOf(".") === -1) {
-        return { isValid: false, message: "Domain must contain a dot" };
-    }
-
-    if (domain.startsWith(".") || domain.endsWith(".")) {
-        return {
-            isValid: false,
-            message: "Domain cannot start or end with a dot",
+            message: "Please enter a valid email address",
         };
     }
 
