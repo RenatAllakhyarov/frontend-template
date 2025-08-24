@@ -29,8 +29,6 @@
             "@domains/*": ["./src/domains/*"],
             "@store/*": ["./src/store/*"],
             "@utils/*": ["./src/utils/*"],
-            "@api/*": ["./src/api/*"],
-            "@public/*": ["./public/*"],
             "@views/*": ["./src/views/*"],
             "@hooks/*": ["./src/hooks/*"]
         }
