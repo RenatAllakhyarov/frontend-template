@@ -20,12 +20,18 @@
         ],
         "baseUrl": ".",
         "paths": {
-            "@components/*": ["./src/components/*"],
+            "@public/*": ["./public/*"],
+            "@api/*": ["./src/api/*"],
             "@app/*": ["./src/app/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@components/*": ["./src/components/*"],
+            "@data/*": ["./src/data/*"],
+            "@domains/*": ["./src/domains/*"],
             "@store/*": ["./src/store/*"],
             "@utils/*": ["./src/utils/*"],
             "@api/*": ["./src/api/*"],
             "@public/*": ["./public/*"],
+            "@views/*": ["./src/views/*"],
             "@hooks/*": ["./src/hooks/*"]
         }
     },

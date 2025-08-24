@@ -1,6 +1,5 @@
 "use client";
 
-import ProtectedRoute from "@components/ProtectedRoute";
 import { useParams } from "next/navigation";
 
 const ProductPage = () => {
@@ -8,11 +7,7 @@ const ProductPage = () => {
 
     const { id: currentIdProduct } = params;
 
-    return (
-        <ProtectedRoute>
-            <div>Product page for product by id: {currentIdProduct}</div>
-        </ProtectedRoute>
-    );
+    return <div>Product page for product by id: {currentIdProduct}</div>;
 };
 
 export default ProductPage;

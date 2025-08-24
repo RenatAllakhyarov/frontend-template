@@ -1,11 +1,12 @@
+import MarketPage from "@views/MarketPage";
 import ProtectedRoute from "@components/ProtectedRoute";
+import { ReactElement } from "react";
 
-const MarketPage = () => {
+const Market = (): ReactElement => {
     return (
         <ProtectedRoute>
-            <div>Market page</div>;
+            <MarketPage />
         </ProtectedRoute>
     );
 };
-
-export default MarketPage;
+export default Market;
