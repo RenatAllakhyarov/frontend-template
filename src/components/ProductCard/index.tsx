@@ -8,10 +8,10 @@ interface IProductCardProps {
     product: IProduct;
 }
 
+const backupImage = `${ICON_PREFIX}/${IconIds.BOOK}`;
+
 const ProductCard = ({ product }: IProductCardProps): ReactElement => {
     const { id, title, price, author } = product;
-
-    const backupImage = `${ICON_PREFIX}/${IconIds.BOOK}`;
 
     return (
         <Link href={`/product/${id}`} className="product-card">

@@ -27,10 +27,8 @@ const MarketPage = (): ReactElement => {
         content = <div>Ошибка: {error}</div>;
     }
 
-    if (products.length > 0) {
-        content = <ProductsList products={products} />;
-    }
-
+    content = <ProductsList products={products} />;
+    
     return (
         <div>
             <h1>Каталог товаров</h1>

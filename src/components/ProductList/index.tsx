@@ -1,5 +1,5 @@
 import ProductCard from "@components/ProductCard";
-import { IProduct } from "@domains/Product";
+import { IProduct } from "@domains/product";
 import { ReactElement } from "react";
 import "./style.css";
 
