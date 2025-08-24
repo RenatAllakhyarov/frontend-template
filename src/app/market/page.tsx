@@ -3,7 +3,7 @@ import ProtectedRoute from "@components/ProtectedRoute";
 const MarketPage = () => {
     return (
         <ProtectedRoute>
-            <div>Market page</div>
+            <div>Market page</div>;
         </ProtectedRoute>
     );
 };
