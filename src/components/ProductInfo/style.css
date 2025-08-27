@@ -3,14 +3,6 @@ body {
   padding: 0;
 }
 
-.header {
-    margin: 0;
-    padding: 0;
-    height: 15vh;
-    width: 100vw;
-    background: linear-gradient(to right, white, blue, red);
-}
-
 .product-info-container {
     position: absolute;
 }

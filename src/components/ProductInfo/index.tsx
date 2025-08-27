@@ -31,9 +31,6 @@ const ProductInfo = ({
 
     return(
         <Fragment>
-            <div className="header">
-
-            </div>
             <div className="product-info-container">
                 <Link href="/cart">
                     <button
