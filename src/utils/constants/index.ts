@@ -5,12 +5,12 @@ export const enum AlertTypes {
     ERROR = "error",
 }
 
-export const ICON_SRC_PREFIX = "/icons/"
-export const ICON_SRC_SUFFIX = ".svg";
+export const ICON_PREFIX = "/icons"
 
-export enum IconIds {
-    BOOK = "book",
+export const enum IconIds {
+    BOOK = "book.svg",
 }
+
 export const enum RoutesUrls {
     MARKET = "/market",
     PRODUCT = "/product",
