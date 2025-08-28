@@ -33,13 +33,7 @@ const ProductPage = () => {
 
     const product = products[Number(currentIdProduct)-1];
 
-    return(
-        <Fragment>     
-            <ProductInfo
-                product={product}
-            />
-        </Fragment>
-    )
+    return <ProductInfo product={product}/>;
 }
 
 export default ProductPage;
