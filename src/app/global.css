@@ -8,3 +8,7 @@ button {
     outline: none;
     border: none;
 }
+
+.page-wrapper {
+    padding-top: 100px;
+}
