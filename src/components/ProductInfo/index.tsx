@@ -6,6 +6,7 @@ import { selectCartItems } from "@store/slices/Cart";
 import { IProduct } from "src/domains/product";
 import { Fragment, useState } from "react";
 import './style.css'
+import { redirect } from "next/dist/server/api-utils";
 
 interface IProductInfo {
     product: IProduct
@@ -36,12 +37,12 @@ const ProductInfo = ({
                 src={ICON_PREFIX+IconIds.BOOK}
             />
 
-            {/* <div className="product-description">{product.description}</div> */}
+            <div className="product-description">{product.description}</div>
             <div className="other-product-info-headlines-container">
-                {/* <div>Tittle:</div>
+                <div>Tittle:</div>
                 <div>Author:</div>
                 <div>Stock:</div>
-                <div>Created at:</div> */}
+                <div>Created at:</div>
             </div>
             <div className="other-product-info-values-container">
                 <div>{product.title}</div>
@@ -51,13 +52,6 @@ const ProductInfo = ({
             </div>
             <div className="price-and-buy-button-container">
                 <div>Price: {product.price}</div>
-
-                <button
-                    className="buy-button"
-                    onClick={handleAddProductToCart}
-                >
-                    {countProduct === 0 ? 'Add to cart' : `Buy ${countProduct}`}
-                </button>
             </div>
         </div>
     )
