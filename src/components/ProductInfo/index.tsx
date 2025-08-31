@@ -17,10 +17,26 @@ const ProductInfo = ({
     
     const [countProduct, setCountProduct] = useState(0);
 
+    const [buyButtonMessage, setBuyButtonMessage] = useState<string>("Add to cart");
+
     const handleAddProductToCart = () => {
         setCountProduct(prevCount => prevCount + 1);
 
         dispatch(addProductToCart(product));
+
+        return;
+    }
+
+    const isProductAdded = () => {
+        if(!(countProduct > 0)) {
+            handleAddProductToCart();
+
+            setBuyButtonMessage("Go to cart");
+
+            return;
+        }
+        
+        redirect("/cart");
     }
 
     return(
@@ -48,13 +64,9 @@ const ProductInfo = ({
 
                 <button
                     className="buy-button"
-                    onClick={countProduct > 0 ? (
-                        () => redirect('/cart')
-                    ) : (
-                        handleAddProductToCart
-                    )}
+                    onClick={isProductAdded}
                 >
-                    {!(countProduct > 0) ? 'Add to cart' : 'Go to cart'}
+                    {buyButtonMessage}
                 </button>
             </div>
         </div>

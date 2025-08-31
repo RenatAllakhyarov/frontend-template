@@ -26,14 +26,4 @@ export default cartSlice.reducer;
 
 export const selectCartItems = (state: { cart: ICartState }) => state.cart.items;
 
-export const products: IProduct[] = [
-    {
-        id: "0",
-        title: "SOSI!",
-        author: "LOL",
-        price: 1,
-        description: "123",
-        stock: 2,
-        createdAt: "31312312312"
-    }
-]
+export const products: IProduct[] = []
