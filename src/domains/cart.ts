@@ -15,7 +15,7 @@ class Cart {
         return Array.from(this.cartProducts.values());
     }
 
-    public addProduct(addingProduct: IProduct) {
+    public addProduct(addingProduct: IProduct): void {
         const cartProduct: ICartProduct | undefined = this.cartProducts.get(
             addingProduct.id
         );
@@ -30,11 +30,11 @@ class Cart {
         });
     }
 
-    public deleteProduct(productId: string) {
+    public deleteProduct(productId: string): void {
         this.cartProducts.delete(productId);
     }
 
-    public getTotalProductPrice(productId: string) {
+    public getTotalProductPrice(productId: string): number {
         const cartProduct: ICartProduct | undefined =
             this.cartProducts.get(productId);
 
@@ -50,7 +50,7 @@ class Cart {
         return productTotalPrice;
     }
 
-    public getTotalCartPrice() {
+    public getTotalCartPrice(): number {
         if (this.cartProducts.size === 0) {
             return 0;
         }
@@ -67,7 +67,7 @@ class Cart {
         return cartTotalPrice;
     }
 
-    public getTotalProducts() {
+    public getTotalProducts(): number {
         const products: ICartProduct[] = Array.from(this.cartProducts.values());
 
         const totalProducts: number = products.reduce(
