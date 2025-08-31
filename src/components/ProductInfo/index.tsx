@@ -1,12 +1,10 @@
-import Link from "next/link";
 import { ICON_PREFIX, IconIds } from "@utils/constants";
-import { useDispatch, useSelector } from "react-redux";
 import { addProductToCart } from "@store/slices/Cart";
-import { selectCartItems } from "@store/slices/Cart";
 import { IProduct } from "src/domains/product";
-import { Fragment, useState } from "react";
+import { redirect } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 import './style.css'
-import { redirect } from "next/dist/server/api-utils";
 
 interface IProductInfo {
     product: IProduct
@@ -19,15 +17,10 @@ const ProductInfo = ({
     
     const [countProduct, setCountProduct] = useState(0);
 
-    const cartItems = useSelector(selectCartItems);
-
     const handleAddProductToCart = () => {
         setCountProduct(prevCount => prevCount + 1);
-        dispatch(addProductToCart(product));
-    }
 
-    const handleCartProducts = () => {
-        console.log(cartItems);
+        dispatch(addProductToCart(product));
     }
 
     return(
@@ -52,6 +45,22 @@ const ProductInfo = ({
             </div>
             <div className="price-and-buy-button-container">
                 <div>Price: {product.price}</div>
+
+                {countProduct > 0 ? (
+                    <button
+                        className="buy-button"
+                        onClick={() => redirect('/cart')}
+                    >
+                        Go to cart
+                    </button>
+                ) : (
+                    <button
+                        className="buy-button"
+                        onClick={handleAddProductToCart}
+                    >
+                        Add to cart
+                    </button>
+                )}
             </div>
         </div>
     )
