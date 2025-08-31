@@ -16,7 +16,9 @@ class Cart {
     }
 
     public addProduct(addingProduct: IProduct) {
-        const cartProduct: ICartProduct | undefined = this.cartProducts.get(addingProduct.id);
+        const cartProduct: ICartProduct | undefined = this.cartProducts.get(
+            addingProduct.id
+        );
 
         if (cartProduct) {
             return;
@@ -33,7 +35,8 @@ class Cart {
     }
 
     public getTotalProductPrice(productId: string) {
-        const cartProduct: ICartProduct | undefined = this.cartProducts.get(productId);
+        const cartProduct: ICartProduct | undefined =
+            this.cartProducts.get(productId);
 
         if (!cartProduct) {
             console.log("We don`t have this product in your cart...");
@@ -41,7 +44,8 @@ class Cart {
             return 0;
         }
 
-        const productTotalPrice: number = cartProduct.price * cartProduct.quantity;
+        const productTotalPrice: number =
+            cartProduct.price * cartProduct.quantity;
 
         return productTotalPrice;
     }
@@ -55,9 +59,23 @@ class Cart {
             (product: ICartProduct) => product.price * product.quantity
         );
 
-        const cartTotalPrice: number = prices.reduce((sum: number, price: number) => sum + price, 0);
+        const cartTotalPrice: number = prices.reduce(
+            (sum: number, price: number) => sum + price,
+            0
+        );
 
         return cartTotalPrice;
+    }
+
+    public getTotalProducts() {
+        const products: ICartProduct[] = Array.from(this.cartProducts.values());
+
+        const totalProducts: number = products.reduce(
+            (sum: number, product: ICartProduct) => sum + product.quantity,
+            0
+        );
+
+        return totalProducts;
     }
 
     public clearCart() {
@@ -65,7 +83,8 @@ class Cart {
     }
 
     public increaseQuantity(productId: string): void {
-        const cartProduct: ICartProduct | undefined = this.cartProducts.get(productId);
+        const cartProduct: ICartProduct | undefined =
+            this.cartProducts.get(productId);
 
         if (!cartProduct) return;
 
@@ -73,7 +92,8 @@ class Cart {
     }
 
     public decreaseQuantity(productId: string): void {
-        const cartProduct: ICartProduct | undefined = this.cartProducts.get(productId);
+        const cartProduct: ICartProduct | undefined =
+            this.cartProducts.get(productId);
 
         if (!cartProduct) return;
 
