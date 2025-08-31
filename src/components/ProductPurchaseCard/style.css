@@ -1,0 +1,19 @@
+.price-and-buy-button-container {
+    position: absolute;
+    font-size:30px;
+    padding: 10px;
+    margin: 10px;
+    left: 1100px;
+    height: 25vh;
+    width: 25vw;
+    top: 102px;
+    border: 2px solid rgb(231, 231, 231);
+}
+
+.buy-button {
+    position: absolute;
+    font-size: 30px;
+    width: 360px;
+    height: 77px;
+    top: 80px;
+}

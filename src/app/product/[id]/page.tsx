@@ -1,6 +1,6 @@
 "use client";
 
-import ProductInfo from "@components/ProductInfo";
+import ProductInfoPage from "@components/ProductInfoPage";
 import { products } from "@store/slices/Cart";
 import { useParams } from "next/navigation";
 
@@ -13,7 +13,7 @@ const ProductPage = () => {
 
     if(!product) { return; }
 
-    return <ProductInfo product={product}/>;
+    return <ProductInfoPage product={product}/>;
 }
 
 export default ProductPage;
