@@ -1,14 +1,13 @@
 .product-info-container {
     position: relative;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
+    height: calc(100vh - 100px);
+    width: 100%;
 }
 
 .preview-icon {
     position: absolute;
     height: 500px;
-    top: 180px;
+    top: 80px;
 }
 
 .product-description {
@@ -17,7 +16,7 @@
     max-height: 260px;
     max-width: 714px;
     left: 450px;
-    top: 202px;
+    top: 102px;
 }
 
 .other-product-info-headlines-container {
@@ -26,7 +25,7 @@
     height: 180px;
     width: 180px;
     left: 450px;
-    top: 472px;
+    top: 372px;
     color: gray;
 }
 
@@ -36,7 +35,7 @@
     height: 180px;
     width: 514px;
     left: 650px;
-    top: 472px;
+    top: 372px;
 }
 
 .price-and-buy-button-container {
@@ -47,7 +46,7 @@
     left: 1100px;
     height: 25vh;
     width: 25vw;
-    top: 202px;
+    top: 102px;
     border: 2px solid rgb(231, 231, 231);
 }
 

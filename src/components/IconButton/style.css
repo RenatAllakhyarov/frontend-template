@@ -1,7 +1,7 @@
 .icon-button {
     padding: 10px;
     border-radius: 3px;
-    background-color: rgb(43, 43, 241);
+    background-color: grey;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +24,7 @@
 }
 
 .icon-button.primary:hover {
-    background-color: rgb(9, 9, 233);
+    background-color: darkgrey;
 }
 
 .icon-button.active {

@@ -46,21 +46,16 @@ const ProductInfo = ({
             <div className="price-and-buy-button-container">
                 <div>Price: {product.price}</div>
 
-                {countProduct > 0 ? (
-                    <button
-                        className="buy-button"
-                        onClick={() => redirect('/cart')}
-                    >
-                        Go to cart
-                    </button>
-                ) : (
-                    <button
-                        className="buy-button"
-                        onClick={handleAddProductToCart}
-                    >
-                        Add to cart
-                    </button>
-                )}
+                <button
+                    className="buy-button"
+                    onClick={countProduct > 0 ? (
+                        () => redirect('/cart')
+                    ) : (
+                        handleAddProductToCart
+                    )}
+                >
+                    {!(countProduct > 0) ? 'Add to cart' : 'Go to cart'}
+                </button>
             </div>
         </div>
     )
