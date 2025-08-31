@@ -25,5 +25,3 @@ export const { addProductToCart } = cartSlice.actions;
 export default cartSlice.reducer;
 
 export const selectCartItems = (state: { cart: ICartState }) => state.cart.items;
-
-export const products: IProduct[] = [];

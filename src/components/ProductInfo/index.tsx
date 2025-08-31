@@ -7,7 +7,7 @@ const ProductInfo = ({
     product
 }: IProductInfo) => {
     return(
-        <Fragment>
+        <div className="product-info">
             <img
                 className="preview-icon"
                 src={ICON_SRC_PREFIX+IconIds.BOOK+ICON_SRC_SUFFIX}
@@ -26,7 +26,7 @@ const ProductInfo = ({
                 <div>{product.stock}</div>
                 <div>{product.createdAt}</div>
             </div>
-        </Fragment>
+        </div>
     )
 }
 
