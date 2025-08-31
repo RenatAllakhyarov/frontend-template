@@ -1,7 +1,6 @@
 import { IProduct } from "src/domains/product";
 import { createSlice } from "@reduxjs/toolkit";
 
-
 interface ICartState {
     items: IProduct[]
 }

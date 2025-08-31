@@ -27,7 +27,7 @@ const ProductInfoPage = () => {
     
     const product = products.find(item => item.id === currentIdProduct);
 
-    if(!product) { return; }
+    if(!product) { return <div>Product not found</div> }
 
     return(
         <div className="product-info-container">

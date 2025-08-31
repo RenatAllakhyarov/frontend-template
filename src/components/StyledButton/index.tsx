@@ -11,7 +11,7 @@ export interface IStyledButtonProps {
 const StyledButton = ({
     label,
     onClick,
-    className,
+    className = "default-styled-button",
     disabled = false,
 }: IStyledButtonProps): ReactElement => {
     return (

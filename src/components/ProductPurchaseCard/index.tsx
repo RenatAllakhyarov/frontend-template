@@ -1,11 +1,10 @@
-import IconButton from "@components/IconButton";
+import StyledButton from "@components/StyledButton";
 import { IProductInfo } from "@components/ProductInfoPage";
 import { addProductToCart } from "@store/slices/Cart";
 import { redirect } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import './style.css'
-import StyledButton from "@components/StyledButton";
 
 const ProductPurchaseCard = ({
     product
@@ -13,10 +12,6 @@ const ProductPurchaseCard = ({
     const dispatch = useDispatch()
     
     const [countProduct, setCountProduct] = useState(0);
-
-    const [buyButtonMessage, setBuyButtonMessage] = useState<string>("Add to cart");
-
-    const [buyButtonClassName, setBuyButtonClassName] = useState<string>("add-to-cart")
 
     const handleAddProductToCart = () => {
         setCountProduct(prevCount => prevCount + 1);
@@ -30,15 +25,15 @@ const ProductPurchaseCard = ({
         if(countProduct <= 0) {
             handleAddProductToCart();
 
-            setBuyButtonMessage("Go to cart");
-
-            setBuyButtonClassName("go-to-cart");
-
             return;
         }
         
         redirect("/cart");
     }
+
+    const buyButtonMessage = countProduct <= 0 ? ("Add to cart") : ("Go to cart");
+
+    const buyButtonClassName = countProduct <= 0 ? ("add-to-cart") : ("go-to-cart");
 
     return(
         <div className="price-and-buy-button-container">
