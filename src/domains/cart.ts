@@ -50,7 +50,7 @@ class Cart {
         return productTotalPrice;
     }
 
-    public getTotalCartPrice(): number {
+    public getTotalPrice(): number {
         if (this.cartProducts.size === 0) {
             return 0;
         }
@@ -67,7 +67,7 @@ class Cart {
         return cartTotalPrice;
     }
 
-    public getTotalProducts(): number {
+    public getProductsCount(): number {
         const products: ICartProduct[] = Array.from(this.cartProducts.values());
 
         const totalProducts: number = products.reduce(
