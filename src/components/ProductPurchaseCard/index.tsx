@@ -1,9 +1,11 @@
+import IconButton from "@components/IconButton";
 import { IProductInfo } from "@components/ProductInfoPage";
 import { addProductToCart } from "@store/slices/Cart";
 import { redirect } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import './style.css'
+import StyledButton from "@components/StyledButton";
 
 const ProductPurchaseCard = ({
     product
@@ -14,7 +16,7 @@ const ProductPurchaseCard = ({
 
     const [buyButtonMessage, setBuyButtonMessage] = useState<string>("Add to cart");
 
-    const [buyButtonColor, setBuyButtonColor] = useState<string>("grey");
+    const [buyButtonClassName, setBuyButtonClassName] = useState<string>("add-to-cart")
 
     const handleAddProductToCart = () => {
         setCountProduct(prevCount => prevCount + 1);
@@ -30,7 +32,7 @@ const ProductPurchaseCard = ({
 
             setBuyButtonMessage("Go to cart");
 
-            setBuyButtonColor("green");
+            setBuyButtonClassName("go-to-cart");
 
             return;
         }
@@ -42,13 +44,11 @@ const ProductPurchaseCard = ({
         <div className="price-and-buy-button-container">
             <div>Price: {product.price}</div>
 
-            <button
-                className="buy-button"
-                style={{background: `${buyButtonColor}`}}
+            <StyledButton
+                label={`${buyButtonMessage}`}
                 onClick={handleAddToCartOrNavigate}
-            >
-                {buyButtonMessage}
-            </button>
+                className={buyButtonClassName}
+            />
         </div>
     )
 }

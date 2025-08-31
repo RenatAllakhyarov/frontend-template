@@ -10,10 +10,20 @@
     border: 2px solid rgb(231, 231, 231);
 }
 
-.buy-button {
+.add-to-cart {
     position: absolute;
     font-size: 30px;
     width: 360px;
     height: 77px;
     top: 80px;
+    background-color: darkgrey;
+}
+
+.go-to-cart {
+    position: absolute;
+    font-size: 30px;
+    width: 360px;
+    height: 77px;
+    top: 80px;
+    background-color: green;
 }
