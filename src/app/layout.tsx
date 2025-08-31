@@ -1,5 +1,5 @@
 import Header from "@components/Header";
-import StoreWrapper from "@components/StoreWrapper";
+import StoreWrapper from "@components/ProductList/StoreWrapper";
 import { type Metadata } from "next";
 import "./global.css";
 
