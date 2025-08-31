@@ -1,21 +1,30 @@
-import { type ReactElement } from "react";
+import { CSSProperties, type ReactElement } from "react";
 import "./style.css";
 
 export interface IStyledButtonProps {
     label: string;
     onClick: () => void;
-    className?: string;
+    isCompleted?: boolean;
+    style?: CSSProperties;
     disabled?: boolean;
 }
 
 const StyledButton = ({
     label,
     onClick,
-    className = "default-styled-button",
+    style,
+    isCompleted = false,
     disabled = false,
 }: IStyledButtonProps): ReactElement => {
+    const completedClassname: string = !isCompleted ? "" : "completed";
+
     return (
-        <button className={className} onClick={onClick} disabled={disabled}>
+        <button
+            className={`default-styled-button ${completedClassname}`}
+            onClick={onClick}
+            disabled={disabled}
+            style={style}
+        >
             {label.toUpperCase()}
         </button>
     );

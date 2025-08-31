@@ -1,49 +1,66 @@
 .product-card {
     width: 280px;
-    border: 1px solid #e0e0e0;
     border-radius: 12px;
-    background: #fff;
+    background: #ffffff;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .product-card:hover {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background: #f8f9ff;
 }
 
 .product-image-wrapper {
     width: 100%;
     height: 220px;
-    background: #f9f9f9;
+    background: linear-gradient(135deg, #e8eaff, #ffffff);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    transition: background 0.3s ease;
 }
 
 .product-image-wrapper img {
     width: 70%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image-wrapper img {
+    transform: scale(1.05);
 }
 
 .product-information {
     padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .product-title {
     font-size: 18px;
     font-weight: 600;
     margin: 0;
+    color: #005bff;
     white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
-    color:#005bff
+    transition: color 0.3s ease;
+}
+
+.product-card:hover .product-title {
+    color: #0066ff;
 }
 
 .product-price {
@@ -51,12 +68,22 @@
     font-weight: 600;
     color: #fa1157;
     margin: 0;
+    transition: color 0.3s ease;
 }
 
-.product-author{
+.product-card:hover .product-price {
+    color: #ff2a7a;
+}
+
+.product-author {
     font-size: 14px;
     font-weight: 400;
-    color: rgba(0,26,52,.6);
+    color: rgba(0, 26, 52, 0.6);
     margin: 0;
     white-space: normal;
+    transition: color 0.3s ease;
+}
+
+.product-card:hover .product-author {
+    color: rgba(0, 26, 52, 0.8);
 }
