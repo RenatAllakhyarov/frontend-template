@@ -1,4 +1,4 @@
-import { ICON_PREFIX, IconIds } from "@utils/constants";
+import { ICON_SRC_PREFIX, ICON_SRC_SUFFIX, IconIds } from "@utils/constants";
 import { addProductToCart } from "@store/slices/Cart";
 import { IProduct } from "src/domains/product";
 import { redirect } from "next/navigation";
@@ -27,7 +27,7 @@ const ProductInfo = ({
         <div className="product-info-container">
             <img
                 className="preview-icon"
-                src={ICON_PREFIX+IconIds.BOOK}
+                src={ICON_SRC_PREFIX+IconIds.BOOK+ICON_SRC_SUFFIX}
             />
 
             <div className="product-description">{product.description}</div>
