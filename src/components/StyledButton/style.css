@@ -4,7 +4,7 @@ button {
     background: transparent;
 }
 
-.styled-button {
+.default-styled-button {
     font-size: 12px;
     font-weight: 100;
     line-height: 0;
@@ -16,12 +16,12 @@ button {
     transition: background-color .35s;
 }
 
-.styled-button:enabled:hover {
+.default-styled-button:enabled:hover {
     background-color: rgb(243, 243, 244);
 
     cursor: pointer;
 }
 
-.styled-button:disabled {
+.default-styled-button:disabled {
     cursor: not-allowed;
 }

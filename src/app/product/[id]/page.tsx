@@ -1,13 +1,9 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import ProductInfoPage from "@components/ProductInfoPage";
 
 const ProductPage = () => {
-    const params = useParams<{ id: string }>();
-
-    const { id: currentIdProduct } = params;
-
-    return <div>Product page for product by id: {currentIdProduct}</div>;
-};
+    return <ProductInfoPage/>;
+}
 
 export default ProductPage;

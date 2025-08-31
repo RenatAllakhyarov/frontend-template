@@ -1,0 +1,33 @@
+.preview-icon {
+    position: absolute;
+    height: 500px;
+    top: 80px;
+}
+
+.product-description {
+    position: absolute;
+    font-size: 40px;
+    max-height: 260px;
+    max-width: 714px;
+    left: 450px;
+    top: 102px;
+}
+
+.other-product-info-headlines-container {
+    position: absolute;
+    font-size: 40px;
+    height: 180px;
+    width: 180px;
+    left: 450px;
+    top: 372px;
+    color: gray;
+}
+
+.other-product-info-values-container {
+    position: absolute;
+    font-size: 40px;
+    height: 180px;
+    width: 514px;
+    left: 650px;
+    top: 372px;
+}

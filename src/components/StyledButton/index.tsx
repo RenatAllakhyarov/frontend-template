@@ -4,16 +4,18 @@ import "./style.css";
 export interface IStyledButtonProps {
     label: string;
     onClick: () => void;
+    className?: string;
     disabled?: boolean;
 }
 
 const StyledButton = ({
     label,
     onClick,
+    className = "default-styled-button",
     disabled = false,
 }: IStyledButtonProps): ReactElement => {
     return (
-        <button className="styled-button" onClick={onClick} disabled={disabled}>
+        <button className={className} onClick={onClick} disabled={disabled}>
             {label.toUpperCase()}
         </button>
     );
