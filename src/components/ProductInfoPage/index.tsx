@@ -9,7 +9,17 @@ export interface IProductInfo {
 }
 
 const ProductInfoPage = () => {
-    const products: IProduct[] = [];
+    const products: IProduct[] = [
+        {
+            id: "0",
+            title: "string",
+            author: "string",
+            price: 23,
+            description: "string",
+            stock: 423,
+            createdAt: "string"
+        }
+    ];
     
     const params = useParams<{ id: string }>();
     

@@ -14,6 +14,8 @@ const ProductPurchaseCard = ({
 
     const [buyButtonMessage, setBuyButtonMessage] = useState<string>("Add to cart");
 
+    const [buyButtonColor, setBuyButtonColor] = useState<string>("grey");
+
     const handleAddProductToCart = () => {
         setCountProduct(prevCount => prevCount + 1);
 
@@ -28,6 +30,8 @@ const ProductPurchaseCard = ({
 
             setBuyButtonMessage("Go to cart");
 
+            setBuyButtonColor("green");
+
             return;
         }
         
@@ -40,6 +44,7 @@ const ProductPurchaseCard = ({
 
             <button
                 className="buy-button"
+                style={{background: `${buyButtonColor}`}}
                 onClick={handleAddToCartOrNavigate}
             >
                 {buyButtonMessage}
