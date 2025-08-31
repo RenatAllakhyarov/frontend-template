@@ -1,7 +1,6 @@
 import { IProduct } from "src/domains/product";
 import { createSlice } from "@reduxjs/toolkit";
 
-
 interface ICartState {
     items: IProduct[]
 }
@@ -25,5 +24,3 @@ export const { addProductToCart } = cartSlice.actions;
 export default cartSlice.reducer;
 
 export const selectCartItems = (state: { cart: ICartState }) => state.cart.items;
-
-export const products: IProduct[] = []
