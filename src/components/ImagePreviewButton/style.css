@@ -1,0 +1,32 @@
+.image-preview-button {
+    position: relative;
+}
+
+.image-preview-button .hovered-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.image-preview-button:hover {
+    cursor: pointer;
+}
+
+.image-preview-button:hover .hovered-background {
+    display: block;
+    background-color: var(--base-layout-text-color, #161616);
+    opacity: 0.6;
+}
+
+.image-preview-button.link {
+    background-color: var(--image-gallery-bg, #dcf7fa);
+    color: var(--link-color, #33777E);
+}
+
+.image-preview-button.link:hover {
+    background-color: var(--common-badge-color, #b6b6b6);
+    cursor: pointer;
+} 

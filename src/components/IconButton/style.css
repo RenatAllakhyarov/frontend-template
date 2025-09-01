@@ -6,13 +6,11 @@
     justify-content: center;
     gap: 6px;
 
-    font-size: 15px;
-    font-weight: 500;
     border: none;
     cursor: pointer;
 
-    background-color: #5f6fff;
-    color: #ffffff;
+    background-color: var(--base-layout-text-color-inverted-hover, #9EE7F0);
+    color: var(--total-black-text-color, #000000);
     
     transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -26,23 +24,22 @@
 }
 
 .icon-button.ghost {
+    color: var(--base-label-text-color, #858585);
     background-color: transparent;
-    color: black;
+}
+
+.icon-button.ghost span {
+    font-size: 14px;
 }
 
 .icon-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(95, 111, 255, 0.15);
+    cursor: pointer;
 }
 
 .icon-button.primary:hover {
-    background-color: #7b81ff;
+    background-color: var(--base-layout-bg-hover, #87d4de);
 }
 
 .icon-button.ghost:hover {
-    background-color: rgba(95, 111, 255, 0.1);
-}
-
-.icon-button.active {
-    box-shadow: 0 0 8px rgba(95, 111, 255, 0.6);
+    color: var(--base-label-text-color-hover, #6A6A6A);
 }

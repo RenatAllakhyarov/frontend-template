@@ -1,11 +1,16 @@
-import API from "@api/index";
+// import API from "@api/index";
+import MockAPI from "src/mockApi";
+import { IProduct } from "@domains/product";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchProducts = createAsyncThunk(
     "market/fetchProducts",
     async () => {
         try {
-            const response = await API.getProducts();
+            //TODO while this request is mocked
+            // const response = await API.getProducts();
+
+            const response: IProduct[] = await MockAPI.getProducts();
 
             return response;
         } catch (error) {

@@ -5,6 +5,7 @@ import { fetchProducts } from "@store/slices/Market/thunks";
 import { TAppDispatch, TRootState } from "@store/index";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactElement, useEffect } from "react";
+import "./style.css";
 
 const MarketPage = (): ReactElement => {
     const dispatch = useDispatch<TAppDispatch>();
@@ -28,10 +29,11 @@ const MarketPage = (): ReactElement => {
     }
 
     content = <ProductsList products={products} />;
-    
+
     return (
-        <div>
-            <h1>Каталог товаров</h1>
+        <div className="market-page">
+            <div className="badge badge-text">{"Книги"}</div>
+            <h1 className="headline-1-text">{`Книги`}</h1>
 
             {content}
         </div>
