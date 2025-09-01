@@ -1,0 +1,22 @@
+.text-preview-wrapper {
+  position: relative;
+  overflow: hidden;
+  word-wrap: break-word;
+  background-color: transparent;
+  color: var(--base-layout-text-color, #161616);
+}
+
+.text-preview-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  height: 1.5em;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+}

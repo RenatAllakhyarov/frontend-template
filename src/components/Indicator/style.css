@@ -1,0 +1,23 @@
+.indicator {
+    background-color: var(--main-layout-bg, #f1f1f1);
+    border-radius: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: var(--base-label-text-color, #858585);
+}
+
+.indicator.primary {
+    color: var(--base-layout-bg, #FFFFFF);
+    background-color: var(--base-accent-color, #ff5983);
+}
+
+.indicator.circle {
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+}

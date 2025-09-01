@@ -1,0 +1,9 @@
+.complex-rating-block {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+}
+
+.complex-rating-block span {
+    color: var(--base-label-text-color, #858585);
+}

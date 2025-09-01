@@ -1,7 +1,7 @@
 .app-header {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: var(--main-layout-padding-y, 25px);
+    width: calc(100% - var(--main-layout-padding-x, 50px) * 2);
     height: 100px;
     padding: 0 2rem;
 
@@ -9,9 +9,11 @@
     justify-content: space-between;
     align-items: center;
 
-    background: linear-gradient(135deg, #e8eaff, #ffffff);
+    border-radius: var(--widget-border-radius, 24px);
 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background: var(--base-layout-bg, #FFFFFF);
+
+    box-shadow: var(--widget-shadow, 0 8px 20px #0000000a);
 
     transition: background 0.3s ease, box-shadow 0.3s ease;
 
