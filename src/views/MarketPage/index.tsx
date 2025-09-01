@@ -6,8 +6,9 @@ const MarketPage = async (): Promise<ReactElement> => {
     const products = await API.getProducts();
 
     return (
-        <div>
-            <h1>Каталог товаров</h1>
+        <div className="market-page">
+            <div className="badge badge-text">{"Книги"}</div>
+            <h1 className="headline-1-text">{`Книги`}</h1>
 
             <ProductsList products={products} />
         </div>

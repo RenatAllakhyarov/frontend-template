@@ -1,9 +1,15 @@
 import { CSSProperties, type ReactElement } from "react";
 import "./style.css";
 
+export const enum StyledButtonTypes {
+    PRIMARY = "primary",
+    SECONDARY = "secondary",
+}
+
 export interface IStyledButtonProps {
     label: string;
     onClick: () => void;
+    type?: StyledButtonTypes;
     isCompleted?: boolean;
     style?: CSSProperties;
     disabled?: boolean;
@@ -12,6 +18,7 @@ export interface IStyledButtonProps {
 const StyledButton = ({
     label,
     onClick,
+    type = StyledButtonTypes.PRIMARY,
     style,
     isCompleted = false,
     disabled = false,
@@ -20,12 +27,12 @@ const StyledButton = ({
 
     return (
         <button
-            className={`default-styled-button ${completedClassname}`}
+            className={`default-styled-button button-text ${type} ${completedClassname}`}
             onClick={onClick}
             disabled={disabled}
             style={style}
         >
-            {label.toUpperCase()}
+            {label}
         </button>
     );
 };

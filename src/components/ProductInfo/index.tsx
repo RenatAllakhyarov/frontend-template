@@ -1,32 +1,44 @@
-import Image from "next/image";
-import { ICON_SRC_PREFIX, ICON_SRC_SUFFIX, IconIds } from "@utils/constants";
+import TextPreview from "@components/TextPreview";
+import StyledButton from "@components/StyledButton";
+import ImageSelector from "@components/ImagesSelector";
+import { StyledButtonTypes } from "@components/StyledButton";
 import { IProductInfo } from "@components/ProductInfoPage";
 import "./style.css";
 
-const ProductInfo = ({ product }: IProductInfo) => {
-    return (
-        <div className="product-info">
-            <Image
-                className="preview-icon"
-                src={ICON_SRC_PREFIX + IconIds.BOOK + ICON_SRC_SUFFIX}
-                alt="product-info-icon"
-                width={200}
-                height={300}
-            />
+const ANNOTATION_WRAPPER_ID = "annotation";
 
-            <div className="product-description">{product.description}</div>
-            <div className="other-product-info-wrapper">
-                <div className="other-product-info-headlines-container">
-                    <div>Title:</div>
-                    <div>Author:</div>
-                    <div>Stock:</div>
-                    <div>Created at:</div>
+const ProductInfo = ({ product }: IProductInfo) => {
+    const handleScrollToAnnotaion = (): void => {
+        const reviewsElement: HTMLElement | null = document.getElementById(
+            ANNOTATION_WRAPPER_ID
+        );
+
+        if (!reviewsElement) {
+            console.error("You incorrect set id on annotation wrapper!");
+
+            return;
+        }
+
+        reviewsElement.scrollIntoView({ behavior: "smooth" });
+    };
+
+    return (
+        <div className="product-info-wrapper">
+            <div className="primary-block">
+                <div className="images-block">
+                    <ImageSelector imagesSrcList={product.imagesUrls} />
                 </div>
-                <div className="other-product-info-values-container">
-                    <div>{product.title}</div>
-                    <div>{product.author}</div>
-                    <div>{product.stock}</div>
-                    <div>{product.createdAt}</div>
+                <div className="info-block">
+                    <div className="text-preview-wrapper">
+                        <TextPreview text={product.annotation} />
+                    </div>
+                    <div className="annotation-scroll-button-wrapper">
+                        <StyledButton
+                            onClick={handleScrollToAnnotaion}
+                            label="Перейти к описанию"
+                            type={StyledButtonTypes.SECONDARY}
+                        />
+                    </div>
                 </div>
             </div>
         </div>

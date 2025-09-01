@@ -49,7 +49,7 @@ const IconButton = ({
             onClick={handleClick}
         >
             <Image src={src} alt={alt} width={iconSize} />
-            {label && <span>{label}</span>}
+            {label && <span className="button-text">{label}</span>}
         </button>
     );
 };
