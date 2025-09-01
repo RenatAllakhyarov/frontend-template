@@ -1,4 +1,4 @@
-import { IProduct } from "@domains/product"; 
+import { IProduct } from "@domains/product";
 
 const apiBaseUrl: string | undefined = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -44,7 +44,7 @@ class API {
 
         return (await response.json()) as T;
     };
-    
+
     public static getProducts = async (): Promise<IProduct[]> => {
         return this.request<IProduct[]>(ApiEndpoints.PRODUCTS, "GET");
     };

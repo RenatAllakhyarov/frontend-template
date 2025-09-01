@@ -1,0 +1,10 @@
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.errorSecondaryTextMessage {
+  color: rgb(121, 121, 121);
+}

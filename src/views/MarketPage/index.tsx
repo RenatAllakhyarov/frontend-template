@@ -1,39 +1,15 @@
-"use client";
-
+import API from "@api/index";
 import ProductsList from "@components/ProductList";
-import { fetchProducts } from "@store/slices/Market/thunks";
-import { TAppDispatch, TRootState } from "@store/index";
-import { useDispatch, useSelector } from "react-redux";
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
 
-const MarketPage = (): ReactElement => {
-    const dispatch = useDispatch<TAppDispatch>();
+const MarketPage = async (): Promise<ReactElement> => {
+    const products = await API.getProducts();
 
-    const { products, isLoading, error } = useSelector(
-        (state: TRootState) => state.market
-    );
-
-    useEffect(() => {
-        dispatch(fetchProducts());
-    }, [dispatch]);
-
-    let content;
-
-    if (isLoading) {
-        content = <div>Загрузка продуктов...</div>;
-    }
-
-    if (error) {
-        content = <div>Ошибка: {error}</div>;
-    }
-
-    content = <ProductsList products={products} />;
-    
     return (
         <div>
             <h1>Каталог товаров</h1>
 
-            {content}
+            <ProductsList products={products} />
         </div>
     );
 };
