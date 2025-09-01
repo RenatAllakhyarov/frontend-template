@@ -18,13 +18,6 @@ const Rating = ({
     const lastStarValue: number = rating - fullStarCount;
     const emptyStarCount: number = STAR_COUNT - fullStarCount - 1;
 
-    console.log(
-        "FULL STAR COUNT: ",
-        fullStarCount,
-        " LAST STAR VALUE: ",
-        lastStarValue
-    );
-
     return (
         <div style={{ width }} className="rating">
             {Array.from({ length: fullStarCount }).map((_, index: number) => (

@@ -6,7 +6,25 @@
     padding: var(--main-page-padding, 28px 36px);
 }
 
-.product-info-page .header {
+.product-info-page .badge {
+    color: var(--common-badge-color, #b6b6b6);
+    margin-bottom: 20px;
+}
+
+.product-info-page .name-header {
     width: 80%;
     display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.product-info-page .publisher-link-wrapper {
+    margin-bottom: 25px;
+}
+
+.product-info-page .feedback-block {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 30px;
 }

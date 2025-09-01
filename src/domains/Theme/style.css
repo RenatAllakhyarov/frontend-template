@@ -4,12 +4,14 @@
     --base-layout-text-color: #161616;
     --base-success-color: #D0ECA0;
     --base-success-color-hover: #BCE582;
+    --secondary-button-hover-text-color: #e1426c;
     --base-accent-color: #ff5983;
     --total-black-text-color: #000000;
     --base-layout-text-color-inverted: #FFFFFF;
     --base-layout-text-color-inverted-hover: #9EE7F0;
     --base-label-text-color: #858585;
     --base-label-text-color-hover: #6A6A6A;
+    --image-gallery-bg: #dcf7fa;
     --common-badge-color: #b6b6b6;
     --base-layout-bg-hover: #87d4de;
     --link-color: #33777E;
@@ -165,4 +167,11 @@ h5 {
     font-size: 13px;
     font-weight: 700;
     line-height: 20px;
+}
+
+.body-text {
+    font-family: "Onest";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
 }

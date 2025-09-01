@@ -16,12 +16,21 @@ button {
     justify-content: center;
     gap: 6px;
 
-    transition: background-color var(--default-ui-transition, .35s) ease;
+    transition: background-color color var(--default-ui-transition, .35s) ease;
 }
 
-.default-styled-button:hover {
+.default-styled-button.secondary {
+    background-color: var(--main-layout-bg, #f1f1f1);
+}
+
+.default-styled-button.primary:hover {
     cursor: pointer;
     background-color: var(--base-layout-bg-hover, #87d4de);
+}
+
+.default-styled-button.secondary:hover {
+    cursor: pointer;
+    color: var(--secondary-button-hover-text-color, #e1426c);
 }
 
 .default-styled-button:disabled {

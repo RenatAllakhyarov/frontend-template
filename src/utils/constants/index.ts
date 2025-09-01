@@ -42,3 +42,53 @@ export function getFormatCount(count: number): string {
 
     return count.toString();
 }
+
+export const getFormatRatingsCount = (ratingsCount: number): string => {
+    const labelPrefix: string = `${ratingsCount} оцен`;
+
+    const lastNumber: number = ratingsCount % 10;
+
+    if (lastNumber === 1) {
+        return `${labelPrefix}ка`;
+    }
+
+    if (lastNumber > 1 && lastNumber < 5) {
+        return `${labelPrefix}ки`;
+    }
+
+    return `${labelPrefix}ок`;
+};
+
+export const getFormatReviewsCount = (reviewsCount: number): string => {
+    const labelPrefix: string = `${reviewsCount} отзыв`;
+
+    const lastNumber: number = reviewsCount % 10;
+
+    if (lastNumber === 1) {
+        return labelPrefix;
+    }
+
+    if (lastNumber > 1 && lastNumber < 5) {
+        return `${labelPrefix}а`;
+    }
+
+    return `${labelPrefix}ов`;
+};
+
+export const getFormatBuyCount = (buyCount: number): string => {
+    const units = [1e9, 1e6, 1e3];
+
+    for (const unit of units) {
+        if (buyCount < unit) {
+            continue;
+        }
+
+        const otherBuyCount: number = buyCount % unit;
+
+        const rangeBuyCount: number = buyCount - otherBuyCount;
+
+        return `Купили более ${rangeBuyCount} человек`;
+    }
+
+    return `Купили более ${buyCount} человек`;
+};
