@@ -31,6 +31,7 @@ export interface IProduct {
     price: number;
     discount: number;
     isAvailable: boolean;
+    quantity: number;
     coverType: BookCoverTypes;
     pagesCount: number;
     weight: number;
