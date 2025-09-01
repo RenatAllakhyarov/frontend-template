@@ -2,8 +2,8 @@
 
 import Cart from "@domains/cart";
 import StyledButton from "@components/StyledButton";
-import { redirect } from "next/navigation";
 import { IProduct } from "@domains/product";
+import { redirect } from "next/navigation";
 
 interface ITransactionInfoPageProps {
     cart: Cart

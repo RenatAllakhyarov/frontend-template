@@ -1,7 +1,7 @@
 'use client'
 
-import TransactionInfoPage from "@components/TransactionInfoPage";
 import Cart from "@domains/cart";
+import TransactionInfoPage from "@components/TransactionInfoPage";
 
 const TransactionPage = () => {
     const cart = new Cart();
