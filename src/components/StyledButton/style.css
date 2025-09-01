@@ -2,26 +2,58 @@ button {
     border: none;
     outline: none;
     background: transparent;
+    font-family: inherit;
 }
 
 .default-styled-button {
     font-size: 20px;
-    font-weight: 100;
-    line-height: 0;
-    padding: 15px 20px;
-    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 8px;
 
-    color: rgb(97, 97, 255);
+    background-color: #5f6fff;
+    color: #ffffff;
 
-    transition: background-color .35s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .default-styled-button:enabled:hover {
-    background-color: rgb(243, 243, 244);
-
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(95, 111, 255, 0.15);
+    background-color: #7b81ff;
     cursor: pointer;
 }
 
 .default-styled-button:disabled {
+    background-color: rgba(95, 111, 255, 0.3);
+    color: rgba(255, 255, 255, 0.6);
     cursor: not-allowed;
+    box-shadow: none;
 }
+
+.default-styled-button.completed {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.default-styled-button.completed:enabled:hover {
+    background-color: #3ac162;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.15);
+    cursor: pointer;
+}
+
+.default-styled-button.completed:disabled {
+    background-color: rgba(40, 167, 69, 0.3);
+    color: rgba(255, 255, 255, 0.6);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
