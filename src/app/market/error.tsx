@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { ReactElement } from "react";
-import styles from "./error.module.css";
+import "./style.css";
 
 const Error = (): ReactElement => {
     return (
-        <div className={styles.errorPage}>
+        <div className="error-page">
             <Image
                 src="/icons/serverErrorIcon.svg"
                 alt="Server Error"
@@ -14,10 +14,10 @@ const Error = (): ReactElement => {
                 height={400}
             />
 
-            <h1 className={styles.errorPrimaryTextMessage}>
+            <h1 className="error-primary-text-message">
                 Что-то пошло не так
             </h1>
-            <p className={styles.errorSecondaryTextMessage}>
+            <p className="error-secondary-text-message">
                 Кажется, на сайте ведутся технические работы!
             </p>
         </div>
