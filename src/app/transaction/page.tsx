@@ -1,11 +1,12 @@
 'use client'
 
+import TransactionInfoPage from "@components/TransactionInfoPage";
 import Cart from "@domains/cart";
 
-const TransactionPage = (cart: Cart) => {
+const TransactionPage = () => {
+    const cart = new Cart();
     
-
-    return <div>Transaction page</div>
+    return <TransactionInfoPage cart={cart}/>
 }
 
 export default TransactionPage;

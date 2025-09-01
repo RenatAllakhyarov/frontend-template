@@ -1,0 +1,7 @@
+.transaction-page-container {
+    position: relative;
+    top: 100px;
+    height: calc(100vh - 100px);
+    width: 100vw;
+    background-color: blue;
+}
