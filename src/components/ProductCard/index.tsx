@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ICON_PREFIX, IconIds } from "@utils/constants";
+import Image from "next/image";
+import { ICON_SRC_PREFIX, ICON_SRC_SUFFIX, IconIds } from "@utils/constants";
 import { IProduct } from "@domains/product";
 import { ReactElement } from "react";
 import "./style.css";
@@ -8,7 +9,7 @@ interface IProductCardProps {
     product: IProduct;
 }
 
-const backupImage = `${ICON_PREFIX}/${IconIds.BOOK}`;
+const backupImage = `${ICON_SRC_PREFIX + IconIds.BOOK + ICON_SRC_SUFFIX}`;
 
 const ProductCard = ({ product }: IProductCardProps): ReactElement => {
     const { id, title, price, author } = product;
@@ -16,7 +17,7 @@ const ProductCard = ({ product }: IProductCardProps): ReactElement => {
     return (
         <Link href={`/product/${id}`} className="product-card">
             <div className="product-image-wrapper">
-                <img src={backupImage} alt={title} />
+                <Image src={backupImage} width={80} height={100} alt={title} />
             </div>
 
             <div className="product-information">

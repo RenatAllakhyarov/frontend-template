@@ -1,14 +1,24 @@
 .icon-button {
-    padding: 10px;
-    border-radius: 3px;
-    background-color: rgb(43, 43, 241);
+    padding: 8px 12px;
+    border-radius: 8px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    color: white;
-    font-size: 16px;
-    gap: 4px;
-    transition: background-color border .35s;
+    justify-content: center;
+    gap: 6px;
+
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+
+    background-color: #5f6fff;
+    color: #ffffff;
+    
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.icon-button.row {
+    flex-direction: row;
 }
 
 .icon-button.column {
@@ -17,16 +27,22 @@
 
 .icon-button.ghost {
     background-color: transparent;
+    color: black;
 }
 
 .icon-button:hover {
-    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(95, 111, 255, 0.15);
 }
 
 .icon-button.primary:hover {
-    background-color: rgb(9, 9, 233);
+    background-color: #7b81ff;
+}
+
+.icon-button.ghost:hover {
+    background-color: rgba(95, 111, 255, 0.1);
 }
 
 .icon-button.active {
-    border: 2px solid ghostwhite;
+    box-shadow: 0 0 8px rgba(95, 111, 255, 0.6);
 }
