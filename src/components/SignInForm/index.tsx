@@ -1,3 +1,4 @@
+import API from "@api/index";
 import StyledButton from "@components/StyledButton";
 import { validateEmailWithMessage } from "@utils/validations/index";
 import { useAppDispatch, useAppSelector } from "@hooks/index";
@@ -21,20 +22,31 @@ const SignInForm = ({ handleSubmit }: ISingFormProps): ReactElement => {
         setLocalEmail(event.target.value);
     };
 
-    const handleEmailSubmit = (event: FormEvent): void => {
+    const handleEmailSubmit = async (event: FormEvent) => {
         event.preventDefault();
 
         const validation = validateEmailWithMessage(localEmail);
+
         if (!validation.isValid) {
             return;
         }
 
         dispatch(setUserEmail(localEmail));
 
-        console.log("Email submitted:", localEmail);
+        try {
+            const response = await API.sendEmailRequest(localEmail);
+
+            if (response.ok) {
+                console.log("Email successfully sent!");
+            }
+        } catch (error) {
+            console.error("Error sending email:", error);
+            console.log("An error occurred while sending the email");
+        }
 
         handleSubmit(true);
     };
+
     return (
         <form onSubmit={handleEmailSubmit} className="email-form">
             <input
