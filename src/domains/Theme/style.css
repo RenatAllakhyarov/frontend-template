@@ -1,0 +1,168 @@
+:root {
+    --scroll-button-gap: 36px;
+    --base-layout-bg: #FFFFFF;
+    --base-layout-text-color: #161616;
+    --base-success-color: #D0ECA0;
+    --base-success-color-hover: #BCE582;
+    --base-accent-color: #ff5983;
+    --total-black-text-color: #000000;
+    --base-layout-text-color-inverted: #FFFFFF;
+    --base-layout-text-color-inverted-hover: #9EE7F0;
+    --base-label-text-color: #858585;
+    --base-label-text-color-hover: #6A6A6A;
+    --common-badge-color: #b6b6b6;
+    --base-layout-bg-hover: #87d4de;
+    --link-color: #33777E;
+    --link-color-hover: #2A6066;
+    --link-color-active: #1E4C52;
+    --header-bg-color: #33777E;
+    --main-font: "Onest", sans-serif;
+    --title-font: "Onest", sans-serif;
+    --app-height: 100%;
+    --main-layout-bg: #f1f1f1;
+
+    --main-layout-padding-x: 50px;
+    --main-layout-padding-y: 25px;
+    --main-layout-page-wrapper-padding-top: 130px;
+    --main-page-padding: 28px 36px;
+
+    --button-border-radius: 8px;
+    --widget-border-radius: 24px;
+
+    --default-ui-transition: .35s;
+
+    --widget-shadow: 0 8px 20px #0000000a;
+}
+
+@font-face {
+    font-family: "Onest";
+    font-weight: 400;
+    src: url("/fonts/Onest/Onest-Light.ttf");
+}
+
+@font-face {
+    font-family: "Onest";
+    font-weight: 500;
+    src: url("/fonts/Onest/Onest-Regular.ttf");
+
+}
+
+@font-face {
+    font-family: "Onest";
+    font-weight: 600;
+    src: url("/fonts/Onest/Onest-Medium.ttf");
+
+}
+
+@font-face {
+    font-family: "Onest";
+    font-weight: 700;
+    src: url("/fonts/Onest/Onest-SemiBold.ttf");
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+.application {
+    padding: var(--main-layout-padding-y) var(--main-layout-padding-x);
+}
+
+.page-wrapper {
+    padding-top: var(--main-layout-page-wrapper-padding-top);
+}
+
+a:hover {
+    color: var(--link-color-hover);
+}
+
+body {
+    background-color: var(--main-layout-bg);
+    font-family: "Onest";
+    font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--base-layout-text-color);
+}
+
+.headline-1-text {
+    font-family: "Onest", sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 54px;
+    letter-spacing: -0.33px;
+}
+
+.headline-2-text {
+  font-family: "Onest", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.33px;
+}
+
+.title-text {
+    font-family: "Onest";
+    font-weight: 600;
+    font-size: var(--font-size-title, 20px);
+    line-height: 22px;
+    letter-spacing: -0.4px;
+}
+
+.subtitle-text {
+    font-family: "Onest";
+    font-weight: 500;
+    font-size: var(--font-size-subtitle, 1.2rem);
+    line-height: 22px;
+    letter-spacing: -0.4px;
+}   
+    
+.primary-text {
+    font-family: "Onest";
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.4px;
+}
+
+.secondary-text {
+    font-family: "Onest";
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.4px;
+}
+
+.button-text {
+    font-family: "Onest";
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.meta-text {
+    font-family: "Onest";
+    font-weight: 400;
+    font-size: var(--font-size-caption, 11px);
+    line-height: 100%;
+    letter-spacing: 0px;
+}
+
+.badge-text {
+    font-family: "Onest";
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+}

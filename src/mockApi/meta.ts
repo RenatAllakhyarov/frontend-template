@@ -59,7 +59,7 @@ const mockProductsList: IProduct[] = [
         ],
         salesCount: 488,
         averageRating: 4.5,
-        ratingsCount: 16,
+        ratingsCount: 162,
         imagesUrls: [
             "/mockImagesData/tommorowTommorow1.jpg",
             "/mockImagesData/tommorowTommorow2.jpg",
@@ -98,7 +98,7 @@ const mockProductsList: IProduct[] = [
         ],
         salesCount: 214,
         averageRating: 4.2,
-        ratingsCount: 9,
+        ratingsCount: 90,
         imagesUrls: [
             "/mockImagesData/letterToMyYOungerSelf1.jpg",
             "/mockImagesData/letterToMyYOungerSelf2.jpg",
@@ -138,7 +138,7 @@ const mockProductsList: IProduct[] = [
         ],
         salesCount: 612,
         averageRating: 4.1,
-        ratingsCount: 20,
+        ratingsCount: 202,
         imagesUrls: [
             "/mockImagesData/silverWind1.jpg",
             "/mockImagesData/silverWind2.jpg",
@@ -173,7 +173,7 @@ const mockProductsList: IProduct[] = [
         ],
         salesCount: 150,
         averageRating: 3.9,
-        ratingsCount: 7,
+        ratingsCount: 732,
         imagesUrls: [
             "/mockImagesData/cityOfShadows1.jpg",
             "/mockImagesData/cityOfShadows2.jpg",
@@ -199,8 +199,8 @@ const mockProductsList: IProduct[] = [
         ISBN: "978-5-00167-105-9",
         reviews: [],
         salesCount: 98,
-        averageRating: 0,
-        ratingsCount: 0,
+        averageRating: 2.7,
+        ratingsCount: 123456,
         imagesUrls: [
             "/mockImagesData/rewardForTheGeneral1.jpg",
             "/mockImagesData/rewardForTheGeneral2.jpg",
@@ -258,7 +258,7 @@ const mockProductsList: IProduct[] = [
         ],
         salesCount: 12674,
         averageRating: 4.4,
-        ratingsCount: 109,
+        ratingsCount: 10900,
         imagesUrls: [
             "/mockImagesData/draft1.jpg",
             "/mockImagesData/draft2.jpg",
@@ -288,7 +288,7 @@ const mockProductsList: IProduct[] = [
         reviews: [],
         salesCount: 432,
         averageRating: 4.0,
-        ratingsCount: 12,
+        ratingsCount: 142,
         imagesUrls: [
             "/mockImagesData/noTimeForDragons1.jpg",
             "/mockImagesData/noTimeForDragons2.jpg",
@@ -318,8 +318,8 @@ const mockProductsList: IProduct[] = [
         ISBN: "978-5-00167-108-0",
         reviews: [],
         salesCount: 50,
-        averageRating: 0,
-        ratingsCount: 0,
+        averageRating: 1.8,
+        ratingsCount: 1200,
         imagesUrls: [
             "/mockImagesData/survivalGuide1.jpg",
             "/mockImagesData/survivalGuide2.jpg",
@@ -345,7 +345,7 @@ const mockProductsList: IProduct[] = [
         reviews: [],
         salesCount: 210,
         averageRating: 4.1,
-        ratingsCount: 6,
+        ratingsCount: 72500,
         imagesUrls: [
             "/mockImagesData/twoStrongholds1.jpg",
             "/mockImagesData/twoStrongholds2.jpg",
@@ -376,7 +376,7 @@ const mockProductsList: IProduct[] = [
         reviews: [],
         salesCount: 134,
         averageRating: 4.3,
-        ratingsCount: 4,
+        ratingsCount: 434,
         imagesUrls: [
             "/mockImagesData/movingCastle1.jpg",
             "/mockImagesData/movingCastle2.jpg",

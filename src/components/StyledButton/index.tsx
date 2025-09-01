@@ -20,7 +20,7 @@ const StyledButton = ({
 
     return (
         <button
-            className={`default-styled-button ${completedClassname}`}
+            className={`default-styled-button button-text ${completedClassname}`}
             onClick={onClick}
             disabled={disabled}
             style={style}

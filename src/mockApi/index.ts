@@ -1,7 +1,7 @@
 import mockProductsList from "./meta";
 import { IProduct } from "@domains/product";
 
-const PRODUCT_LOAD_DELAY: number = 3000;
+const PRODUCT_LOAD_DELAY: number = 750;
 
 class MockAPI {
     public static delay = (timeout: number): Promise<void> => {
