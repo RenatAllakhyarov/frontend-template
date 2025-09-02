@@ -1,0 +1,15 @@
+.detail-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.detail-wrapper .title {
+    flex: 1;
+    color: var(--base-label-text-color-hover, #6A6A6A);
+}
+
+.detail-wrapper .value {
+    flex: 1.5;
+}
