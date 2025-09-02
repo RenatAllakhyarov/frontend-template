@@ -92,3 +92,29 @@ export const getFormatBuyCount = (buyCount: number): string => {
 
     return `Купили более ${buyCount} человек`;
 };
+
+export const getFormatProductsCount = (productsCount: number): string => {
+    if (productsCount === 0) {
+        return "0 товаров";
+    };
+
+    const labelPrefix: string = `${productsCount} товар`;
+
+    const lastDigit: number = productsCount % 10;
+
+    const lastTwoDigits: number = productsCount % 100;
+
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+        return `${labelPrefix}ов`;
+    }
+
+    if (lastDigit === 1) {
+        return `${labelPrefix}`;
+    }
+
+    if (lastDigit >= 2 && lastDigit <= 4) {
+        return `${labelPrefix}а`;
+    }
+
+    return `${labelPrefix}ов`;
+};
