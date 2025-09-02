@@ -36,7 +36,12 @@
     margin-right: 10px;
 }
 
+.product-info-wrapper .review-block .complex-rating-block-container {
+    margin-bottom: 15px;
+}
+
 .product-info-wrapper .review-block .header .reviews-count {
     color: var(--base-label-text-color-hover, #6A6A6A);
 }
+
 

@@ -4,8 +4,10 @@
     --base-layout-text-color: #161616;
     --base-success-color: #D0ECA0;
     --base-success-color-hover: #BCE582;
+    --base-positive-color: #edffec;
     --secondary-button-hover-text-color: #e1426c;
     --base-accent-color: #ff5983;
+    --base-negative-color: #ffeae8;
     --total-black-text-color: #000000;
     --base-layout-text-color-inverted: #FFFFFF;
     --base-layout-text-color-inverted-hover: #9EE7F0;
@@ -124,6 +126,13 @@ h5 {
     letter-spacing: -0.33px;
 }
 
+.headline-4-text {
+  font-family: "Onest", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.33px;
+}
+
 .primary-text {
     font-family: "Onest";
     font-weight: 600;
@@ -152,6 +161,13 @@ h5 {
     font-size: 13px;
     font-weight: 700;
     line-height: 20px;
+}
+
+.badge-thin-text {
+    font-family: "Onest";
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px; 
 }
 
 .body-text {

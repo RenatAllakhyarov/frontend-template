@@ -1,3 +1,4 @@
+import ReviewsList from "@components/ReviewsList";
 import TextPreview from "@components/TextPreview";
 import StyledButton from "@components/StyledButton";
 import ImageSelector from "@components/ImagesSelector";
@@ -21,6 +22,8 @@ const ProductInfo = ({ product }: IProductInfo) => {
         product,
         allDetailsConfig
     );
+
+    console.log("FIRST REVIEW DATA: ", product.reviews[0]);
 
     return (
         <div className="product-info-wrapper">
@@ -60,10 +63,13 @@ const ProductInfo = ({ product }: IProductInfo) => {
                         {product.reviews.length}
                     </span>
                 </div>
-                <ComplexRatingBlock
-                    rating={product.averageRating}
-                    ratingsCount={product.ratingsCount}
-                />
+                <div className="complex-rating-block-container">
+                    <ComplexRatingBlock
+                        rating={product.averageRating}
+                        ratingsCount={product.ratingsCount}
+                    />
+                </div>
+                <ReviewsList reviewsDataList={product.reviews} />
             </div>
         </div>
     );

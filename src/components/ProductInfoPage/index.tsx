@@ -7,8 +7,8 @@ import ComplexRatingLine from "@components/ComplexRatingLine";
 import salesCountIconSrc from "@public/icons/salesCountIcon.svg";
 import reviewsLinkIconSrc from "@public/icons/reviewsLinkIcon.svg";
 import { IndicatorColorTypes } from "@components/Indicator";
+import { redirect, useParams } from "next/navigation";
 import { IProduct } from "src/domains/product";
-import { useParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/index";
 import { ReactElement } from "react";
@@ -35,7 +35,9 @@ const ProductInfoPage = (): ReactElement => {
     const product = products.find((item) => item.id === currentIdProduct);
 
     if (!product) {
-        return <div>Product not found</div>;
+        console.error("Product not found");
+
+        redirect("/market");
     }
 
     const formatReviewsCount: string = getFormatReviewsCount(

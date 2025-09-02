@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { type ReactElement, type MouseEvent } from "react";
+import { type ReactElement, type MouseEvent, CSSProperties } from "react";
 import "./style.css";
 
 export const enum IconButtonFlexTypes {
@@ -19,11 +19,15 @@ export interface IIconButtonProps {
     flexType?: IconButtonFlexTypes;
     iconSize?: number;
     label?: string;
+    className?: string;
+    textClassname?: string;
+    textStyles?: CSSProperties;
     onClick: (() => void) | (() => Promise<void>);
     alt: string;
 }
 
 const DEFAULT_ICON_SIZE: number = 30;
+const DEFAULT_TEXT_CLASSNAME: string = "button-text";
 
 const IconButton = ({
     src,
@@ -32,7 +36,10 @@ const IconButton = ({
     flexType = IconButtonFlexTypes.ROW,
     iconSize = DEFAULT_ICON_SIZE,
     label,
+    className,
     alt,
+    textStyles,
+    textClassname = DEFAULT_TEXT_CLASSNAME,
     onClick,
 }: IIconButtonProps): ReactElement => {
     const handleClick = (event: MouseEvent<HTMLButtonElement>): void => {
@@ -45,11 +52,15 @@ const IconButton = ({
 
     return (
         <button
-            className={`icon-button ${flexType} ${type} ${activeClassname}`}
+            className={`icon-button ${flexType} ${type} ${activeClassname} ${className}`}
             onClick={handleClick}
         >
             <Image src={src} alt={alt} width={iconSize} />
-            {label && <span className="button-text">{label}</span>}
+            {label && (
+                <span style={textStyles} className={textClassname}>
+                    {label}
+                </span>
+            )}
         </button>
     );
 };

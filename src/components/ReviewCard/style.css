@@ -1,0 +1,27 @@
+.review-card {
+    width: 100%;
+    padding: 24px 36px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-card.positive {
+    background-color: var(--base-positive-color, #edffec);
+}
+
+.review-card.negative {
+    background-color: var(--base-negative-color, #ffeae8);
+}
+
+.review-card .review-card-header {
+    display: flex;
+    justify-content: space-between;
+    color: var(--base-label-text-color, #858585);
+}
+
+.review-card .reaction-wrapper {
+    display: flex;
+    justify-content: end;
+}
