@@ -1,32 +1,25 @@
 import API from "@api/index";
 import StyledButton from "@components/StyledButton";
 import { validateEmailWithMessage } from "@utils/validations/index";
-import { useAppDispatch, useAppSelector } from "@hooks/index";
-import { useState, ReactElement, FormEvent, Fragment } from "react";
+import { StyledButtonTypes } from "@components/StyledButton";
+import { useAppDispatch, useAppSelector } from "src/hooks";
+import { useState, ReactElement, FormEvent } from "react";
 import { setUserEmail } from "@store/slices/User";
 import { TRootState } from "@store/index";
 import "./style.css";
 
 interface ISingFormProps {
-    handleSubmit: () => void;
-    countdown: number;
+    onCodeSent: () => void;
 }
 
-const SignInForm = ({
-    handleSubmit,
-    countdown,
-}: ISingFormProps): ReactElement => {
+const SignInForm = ({ onCodeSent }: ISingFormProps): ReactElement => {
     const dispatch = useAppDispatch();
 
     const { currentEmail } = useAppSelector((state: TRootState) => state.user);
     const [localEmail, setLocalEmail] = useState<string>(currentEmail);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const textOfButton = isLoading
-        ? "Sending..."
-        : countdown > 0
-        ? `Resend in ${countdown}s`
-        : "Send Code";
+    const textOfButton = isLoading ? "Sending..." : "Send Code";
 
     const handleEmailChange = (
         event: React.ChangeEvent<HTMLInputElement>
@@ -48,10 +41,9 @@ const SignInForm = ({
 
         try {
             const response = await API.sendEmailRequest(localEmail);
-
             if (response.ok) {
                 console.log("Email successfully sent!");
-                handleSubmit();
+                onCodeSent();
             }
         } catch (error) {
             console.error("Error sending email:", error);
@@ -62,21 +54,25 @@ const SignInForm = ({
     };
 
     return (
-        <form onSubmit={handleEmailSubmit} className="email-form">
-            <input
-                type="email"
-                value={localEmail}
-                onChange={handleEmailChange}
-                className="email-input"
-                placeholder="Input your email..."
-                required
-            />
-            <StyledButton
-                type="submit"
-                label={textOfButton}
-                disabled={isLoading || countdown > 0}
-            />
-        </form>
+        <div className="signin-form-container">
+            <form onSubmit={handleEmailSubmit} className="email-form">
+                <input
+                    type="email"
+                    value={localEmail}
+                    onChange={handleEmailChange}
+                    className="email-input secondary-text"
+                    placeholder="Input your email..."
+                    required
+                    disabled={isLoading}
+                />
+                <StyledButton
+                    label={textOfButton}
+                    type="submit"
+                    uiType={StyledButtonTypes.PRIMARY}
+                    disabled={isLoading}
+                />
+            </form>
+        </div>
     );
 };
 

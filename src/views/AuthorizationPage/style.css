@@ -1,26 +1,24 @@
 .auth-page {
     position: relative;
-    padding: 20px;
-    top: 20px;
-    left: 715px;
+    padding: var(--main-layout-padding-y);
+    top: 20%;
+    left: 47%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgb(230, 233, 235);
-    background-color: rgb(71, 101, 235);
+    color: var(--base-layout-bg);
+    background-color: var(--auth-background-color);
     max-width: 250px;
     max-height: 350px;
-    border-radius: 5px;
-    border: 1px solid rgb(45, 76, 250);
+    border-radius: var(--button-border-radius);
+    border: 1px solid var(--base-layout-bg-hover);
 }
 
 .auth-header {
     padding-bottom: 10px;
-    font-size: larger;
 }
 
 .auth-subtitle {
     padding-bottom: 8px;
-    font-size: large;
 }

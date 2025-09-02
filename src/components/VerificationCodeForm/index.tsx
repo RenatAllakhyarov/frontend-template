@@ -1,13 +1,16 @@
+import API from "@api/index";
 import StyledButton from "@components/StyledButton";
-import { FormEvent, useState, useEffect, ReactElement } from "react";
+import { StyledButtonTypes } from "@components/StyledButton";
+import { useAppDispatch, useAppSelector } from "src/hooks";
+import { FormEvent, useState, ReactElement } from "react";
 import { setUserRegistered } from "@store/slices/User";
-import { useAppDispatch } from "@hooks/index";
 import { redirect } from "next/navigation";
+import { TRootState } from "@store/index";
 import "./style.css";
 
 interface IVerificationCodeFormProps {
-    onResendCode: () => void;
     countdown: number;
+    onResendCode: () => void;
 }
 
 const VerificationCodeForm = ({
@@ -16,18 +19,21 @@ const VerificationCodeForm = ({
 }: IVerificationCodeFormProps): ReactElement => {
     const dispatch = useAppDispatch();
 
+    const { currentEmail } = useAppSelector((state: TRootState) => state.user);
     const [verificationCode, setVerificationCode] = useState<string>("");
-    const [isCodeChanged, setIsCodeChanged] = useState<boolean>(false);
+    const [isResending, setIsResending] = useState<boolean>(false);
 
     const timerText =
-        countdown > 0 ? `Resend code in ${countdown}s` : "Resend code";
+        countdown > 0
+            ? `Resend code in ${countdown}s`
+            : isResending
+            ? "Resending..."
+            : "Resend code";
 
     const handleCodeChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ): void => {
-        const value = event.target.value;
-        setVerificationCode(value);
-        setIsCodeChanged(value.length > 0);
+        setVerificationCode(event.target.value);
     };
 
     const handleCodeSubmit = (event: FormEvent): void => {
@@ -40,29 +46,56 @@ const VerificationCodeForm = ({
         redirect("/market");
     };
 
+    const handleResendClick = async () => {
+        if (countdown > 0) return;
+
+        setIsResending(true);
+        try {
+            const response = await API.sendEmailRequest(currentEmail);
+            if (response.ok) {
+                console.log("Email successfully sent!");
+                onResendCode();
+            }
+        } catch (error) {
+            console.error("Error resending code:", error);
+        } finally {
+            setIsResending(false);
+        }
+    };
+
     return (
         <div className="code-form-container">
-            <form onSubmit={handleCodeSubmit} className="code-form">
+            <p className="email-display">Code sent to: {currentEmail}</p>
+
+            <form
+                onSubmit={handleCodeSubmit}
+                className="code-form secondary-text"
+            >
                 <input
-                    type="password"
+                    type="text"
                     value={verificationCode}
                     onChange={handleCodeChange}
-                    className="code-input"
+                    className="code-input "
                     placeholder="Enter the code..."
                     required
                 />
-                {isCodeChanged && (
-                    <StyledButton type="submit" label="Confirm" />
-                )}
-            </form>
 
-            <div className="buttons-row">
-                <StyledButton
-                    onClick={onResendCode}
-                    label={timerText}
-                    disabled={countdown > 0}
-                />
-            </div>
+                <div className="buttons-row">
+                    <StyledButton
+                        label={timerText}
+                        onClick={handleResendClick}
+                        uiType={StyledButtonTypes.PRIMARY}
+                        disabled={countdown > 0 || isResending}
+                    />
+
+                    <StyledButton
+                        label="Confirm"
+                        type="submit"
+                        uiType={StyledButtonTypes.PRIMARY}
+                        disabled={!verificationCode}
+                    />
+                </div>
+            </form>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 export const validateEmailWithMessage = (
     email: string
 ): { isValid: boolean; message?: string } => {
-    if (!email || email.trim() === "") {
+    if (email.trim() === "") {
         return { isValid: false, message: "Email is required" };
     }
 

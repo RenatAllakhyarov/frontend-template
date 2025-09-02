@@ -2,17 +2,22 @@
 
 import SignInForm from "@components/SignInForm";
 import VerificationCodeForm from "@components/VerificationCodeForm";
-import { ReactElement, useState } from "react";
+import { ReactElement, useState, useEffect } from "react";
 import "./style.css";
 
 const AuthorizationPage = (): ReactElement => {
     const [isCodeWaiting, setIsCodeWaiting] = useState<boolean>(false);
     const [countdown, setCountdown] = useState<number>(0);
+    const [timerInterval, setTimerInterval] = useState<NodeJS.Timeout | null>(
+        null
+    );
 
     const handleStartTimer = () => {
-        setIsCodeWaiting(true);
-
         setCountdown(60);
+
+        if (timerInterval) {
+            clearInterval(timerInterval);
+        }
 
         const interval = setInterval(() => {
             setCountdown((prev) => {
@@ -23,17 +28,31 @@ const AuthorizationPage = (): ReactElement => {
                 return prev - 1;
             });
         }, 1000);
+
+        setTimerInterval(interval);
     };
+
+    const handleCodeSent = () => {
+        setIsCodeWaiting(true);
+        handleStartTimer();
+    };
+
+    useEffect(() => {
+        return () => {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+        };
+    }, [timerInterval]);
 
     return (
         <div className="auth-page">
-            <div className="auth-header">Welcome to the Tea Shop</div>
-            <div className="auth-subtitle">Please register</div>
+            <div className="auth-header headline-4-text">
+                Welcome to the Tea Shop
+            </div>
+            <div className="auth-subtitle primary-text">Please register</div>
             {!isCodeWaiting ? (
-                <SignInForm
-                    handleSubmit={handleStartTimer}
-                    countdown={countdown}
-                />
+                <SignInForm onCodeSent={handleCodeSent} />
             ) : (
                 <VerificationCodeForm
                     countdown={countdown}
