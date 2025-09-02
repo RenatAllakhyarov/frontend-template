@@ -31,6 +31,8 @@
     --button-border-radius: 8px;
     --widget-border-radius: 24px;
 
+    --widget-border: 2px solid #F1F1F1;
+
     --default-ui-transition: .35s;
 
     --widget-shadow: 0 8px 20px #0000000a;
@@ -109,6 +111,13 @@ h5 {
 }
 
 .headline-2-text {
+  font-family: "Onest", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: -0.33px;
+}
+
+.headline-3-text {
   font-family: "Onest", sans-serif;
     font-weight: 700;
     font-size: 24px;

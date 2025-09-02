@@ -2,6 +2,7 @@ import TextPreview from "@components/TextPreview";
 import StyledButton from "@components/StyledButton";
 import ImageSelector from "@components/ImagesSelector";
 import ProductDetails from "@components/ProductDetails";
+import ComplexRatingBlock from "@components/ComplexRatingBlock";
 import ProductDetailsManager from "@services/ProductDetailManager";
 import { allDetailsConfig, previewDetailsConfig } from "@domains/product";
 import { StyledButtonTypes } from "@components/StyledButton";
@@ -51,6 +52,18 @@ const ProductInfo = ({ product }: IProductInfo) => {
                         className="button-small-text"
                     />
                 </div>
+            </div>
+            <div className="review-block">
+                <div className="header">
+                    <span className="reviews-title headline-2-text">{`ОТЗЫВЫ`}</span>
+                    <span className="reviews-count headline-2-text">
+                        {product.reviews.length}
+                    </span>
+                </div>
+                <ComplexRatingBlock
+                    rating={product.averageRating}
+                    ratingsCount={product.ratingsCount}
+                />
             </div>
         </div>
     );

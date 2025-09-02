@@ -3,7 +3,7 @@ import Label from "@components/Label";
 import Indicator from "@components/Indicator";
 import IconButton from "@components/IconButton";
 import ProductInfo from "@components/ProductInfo";
-import ComplexRatingBlock from "@components/ComplexRatingBlock";
+import ComplexRatingLine from "@components/ComplexRatingLine";
 import salesCountIconSrc from "@public/icons/salesCountIcon.svg";
 import reviewsLinkIconSrc from "@public/icons/reviewsLinkIcon.svg";
 import { IndicatorColorTypes } from "@components/Indicator";
@@ -47,7 +47,7 @@ const ProductInfoPage = (): ReactElement => {
         <div className="product-info-page">
             <div className="badge badge-text">{"Книги"}</div>
             <div className="name-header">
-                <h1 className="headline-2-text">{product.title}</h1>
+                <h1 className="headline-3-text">{product.title}</h1>
                 <Indicator
                     colorType={IndicatorColorTypes.SECONDARY}
                     label={product.ageRating}
@@ -60,7 +60,7 @@ const ProductInfoPage = (): ReactElement => {
                 </Link>
             </div>
             <div className="feedback-block">
-                <ComplexRatingBlock
+                <ComplexRatingLine
                     rating={product.averageRating}
                     ratingsCount={product.ratingsCount}
                 />

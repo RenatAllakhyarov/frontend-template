@@ -16,9 +16,14 @@ const ComplexRatingBlock = ({
 
     return (
         <div className="complex-rating-block">
-            <Rating rating={rating} width="100px" />
-            <span className="average-rating badge-text">{rating}</span>
-            <span className="badge-text">{`(${formatRatingsCount})`}</span>
+            <div className="common-data">
+                <span className="headline-2-text">{rating}</span>
+                <Rating rating={rating} width="100px" />
+                <span className="ratings-count badge-text">
+                    {formatRatingsCount}
+                </span>
+            </div>
+            <div className="ratings-statistic-wrapper"></div>
         </div>
     );
 };

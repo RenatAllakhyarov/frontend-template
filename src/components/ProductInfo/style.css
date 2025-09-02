@@ -1,7 +1,11 @@
-.product-info-wrapper .primary-block {
+.product-info-wrapper {
     width: 60%;
+}
+
+.product-info-wrapper .primary-block {
     display: flex;
     gap: 30px;
+    margin-bottom: 50px;
 }
 
 .product-info-wrapper .primary-block .images-block {
@@ -23,3 +27,16 @@
 .product-info-wrapper .primary-block .info-block .product-details-wrapper {
     margin-bottom: 10px;
 }
+
+.product-info-wrapper .review-block .header {
+    margin-bottom: 20px;
+}
+
+.product-info-wrapper .review-block .header .reviews-title {
+    margin-right: 10px;
+}
+
+.product-info-wrapper .review-block .header .reviews-count {
+    color: var(--base-label-text-color-hover, #6A6A6A);
+}
+
