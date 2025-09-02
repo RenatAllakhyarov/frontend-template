@@ -1,5 +1,9 @@
 import { IEmailRequest, IEmailResponse } from "@domains/email";
 import { IProduct } from "@domains/product";
+import {
+    IVerifyCodeRequest,
+    IVerifyCodeResponse,
+} from "@domains/verificationCode";
 
 const apiBaseUrl: string | undefined = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -13,6 +17,7 @@ export const enum ApiEndpoints {
     PRODUCTS = "products",
     TRANSACTIONS = "transactions",
     AUTH_EMAIL_REQUEST = "auth/email/request",
+    AUTH_VERIFY_REQUEST = "auth/email/verify",
 }
 
 class API {
@@ -60,6 +65,19 @@ class API {
             ApiEndpoints.AUTH_EMAIL_REQUEST,
             "POST",
             emailData
+        );
+    };
+
+    public static sendVerifyRequest = async (
+        email: string,
+        code: string
+    ): Promise<Response> => {
+        const verifyData: IVerifyCodeRequest = { email, code };
+
+        return this.request(
+            ApiEndpoints.AUTH_VERIFY_REQUEST,
+            "POST",
+            verifyData
         );
     };
 }

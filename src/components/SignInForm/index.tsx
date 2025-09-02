@@ -1,7 +1,7 @@
 import API from "@api/index";
 import StyledButton from "@components/StyledButton";
-import { validateEmailWithMessage } from "@utils/validations/index";
 import { StyledButtonTypes } from "@components/StyledButton";
+import { validateEmailWithMessage } from "@utils/constants";
 import { useAppDispatch, useAppSelector } from "src/hooks";
 import { useState, ReactElement, FormEvent } from "react";
 import { setUserEmail } from "@store/slices/User";

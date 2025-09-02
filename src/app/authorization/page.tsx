@@ -1,4 +1,4 @@
-import AuthorizationPage from "src/views/AuthorizationPage";
+import AuthorizationPage from "@views/AuthorizationPage";
 
 const Authorization = () => {
     return <AuthorizationPage />;

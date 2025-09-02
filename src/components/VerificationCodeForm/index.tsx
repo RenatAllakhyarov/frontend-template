@@ -1,9 +1,11 @@
 import API from "@api/index";
+import AlertBox from "@components/AlertBox";
 import StyledButton from "@components/StyledButton";
 import { StyledButtonTypes } from "@components/StyledButton";
 import { useAppDispatch, useAppSelector } from "src/hooks";
 import { FormEvent, useState, ReactElement } from "react";
 import { setUserRegistered } from "@store/slices/User";
+import { AlertTypes } from "@utils/constants";
 import { redirect } from "next/navigation";
 import { TRootState } from "@store/index";
 import "./style.css";
@@ -22,6 +24,7 @@ const VerificationCodeForm = ({
     const { currentEmail } = useAppSelector((state: TRootState) => state.user);
     const [verificationCode, setVerificationCode] = useState<string>("");
     const [isResending, setIsResending] = useState<boolean>(false);
+    const [isCodeValid, setIsCodeValid] = useState<boolean | null>(null);
 
     const timerText =
         countdown > 0
@@ -34,16 +37,40 @@ const VerificationCodeForm = ({
         event: React.ChangeEvent<HTMLInputElement>
     ): void => {
         setVerificationCode(event.target.value);
+        if (isCodeValid === false) {
+            setIsCodeValid(null);
+        }
     };
 
-    const handleCodeSubmit = (event: FormEvent): void => {
+    const handleCodeSubmit = async (event: FormEvent) => {
         event.preventDefault();
 
-        console.log("Password submitted:", verificationCode);
+        try {
+            const response = await API.sendVerifyRequest(
+                currentEmail,
+                verificationCode
+            );
 
-        dispatch(setUserRegistered(true));
+            if (response.status === 200) {
+                const data = await response.json();
 
-        redirect("/market");
+                if (data.ok) {
+                    dispatch(setUserRegistered(true));
+                    console.log("Code verified successfully!");
+                    redirect("/market");
+                } else {
+                    setIsCodeValid(false);
+                }
+            } else if (response.status === 401) {
+                setIsCodeValid(false);
+            } else {
+                setIsCodeValid(false);
+                console.error("Unexpected server error:", response.status);
+            }
+        } catch (error) {
+            console.error("Error verifying code:", error);
+            setIsCodeValid(false);
+        }
     };
 
     const handleResendClick = async () => {
@@ -55,9 +82,9 @@ const VerificationCodeForm = ({
             if (response.ok) {
                 console.log("Email successfully sent!");
                 onResendCode();
+                setIsCodeValid(null);
             }
         } catch (error) {
-            console.error("Error resending code:", error);
         } finally {
             setIsResending(false);
         }
@@ -79,7 +106,12 @@ const VerificationCodeForm = ({
                     placeholder="Enter the code..."
                     required
                 />
-
+                {isCodeValid === false && (
+                    <AlertBox
+                        message="Incorrect code"
+                        type={AlertTypes.ERROR}
+                    />
+                )}
                 <div className="buttons-row">
                     <StyledButton
                         label={timerText}
