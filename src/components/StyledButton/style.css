@@ -25,3 +25,12 @@ button {
 .styled-button:disabled {
     cursor: not-allowed;
 }
+
+.styled-button.submit {
+    padding: 10px 17px;
+    margin-top: 5px;
+    margin-left: 65px;
+    color: rgb(230, 233, 235);
+    border-radius: 4px solid black;
+    background-color: rgb(133, 133, 243);
+}

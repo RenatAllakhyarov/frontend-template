@@ -16,7 +16,7 @@ const StyledButton = ({
 }: IStyledButtonProps): ReactElement => {
     return (
         <button
-            className="styled-button"
+            className={`styled-button ${type}`}
             type={type}
             onClick={onClick}
             disabled={disabled}

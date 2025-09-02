@@ -2,19 +2,31 @@ import API from "@api/index";
 import StyledButton from "@components/StyledButton";
 import { validateEmailWithMessage } from "@utils/validations/index";
 import { useAppDispatch, useAppSelector } from "@hooks/index";
-import { useState, ReactElement, FormEvent } from "react";
+import { useState, ReactElement, FormEvent, Fragment } from "react";
 import { setUserEmail } from "@store/slices/User";
 import { TRootState } from "@store/index";
+import "./style.css";
 
 interface ISingFormProps {
-    handleSubmit: (isCodeWaiting: boolean) => void;
+    handleSubmit: () => void;
+    countdown: number;
 }
 
-const SignInForm = ({ handleSubmit }: ISingFormProps): ReactElement => {
+const SignInForm = ({
+    handleSubmit,
+    countdown,
+}: ISingFormProps): ReactElement => {
     const dispatch = useAppDispatch();
 
     const { currentEmail } = useAppSelector((state: TRootState) => state.user);
     const [localEmail, setLocalEmail] = useState<string>(currentEmail);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    const textOfButton = isLoading
+        ? "Sending..."
+        : countdown > 0
+        ? `Resend in ${countdown}s`
+        : "Send Code";
 
     const handleEmailChange = (
         event: React.ChangeEvent<HTMLInputElement>
@@ -32,19 +44,21 @@ const SignInForm = ({ handleSubmit }: ISingFormProps): ReactElement => {
         }
 
         dispatch(setUserEmail(localEmail));
+        setIsLoading(true);
 
         try {
             const response = await API.sendEmailRequest(localEmail);
 
             if (response.ok) {
                 console.log("Email successfully sent!");
+                handleSubmit();
             }
         } catch (error) {
             console.error("Error sending email:", error);
             console.log("An error occurred while sending the email");
+        } finally {
+            setIsLoading(false);
         }
-
-        handleSubmit(true);
     };
 
     return (
@@ -54,10 +68,14 @@ const SignInForm = ({ handleSubmit }: ISingFormProps): ReactElement => {
                 value={localEmail}
                 onChange={handleEmailChange}
                 className="email-input"
-                placeholder="Email"
+                placeholder="Input your email..."
                 required
             />
-            <StyledButton type="submit" label="Login" />
+            <StyledButton
+                type="submit"
+                label={textOfButton}
+                disabled={isLoading || countdown > 0}
+            />
         </form>
     );
 };

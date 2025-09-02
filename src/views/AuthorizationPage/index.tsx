@@ -7,13 +7,39 @@ import "./style.css";
 
 const AuthorizationPage = (): ReactElement => {
     const [isCodeWaiting, setIsCodeWaiting] = useState<boolean>(false);
+    const [countdown, setCountdown] = useState<number>(0);
+
+    const handleStartTimer = () => {
+        setIsCodeWaiting(true);
+
+        setCountdown(60);
+
+        const interval = setInterval(() => {
+            setCountdown((prev) => {
+                if (prev <= 1) {
+                    clearInterval(interval);
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+    };
 
     return (
         <div className="auth-page">
             <div className="auth-header">Welcome to the Tea Shop</div>
             <div className="auth-subtitle">Please register</div>
-            {!isCodeWaiting && <SignInForm handleSubmit={setIsCodeWaiting} />}
-            {isCodeWaiting && <VerificationCodeForm />}
+            {!isCodeWaiting ? (
+                <SignInForm
+                    handleSubmit={handleStartTimer}
+                    countdown={countdown}
+                />
+            ) : (
+                <VerificationCodeForm
+                    countdown={countdown}
+                    onResendCode={handleStartTimer}
+                />
+            )}
         </div>
     );
 };

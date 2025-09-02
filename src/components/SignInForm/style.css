@@ -1,0 +1,21 @@
+.email-input {
+    width: 100%;
+    padding: 4px 5px;
+    font-size: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f7fafc;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.email-input:focus {
+    outline: none;
+    border-color: #51a2e4;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.email-input::placeholder {
+    color: #a0aec0;
+}
