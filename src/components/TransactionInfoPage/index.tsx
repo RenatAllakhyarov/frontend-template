@@ -16,7 +16,7 @@ const TransactionInfoPage = () => {
     const mockData = {
         amount: 1200,
         userId: 666,
-        products: ["penis", "hui", "pizda"]
+        products: mockProductsList.map(items => items.id),
     }
 
     fetch('http://localhost:3000/transactions', {
