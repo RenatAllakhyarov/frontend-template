@@ -3,6 +3,7 @@
 import Cart from "@domains/cart";
 import StyledButton from "@components/StyledButton";
 import { redirect } from "next/navigation";
+import "./style.css"
 
 const TransactionInfoPage = () => {
     const cart = new Cart();
