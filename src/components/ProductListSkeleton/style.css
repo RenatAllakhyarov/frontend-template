@@ -1,4 +1,4 @@
-.product-list {
+.product-list-skeleton {
     display: grid;
     grid-template-columns: repeat(4, max-content);
     gap: 32px;
@@ -9,14 +9,13 @@
 }
 
 @media (max-width: 1400px) {
-    .product-list {
+    .product-list-skeleton {
     grid-template-columns: repeat(3, max-content);
     }
 }
 
 @media (max-width: 1200px) {
-    .product-list {
+    .product-list-skeleton {
     grid-template-columns: repeat(2, max-content);
     }
 }
-

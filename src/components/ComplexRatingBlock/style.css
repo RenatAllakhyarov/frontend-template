@@ -1,9 +1,23 @@
 .complex-rating-block {
+    width: 100%;
+    border: var(--widget-border, 2px solid #F1F1F1);
+    padding: 16px 20px;
     display: flex;
-    gap: 10px;
-    justify-content: start;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.complex-rating-block span {
+.complex-rating-block .common-data {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.complex-rating-block .ratings-statistic-wrapper {
+    flex: 1.5;
+}
+
+.complex-rating-block .common-data .ratings-count {
     color: var(--base-label-text-color, #858585);
+
 }

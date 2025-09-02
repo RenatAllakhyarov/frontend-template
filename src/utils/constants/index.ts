@@ -96,7 +96,7 @@ export const getFormatBuyCount = (buyCount: number): string => {
 export const getFormatProductsCount = (productsCount: number): string => {
     if (productsCount === 0) {
         return "0 товаров";
-    };
+    }
 
     const labelPrefix: string = `${productsCount} товар`;
 
@@ -106,15 +106,41 @@ export const getFormatProductsCount = (productsCount: number): string => {
 
     if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
         return `${labelPrefix}ов`;
-    }
+    };
 
     if (lastDigit === 1) {
         return `${labelPrefix}`;
-    }
+    };
 
     if (lastDigit >= 2 && lastDigit <= 4) {
         return `${labelPrefix}а`;
-    }
+    };
 
     return `${labelPrefix}ов`;
+};
+
+export const scrollToElementById = (id: string): void => {
+    const reviewsElement: HTMLElement | null = document.getElementById(id);
+
+    if (!reviewsElement) {
+        console.error("You incorrect set target id on scrolling!");
+
+        return;
+    }
+
+    reviewsElement.scrollIntoView({ behavior: "smooth" });
+};
+
+export const getFormatDateToDDMMYYYY = (defaultDateString: string): string => {
+    const date = new Date(defaultDateString);
+
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = String(date.getFullYear());
+
+    return `${day}.${month}.${year}`;
+};
+
+export const getFullClassnameByList = (...list: string[]): string => {
+    return list.filter(Boolean).join(" ");
 };
