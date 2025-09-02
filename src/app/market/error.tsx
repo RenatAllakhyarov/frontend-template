@@ -1,27 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import ServerError from "@components/ServerError";
 import { ReactElement } from "react";
-import "./style.css";
 
 const Error = (): ReactElement => {
-    return (
-        <div className="error-page">
-            <Image
-                src="/icons/serverErrorIcon.svg"
-                alt="Server Error"
-                width={350}
-                height={400}
-            />
-
-            <h1 className="error-primary-text-message">
-                Что-то пошло не так
-            </h1>
-            <p className="error-secondary-text-message">
-                Кажется, на сайте ведутся технические работы!
-            </p>
-        </div>
-    );
+    return <ServerError />;
 };
 
 export default Error;

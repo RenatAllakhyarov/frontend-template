@@ -6,5 +6,5 @@
 }
 
 .error-secondary-text-message {
-  color: rgb(121, 121, 121);
+  color: var(--base-label-text-color, #858585);
 }
