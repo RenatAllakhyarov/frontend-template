@@ -5,10 +5,6 @@ button {
 }
 
 .default-styled-button {
-    font-size: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
     padding: 10px 18px;
     border-radius: var(--button-border-radius, 8px);
 
