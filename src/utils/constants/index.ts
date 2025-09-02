@@ -92,3 +92,15 @@ export const getFormatBuyCount = (buyCount: number): string => {
 
     return `Купили более ${buyCount} человек`;
 };
+
+export const scrollToElementById = (id: string): void => {
+    const reviewsElement: HTMLElement | null = document.getElementById(id);
+
+    if (!reviewsElement) {
+        console.error("You incorrect set target id on scrolling!");
+
+        return;
+    }
+
+    reviewsElement.scrollIntoView({ behavior: "smooth" });
+};

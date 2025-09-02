@@ -115,22 +115,6 @@ h5 {
     letter-spacing: -0.33px;
 }
 
-.title-text {
-    font-family: "Onest";
-    font-weight: 600;
-    font-size: var(--font-size-title, 20px);
-    line-height: 22px;
-    letter-spacing: -0.4px;
-}
-
-.subtitle-text {
-    font-family: "Onest";
-    font-weight: 500;
-    font-size: var(--font-size-subtitle, 1.2rem);
-    line-height: 22px;
-    letter-spacing: -0.4px;
-}   
-    
 .primary-text {
     font-family: "Onest";
     font-weight: 600;
@@ -154,14 +138,6 @@ h5 {
     line-height: 24px;
 }
 
-.meta-text {
-    font-family: "Onest";
-    font-weight: 400;
-    font-size: var(--font-size-caption, 11px);
-    line-height: 100%;
-    letter-spacing: 0px;
-}
-
 .badge-text {
     font-family: "Onest";
     font-size: 13px;
@@ -172,6 +148,20 @@ h5 {
 .body-text {
     font-family: "Onest";
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 24px;
+}
+
+.body-small-text {
+    font-family: "Onest";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.button-small-text {
+    font-family: "Onest";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
 }

@@ -3,16 +3,20 @@ import Label from "@components/Label";
 import Indicator from "@components/Indicator";
 import IconButton from "@components/IconButton";
 import ProductInfo from "@components/ProductInfo";
+import { IndicatorColorTypes } from "@components/Indicator";
 import ComplexRatingBlock from "@components/ComplexRatingBlock";
 import salesCountIconSrc from "@public/icons/salesCountIcon.svg";
 import reviewsLinkIconSrc from "@public/icons/reviewsLinkIcon.svg";
-import { getFormatBuyCount, getFormatReviewsCount } from "@utils/constants";
-import { IndicatorColorTypes } from "@components/Indicator";
 import { IProduct } from "src/domains/product";
 import { useParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/index";
 import { ReactElement } from "react";
+import {
+    getFormatBuyCount,
+    getFormatReviewsCount,
+    scrollToElementById,
+} from "@utils/constants";
 import "./style.css";
 
 export interface IProductInfo {
@@ -33,19 +37,6 @@ const ProductInfoPage = (): ReactElement => {
     if (!product) {
         return <div>Product not found</div>;
     }
-
-    const handleScrollToReviews = (): void => {
-        const reviewsElement: HTMLElement | null =
-            document.getElementById(REVIEWS_WRAPPER_ID);
-
-        if (!reviewsElement) {
-            console.error("You incorrect set id on reviews wrapper!");
-
-            return;
-        }
-
-        reviewsElement.scrollIntoView({ behavior: "smooth" });
-    };
 
     const formatReviewsCount: string = getFormatReviewsCount(
         product.reviews.length
@@ -78,7 +69,7 @@ const ProductInfoPage = (): ReactElement => {
                     src={reviewsLinkIconSrc}
                     label={formatReviewsCount}
                     alt="reviews link icon"
-                    onClick={handleScrollToReviews}
+                    onClick={() => scrollToElementById(REVIEWS_WRAPPER_ID)}
                 />
 
                 <Label label={formatBuyCount} src={salesCountIconSrc} />

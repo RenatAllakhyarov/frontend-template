@@ -23,14 +23,27 @@ button {
     background-color: var(--main-layout-bg, #f1f1f1);
 }
 
-.default-styled-button.primary:hover {
+.default-styled-button.link {
+    background-color: transparent;
+    color: var(--link-color, #33777E);
+    padding: 0;
+}
+
+.default-styled-button:hover {
     cursor: pointer;
+}
+
+.default-styled-button.primary:hover {
     background-color: var(--base-layout-bg-hover, #87d4de);
 }
 
 .default-styled-button.secondary:hover {
-    cursor: pointer;
     color: var(--secondary-button-hover-text-color, #e1426c);
+}
+
+.default-styled-button.link:hover {
+    background-color: transparent;
+    color: var(--link-color-hover, #2A6066);
 }
 
 .default-styled-button:disabled {

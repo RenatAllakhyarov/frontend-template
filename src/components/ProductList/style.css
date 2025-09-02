@@ -7,3 +7,16 @@
     max-width: 900px;
     margin: 0 auto;
 }
+
+@media (max-width: 1400px) {
+    .product-list {
+    grid-template-columns: repeat(3, max-content);
+    }
+}
+
+@media (max-width: 1200px) {
+    .product-list {
+    grid-template-columns: repeat(2, max-content);
+    }
+}
+
