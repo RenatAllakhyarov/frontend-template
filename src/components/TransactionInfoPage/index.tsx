@@ -2,16 +2,11 @@
 
 import Cart from "@domains/cart";
 import StyledButton from "@components/StyledButton";
-import { IProduct } from "@domains/product";
 import { redirect } from "next/navigation";
 
-interface ITransactionInfoPageProps {
-    cart: Cart
-}
+const TransactionInfoPage = () => {
+    const cart = new Cart();
 
-const TransactionInfoPage = ({
-    cart,
-}: ITransactionInfoPageProps) => {
     if(cart === undefined) {
         return <div>ERROR</div>
     }
