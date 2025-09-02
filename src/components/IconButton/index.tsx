@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { type ReactElement, type MouseEvent, CSSProperties } from "react";
+import { getFullClassnameByList } from "@utils/constants";
 import "./style.css";
 
 export const enum IconButtonFlexTypes {
@@ -10,6 +11,7 @@ export const enum IconButtonFlexTypes {
 export const enum IconButtonTypes {
     PRIMARY = "primary",
     GHOST = "ghost",
+    LINK = "link",
 }
 
 export interface IIconButtonProps {
@@ -49,12 +51,18 @@ const IconButton = ({
     };
 
     const activeClassname: string = !isActive ? "" : "active";
+    const customClassname: string = className ?? "";
+
+    const fullClassname: string = getFullClassnameByList(
+        "icon-button",
+        flexType,
+        type,
+        activeClassname,
+        customClassname
+    );
 
     return (
-        <button
-            className={`icon-button ${flexType} ${type} ${activeClassname} ${className}`}
-            onClick={handleClick}
-        >
+        <button className={fullClassname} onClick={handleClick}>
             <Image src={src} alt={alt} width={iconSize} />
             {label && (
                 <span style={textStyles} className={textClassname}>

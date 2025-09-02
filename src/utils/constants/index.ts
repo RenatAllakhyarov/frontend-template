@@ -114,3 +114,7 @@ export const getFormatDateToDDMMYYYY = (defaultDateString: string): string => {
 
     return `${day}.${month}.${year}`;
 };
+
+export const getFullClassnameByList = (...list: string[]): string => {
+    return list.filter(Boolean).join(" ");
+};

@@ -28,6 +28,10 @@
     margin-bottom: 10px;
 }
 
+.product-info-wrapper .review-block {
+    margin-bottom: 30px;
+}
+
 .product-info-wrapper .review-block .header {
     margin-bottom: 20px;
 }
@@ -42,6 +46,12 @@
 
 .product-info-wrapper .review-block .header .reviews-count {
     color: var(--base-label-text-color-hover, #6A6A6A);
+}
+
+.product-info-wrapper .details-block {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 

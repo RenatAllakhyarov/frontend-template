@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Label from "@components/Label";
 import Indicator from "@components/Indicator";
-import IconButton from "@components/IconButton";
 import ProductInfo from "@components/ProductInfo";
+import IconButton from "@components/IconButton";
 import ComplexRatingLine from "@components/ComplexRatingLine";
 import salesCountIconSrc from "@public/icons/salesCountIcon.svg";
 import reviewsLinkIconSrc from "@public/icons/reviewsLinkIcon.svg";
 import { IndicatorColorTypes } from "@components/Indicator";
+import { IconButtonTypes } from "@components/IconButton";
 import { redirect, useParams } from "next/navigation";
 import { IProduct } from "src/domains/product";
 import { useSelector } from "react-redux";
@@ -23,7 +24,7 @@ export interface IProductInfo {
     product: IProduct;
 }
 
-const REVIEWS_WRAPPER_ID: string = "reviewsWrapper";
+export const REVIEWS_WRAPPER_ID: string = "reviewsWrapper";
 
 const ProductInfoPage = (): ReactElement => {
     const products = useSelector((state: TRootState) => state.market.products);
@@ -72,6 +73,7 @@ const ProductInfoPage = (): ReactElement => {
                     label={formatReviewsCount}
                     alt="reviews link icon"
                     onClick={() => scrollToElementById(REVIEWS_WRAPPER_ID)}
+                    type={IconButtonTypes.LINK}
                 />
 
                 <Label label={formatBuyCount} src={salesCountIconSrc} />

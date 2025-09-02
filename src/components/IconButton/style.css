@@ -32,6 +32,11 @@
     font-size: 14px;
 }
 
+.icon-button.link {
+    color: var(--link-color, #33777E);
+    background-color: transparent;
+}
+
 .icon-button:hover {
     cursor: pointer;
 }

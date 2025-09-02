@@ -5,10 +5,10 @@ import ImageSelector from "@components/ImagesSelector";
 import ProductDetails from "@components/ProductDetails";
 import ComplexRatingBlock from "@components/ComplexRatingBlock";
 import ProductDetailsManager from "@services/ProductDetailManager";
+import { IProductInfo, REVIEWS_WRAPPER_ID } from "@components/ProductInfoPage";
 import { allDetailsConfig, previewDetailsConfig } from "@domains/product";
 import { StyledButtonTypes } from "@components/StyledButton";
 import { IProductDetail } from "@components/ProductDetails";
-import { IProductInfo } from "@components/ProductInfoPage";
 import { scrollToElementById } from "@utils/constants";
 import "./style.css";
 
@@ -22,8 +22,6 @@ const ProductInfo = ({ product }: IProductInfo) => {
         product,
         allDetailsConfig
     );
-
-    console.log("FIRST REVIEW DATA: ", product.reviews[0]);
 
     return (
         <div className="product-info-wrapper">
@@ -69,7 +67,21 @@ const ProductInfo = ({ product }: IProductInfo) => {
                         ratingsCount={product.ratingsCount}
                     />
                 </div>
-                <ReviewsList reviewsDataList={product.reviews} />
+                <div id={REVIEWS_WRAPPER_ID}>
+                    <ReviewsList reviewsDataList={product.reviews} />
+                </div>
+            </div>
+            <div className="details-block">
+                <div className="reviews-title headline-2-text">{`ОПИСАНИЕ И ХАРАКТЕРИСТИКИ`}</div>
+                <div
+                    className="full-annotation body-text"
+                    id={ANNOTATION_WRAPPER_ID}
+                >
+                    {product.annotation}
+                </div>
+                <div id={FULL_DETAILS_ID}>
+                    <ProductDetails details={allDetails} />
+                </div>
             </div>
         </div>
     );
