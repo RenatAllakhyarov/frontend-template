@@ -1,5 +1,6 @@
 import Header from "@components/Header";
 import StoreWrapper from "@components/StoreWrapper";
+import ApplicationLoadChecker from "@components/ApplicationLoadChecker";
 import { type Metadata } from "next";
 import "@domains/Theme/style.css";
 
@@ -18,8 +19,11 @@ const RootLayout = ({
         <html lang="en">
             <body>
                 <StoreWrapper>
+                    <ApplicationLoadChecker/>
+
                     <div className="application">
                         <Header />
+
                         <div className="page-wrapper">{children}</div>
                     </div>
                 </StoreWrapper>

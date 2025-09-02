@@ -1,11 +1,9 @@
 import "./style.css"
 
-const FullScreenLoader = (appIsLoading: boolean) => {
-    if(!appIsLoading) return null;
-
+const FullScreenLoader = () => {
     return(
         <div className="loader-overlay">
-            
+            <div>Loading...</div>
         </div>
     )
 }
