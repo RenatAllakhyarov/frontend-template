@@ -1,0 +1,17 @@
+.cart-page-head {
+    width: 100%;
+    padding: 16px 0;
+}
+
+.cart-page-head-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-page-title-primary {
+    display: flex;
+    flex-direction: column; 
+    gap: 4px; 
+    margin: 0;
+}

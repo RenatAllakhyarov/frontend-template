@@ -6,6 +6,10 @@ const CartPage = (): ReactElement => {
     return (
         <div className="cart-page">
             <CartPageHead />
+            <div className="cart-page-content">
+                <div className="cart-page-content-left"></div>
+                <div className="cart-page-content-right"></div>
+            </div>
         </div>
     );
 };

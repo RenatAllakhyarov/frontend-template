@@ -19,20 +19,25 @@ const CartPageHead = (): ReactElement => {
         dispatch(clearCart());
     };
 
-    const formattedProductsCount: string = getFormatProductsCount(productsCount);
+    const formattedProductsCount: string =
+        getFormatProductsCount(productsCount);
 
     return (
         <div className="cart-page-head">
-            <div className="cart-info">
-                <h1 className="headline-2-text">Корзина</h1>
-                <span className="badge-text">{formattedProductsCount}</span>
+            <div className="cart-page-head-content">
+                <h1 className="cart-page-title-primary headline-2-text">
+                    Корзина
+                    <span className="cart-page-title-secondary badge-text">
+                        {formattedProductsCount}
+                    </span>
+                </h1>
+                <StyledButton
+                    label="Очистить корзину"
+                    onClick={handleClearCart}
+                    type={StyledButtonTypes.SECONDARY}
+                    disabled={productsCount === 0}
+                />
             </div>
-            <StyledButton
-                label="Очистить корзину"
-                onClick={handleClearCart}
-                type={StyledButtonTypes.SECONDARY}
-                disabled={productsCount === 0}
-            />
         </div>
     );
 };
