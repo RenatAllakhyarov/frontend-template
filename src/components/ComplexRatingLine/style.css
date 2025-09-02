@@ -1,0 +1,9 @@
+.complex-rating-line {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+}
+
+.complex-rating-line span {
+    color: var(--base-label-text-color, #858585);
+}

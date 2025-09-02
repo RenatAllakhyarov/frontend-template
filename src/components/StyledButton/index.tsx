@@ -4,6 +4,7 @@ import "./style.css";
 export const enum StyledButtonTypes {
     PRIMARY = "primary",
     SECONDARY = "secondary",
+    LINK = "link",
 }
 
 export interface IStyledButtonProps {
@@ -13,6 +14,7 @@ export interface IStyledButtonProps {
     isCompleted?: boolean;
     style?: CSSProperties;
     disabled?: boolean;
+    className?: string;
 }
 
 const StyledButton = ({
@@ -22,12 +24,13 @@ const StyledButton = ({
     style,
     isCompleted = false,
     disabled = false,
+    className,
 }: IStyledButtonProps): ReactElement => {
     const completedClassname: string = !isCompleted ? "" : "completed";
 
     return (
         <button
-            className={`default-styled-button button-text ${type} ${completedClassname}`}
+            className={`default-styled-button button-text ${type} ${completedClassname} ${className}`}
             onClick={onClick}
             disabled={disabled}
             style={style}

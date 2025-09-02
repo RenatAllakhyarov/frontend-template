@@ -92,3 +92,29 @@ export const getFormatBuyCount = (buyCount: number): string => {
 
     return `Купили более ${buyCount} человек`;
 };
+
+export const scrollToElementById = (id: string): void => {
+    const reviewsElement: HTMLElement | null = document.getElementById(id);
+
+    if (!reviewsElement) {
+        console.error("You incorrect set target id on scrolling!");
+
+        return;
+    }
+
+    reviewsElement.scrollIntoView({ behavior: "smooth" });
+};
+
+export const getFormatDateToDDMMYYYY = (defaultDateString: string): string => {
+    const date = new Date(defaultDateString);
+
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = String(date.getFullYear());
+
+    return `${day}.${month}.${year}`;
+};
+
+export const getFullClassnameByList = (...list: string[]): string => {
+    return list.filter(Boolean).join(" ");
+};

@@ -10,7 +10,7 @@ export interface IMarketSliceProps {
 
 const initialState: IMarketSliceProps = {
     products: [],
-    isLoading: false,
+    isLoading: true,
     error: null,
 };
 
