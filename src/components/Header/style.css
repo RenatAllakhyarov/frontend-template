@@ -1,10 +1,21 @@
 .app-header {
     position: fixed;
-    width: 100%;
+    top: var(--main-layout-padding-y, 25px);
+    width: calc(100% - var(--main-layout-padding-x, 50px) * 2);
     height: 100px;
-    background-color: rgb(97, 97, 255);
-    padding: 5px;
+    padding: 0 2rem;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    border-radius: var(--widget-border-radius, 24px);
+
+    background: var(--base-layout-bg, #FFFFFF);
+
+    box-shadow: var(--widget-shadow, 0 8px 20px #0000000a);
+
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+
+    z-index: 50;
 }

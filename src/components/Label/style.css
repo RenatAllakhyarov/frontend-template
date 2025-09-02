@@ -1,0 +1,9 @@
+.label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.label-wrapper.secondary span {
+    color: var(--base-label-text-color, #858585);
+}

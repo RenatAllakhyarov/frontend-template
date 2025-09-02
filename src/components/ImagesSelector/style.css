@@ -1,0 +1,10 @@
+.image-selector .selected-image-wrapper {
+    margin-bottom: 30px;
+}
+
+.image-selector .images-preview-buttons-wrapper {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+}

@@ -1,39 +1,34 @@
 "use client";
 
+// import API from "@api/index";
+import ServerError from "@components/ServerError";
 import ProductsList from "@components/ProductList";
+import ProductListSkeleton from "@components/ProductListSkeleton";
 import { fetchProducts } from "@store/slices/Market/thunks";
 import { TAppDispatch, TRootState } from "@store/index";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactElement, useEffect } from "react";
+import "./style.css";
 
 const MarketPage = (): ReactElement => {
     const dispatch = useDispatch<TAppDispatch>();
 
-    const { products, isLoading, error } = useSelector(
+    const { isLoading, products, error } = useSelector(
         (state: TRootState) => state.market
     );
 
     useEffect(() => {
         dispatch(fetchProducts());
-    }, [dispatch]);
+    }, []);
 
-    let content;
-
-    if (isLoading) {
-        content = <div>Загрузка продуктов...</div>;
-    }
-
-    if (error) {
-        content = <div>Ошибка: {error}</div>;
-    }
-
-    content = <ProductsList products={products} />;
-    
     return (
-        <div>
-            <h1>Каталог товаров</h1>
+        <div className="market-page">
+            <div className="badge badge-text">{"Книги"}</div>
+            <h1 className="headline-1-text">{`Книги`}</h1>
 
-            {content}
+            {isLoading && <ProductListSkeleton />}
+            {!isLoading && !!error && <ServerError />}
+            {!isLoading && !error && <ProductsList products={products} />}
         </div>
     );
 };

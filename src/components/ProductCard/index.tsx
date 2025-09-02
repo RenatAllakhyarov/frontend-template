@@ -1,6 +1,13 @@
 import Link from "next/link";
-import { ICON_PREFIX, IconIds } from "@utils/constants";
-import { IProduct } from "@domains/product";
+import Image from "next/image";
+import Price from "@components/Price";
+import Rating from "@components/Rating";
+import Indicator from "@components/Indicator";
+import ImageWrapper from "@components/ImageWrapper";
+import CompactNumber from "@components/CompactNumber";
+import reviewIconSrc from "@public/icons/reviewIcon.svg";
+import type { IProduct } from "@domains/product";
+import { PERCENT_SYMBOL } from "@utils/constants";
 import { ReactElement } from "react";
 import "./style.css";
 
@@ -8,21 +15,47 @@ interface IProductCardProps {
     product: IProduct;
 }
 
-const backupImage = `${ICON_PREFIX}/${IconIds.BOOK}`;
-
 const ProductCard = ({ product }: IProductCardProps): ReactElement => {
-    const { id, title, price, author } = product;
+    const {
+        id,
+        title,
+        price,
+        imagesUrls,
+        discount,
+        publisher,
+        averageRating,
+        ratingsCount,
+        reviews,
+    } = product;
 
     return (
         <Link href={`/product/${id}`} className="product-card">
-            <div className="product-image-wrapper">
-                <img src={backupImage} alt={title} />
-            </div>
-
+            <ImageWrapper
+                src={imagesUrls[0]}
+                alt={`product preview image ${id}`}
+                width={80}
+                height={100}
+            />
             <div className="product-information">
-                <p className="product-price">{price} ₽</p>
-                <h3 className="product-title">{title}</h3>
-                <p className="product-author">{author}</p>
+                <div className="price-block">
+                    <Price price={price} discount={discount} />
+                    {!!discount && (
+                        <Indicator label={`${discount}${PERCENT_SYMBOL}`} />
+                    )}
+                </div>
+                <span className="title">{title}</span>
+                <span className="publisher badge-text">{publisher}</span>
+            </div>
+            <div className="product-feedback">
+                <Rating rating={averageRating} width="40%" />
+                <CompactNumber count={ratingsCount} />
+                <Image
+                    src={reviewIconSrc}
+                    alt="review icon"
+                    width={16}
+                    height={16}
+                />
+                <CompactNumber count={reviews.length} />
             </div>
         </Link>
     );

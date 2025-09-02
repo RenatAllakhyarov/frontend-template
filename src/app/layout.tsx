@@ -1,7 +1,7 @@
 import Header from "@components/Header";
 import StoreWrapper from "@components/StoreWrapper";
 import { type Metadata } from "next";
-import "./global.css";
+import "@domains/Theme/style.css";
 
 export const metadata: Metadata = {
     title: "Market frontend template",
