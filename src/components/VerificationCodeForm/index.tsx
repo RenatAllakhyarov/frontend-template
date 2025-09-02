@@ -1,5 +1,6 @@
 import API from "@api/index";
 import AlertBox from "@components/AlertBox";
+import CustomInput from "@components/CustomInput";
 import StyledButton from "@components/StyledButton";
 import { StyledButtonTypes } from "@components/StyledButton";
 import { useAppDispatch, useAppSelector } from "src/hooks";
@@ -24,7 +25,7 @@ const VerificationCodeForm = ({
     const { currentEmail } = useAppSelector((state: TRootState) => state.user);
     const [verificationCode, setVerificationCode] = useState<string>("");
     const [isResending, setIsResending] = useState<boolean>(false);
-    const [isCodeValid, setIsCodeValid] = useState<boolean | null>(null);
+    const [isCodeTrue, setIsCodeTrue] = useState<boolean | null>(null);
 
     const timerText =
         countdown > 0
@@ -37,8 +38,8 @@ const VerificationCodeForm = ({
         event: React.ChangeEvent<HTMLInputElement>
     ): void => {
         setVerificationCode(event.target.value);
-        if (isCodeValid === false) {
-            setIsCodeValid(null);
+        if (isCodeTrue === false) {
+            setIsCodeTrue(null);
         }
     };
 
@@ -59,17 +60,17 @@ const VerificationCodeForm = ({
                     console.log("Code verified successfully!");
                     redirect("/market");
                 } else {
-                    setIsCodeValid(false);
+                    setIsCodeTrue(false);
                 }
             } else if (response.status === 401) {
-                setIsCodeValid(false);
+                setIsCodeTrue(false);
             } else {
-                setIsCodeValid(false);
+                setIsCodeTrue(false);
                 console.error("Unexpected server error:", response.status);
             }
         } catch (error) {
             console.error("Error verifying code:", error);
-            setIsCodeValid(false);
+            setIsCodeTrue(false);
         }
     };
 
@@ -82,7 +83,7 @@ const VerificationCodeForm = ({
             if (response.ok) {
                 console.log("Email successfully sent!");
                 onResendCode();
-                setIsCodeValid(null);
+                setIsCodeTrue(null);
             }
         } catch (error) {
         } finally {
@@ -98,15 +99,15 @@ const VerificationCodeForm = ({
                 onSubmit={handleCodeSubmit}
                 className="code-form secondary-text"
             >
-                <input
+                <CustomInput
                     type="text"
                     value={verificationCode}
                     onChange={handleCodeChange}
-                    className="code-input "
                     placeholder="Enter the code..."
-                    required
+                    required={true}
+                    label="Verification code"
                 />
-                {isCodeValid === false && (
+                {isCodeTrue === false && (
                     <AlertBox
                         message="Incorrect code"
                         type={AlertTypes.ERROR}

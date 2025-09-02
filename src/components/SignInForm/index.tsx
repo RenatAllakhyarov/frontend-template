@@ -1,9 +1,10 @@
 import API from "@api/index";
+import CustomInput from "@components/CustomInput";
 import StyledButton from "@components/StyledButton";
+import { useState, ReactElement, FormEvent, useEffect } from "react";
 import { StyledButtonTypes } from "@components/StyledButton";
 import { validateEmailWithMessage } from "@utils/constants";
 import { useAppDispatch, useAppSelector } from "src/hooks";
-import { useState, ReactElement, FormEvent } from "react";
 import { setUserEmail } from "@store/slices/User";
 import { TRootState } from "@store/index";
 import "./style.css";
@@ -18,7 +19,9 @@ const SignInForm = ({ onCodeSent }: ISingFormProps): ReactElement => {
     const { currentEmail } = useAppSelector((state: TRootState) => state.user);
     const [localEmail, setLocalEmail] = useState<string>(currentEmail);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
 
+    const isSubmitDisabled = !isEmailValid || isLoading;
     const textOfButton = isLoading ? "Sending..." : "Send Code";
 
     const handleEmailChange = (
@@ -32,7 +35,7 @@ const SignInForm = ({ onCodeSent }: ISingFormProps): ReactElement => {
 
         const validation = validateEmailWithMessage(localEmail);
 
-        if (!validation.isValid) {
+        if (!validation) {
             return;
         }
 
@@ -53,23 +56,28 @@ const SignInForm = ({ onCodeSent }: ISingFormProps): ReactElement => {
         }
     };
 
+    useEffect(() => {
+        const validation = validateEmailWithMessage(localEmail);
+        setIsEmailValid(validation);
+    }, [localEmail]);
+
     return (
         <div className="signin-form-container">
             <form onSubmit={handleEmailSubmit} className="email-form">
-                <input
+                <CustomInput
                     type="email"
                     value={localEmail}
                     onChange={handleEmailChange}
-                    className="email-input secondary-text"
                     placeholder="Input your email..."
-                    required
+                    required={true}
                     disabled={isLoading}
+                    label="Email address"
                 />
                 <StyledButton
                     label={textOfButton}
                     type="submit"
                     uiType={StyledButtonTypes.PRIMARY}
-                    disabled={isLoading}
+                    disabled={isSubmitDisabled}
                 />
             </form>
         </div>

@@ -1,5 +1,11 @@
+import ProtectedRoute from "@components/ProtectedRoute";
+
 const CartPage = () => {
-    return <div>Cart page</div>;
+    return (
+        <ProtectedRoute>
+            <div>Cart page</div>
+        </ProtectedRoute>
+    );
 };
 
 export default CartPage;

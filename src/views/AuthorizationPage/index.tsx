@@ -48,7 +48,7 @@ const AuthorizationPage = (): ReactElement => {
     return (
         <div className="auth-page">
             <div className="auth-header headline-4-text">
-                Welcome to the Tea Shop
+                Welcome on website
             </div>
             <div className="auth-subtitle primary-text">Please register</div>
             {!isCodeWaiting ? (
