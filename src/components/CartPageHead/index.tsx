@@ -17,7 +17,6 @@ const CartPageHead = (): ReactElement => {
 
     const handleClearCart = () => {
         dispatch(clearCart());
-        console.log("Cart cleared")
     };
 
     const formattedProductsCount: string =
@@ -32,6 +31,7 @@ const CartPageHead = (): ReactElement => {
                         {formattedProductsCount}
                     </span>
                 </h1>
+                
                 <StyledButton
                     label="Очистить корзину"
                     onClick={handleClearCart}

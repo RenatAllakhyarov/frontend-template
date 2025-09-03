@@ -23,17 +23,14 @@ const CartProductCardBar = ({
 
     const handleIncreaseQuantity = () => {
         dispatch(increaseProductQuantity(productId));
-        console.log("Items quantity increase");
     };
 
     const handleDecreaseQuantity = () => {
         dispatch(decreaseProductQuantity(productId));
-        console.log("Items quantity decrease");
     };
 
     const handleRemoveProduct = () => {
         dispatch(removeProductFromCart(productId));
-        console.log("Item removed")
     };
 
     return (

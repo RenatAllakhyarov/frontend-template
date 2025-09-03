@@ -2,10 +2,7 @@ import CartPage from "@views/CartPage";
 import { ReactElement } from "react";
 
 const Cart = (): ReactElement => {
-    return (
-        <CartPage />
-        
-    )
+    return <CartPage />;
 };
 
 export default Cart;
