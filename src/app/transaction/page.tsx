@@ -1,6 +1,6 @@
 'use client'
 
-import TransactionInfoPage from "@components/TransactionInfoPage";
+import TransactionInfoPage from "@views/TransactionInfoPage";
 
 const TransactionPage = () => {
     return <TransactionInfoPage/>

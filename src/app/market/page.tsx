@@ -4,9 +4,9 @@ import { ReactElement } from "react";
 
 const Market = (): ReactElement => {
     return (
-        <ProtectedRoute>
+        // <ProtectedRoute>
             <MarketPage />
-        </ProtectedRoute>
+        // </ProtectedRoute>
     );
 };
 export default Market;
