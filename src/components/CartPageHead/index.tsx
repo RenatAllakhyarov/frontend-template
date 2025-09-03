@@ -17,6 +17,7 @@ const CartPageHead = (): ReactElement => {
 
     const handleClearCart = () => {
         dispatch(clearCart());
+        console.log("Cart cleared")
     };
 
     const formattedProductsCount: string =

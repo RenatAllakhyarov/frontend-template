@@ -1,0 +1,25 @@
+.cart-product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cart-product-info .product-title {
+    margin: 0;
+    color: var(--base-layout-text-color);
+}
+
+.cart-product-info .product-author,
+.cart-product-info .product-weight {
+    color: var(--base-label-text-color);
+}
+
+.cart-product-info .product-price-wrapper {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.cart-product-info .product-price-wrapper .price.current {
+    font-size: 20px;
+}

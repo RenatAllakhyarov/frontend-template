@@ -19,6 +19,7 @@ import {
     scrollToElementById,
 } from "@utils/constants";
 import "./style.css";
+import ProductPurchaseCard from "@components/ProductPurchaseCard";
 
 export interface IProductInfo {
     product: IProduct;
@@ -80,7 +81,7 @@ const ProductInfoPage = (): ReactElement => {
             </div>
 
             <ProductInfo product={product} />
-            {/* <ProductPurchaseCard product={product} /> */}
+            <ProductPurchaseCard product={product} />
         </div>
     );
 };
