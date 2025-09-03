@@ -2,7 +2,7 @@
 
 import SignInForm from "@components/SignInForm";
 import VerificationCodeForm from "@components/VerificationCodeForm";
-import { ReactElement, useState, useEffect } from "react";
+import { ReactElement, useState } from "react";
 import "./style.css";
 
 const AuthorizationPage = (): ReactElement => {

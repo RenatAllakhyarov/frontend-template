@@ -7,12 +7,13 @@ import { StyledButtonTypes } from "@components/StyledButton";
 import { useAppDispatch, useAppSelector } from "src/hooks";
 import { setUserRegistered } from "@store/slices/User";
 import { AlertTypes } from "@utils/constants";
-import { redirect } from "next/navigation";
 import { TRootState } from "@store/index";
+import { useRouter } from "next/navigation";
 import "./style.css";
 
 const VerificationCodeForm = (): ReactElement => {
     const dispatch = useAppDispatch();
+    const router = useRouter();
 
     const { currentEmail } = useAppSelector((state: TRootState) => state.user);
 
@@ -20,7 +21,7 @@ const VerificationCodeForm = (): ReactElement => {
     const [isResending, setIsResending] = useState<boolean>(false);
     const [isCodeTrue, setIsCodeTrue] = useState<boolean | null>(null);
     const [countdown, setCountdown] = useState<number>(0);
-    
+
     const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const timerText =
@@ -54,6 +55,7 @@ const VerificationCodeForm = (): ReactElement => {
         event: React.ChangeEvent<HTMLInputElement>
     ): void => {
         setVerificationCode(event.target.value);
+
         if (isCodeTrue === false) {
             setIsCodeTrue(null);
         }
@@ -63,19 +65,13 @@ const VerificationCodeForm = (): ReactElement => {
         event.preventDefault();
 
         try {
-            const response = await API.sendVerifyRequest(
-                currentEmail,
-                verificationCode
-            );
+            await API.sendVerifyRequest(currentEmail, verificationCode);
 
-            if (response.status === 200) {
-                dispatch(setUserRegistered(true));
-                console.log("Code verified successfully!");
-                redirect("/market");
-            } else {
-                setIsCodeTrue(false);
-                console.error("Unexpected server error:", response.status);
-            }
+            dispatch(setUserRegistered(true));
+
+            console.log("Code verified successfully!");
+
+            router.push("/market");
         } catch (error) {
             console.error("Error verifying code:", error);
             setIsCodeTrue(false);
@@ -86,12 +82,13 @@ const VerificationCodeForm = (): ReactElement => {
         setIsResending(true);
 
         try {
-            const response = await API.sendEmailRequest(currentEmail);
-            if (response.ok) {
-                console.log("Email successfully sent!");
-                handleStartTimer();
-                setIsCodeTrue(null);
-            }
+            await API.sendEmailRequest(currentEmail);
+
+            console.log("Email successfully sent!");
+
+            handleStartTimer();
+
+            setIsCodeTrue(null);
         } catch (error) {
         } finally {
             setIsResending(false);
@@ -134,6 +131,7 @@ const VerificationCodeForm = (): ReactElement => {
                     <StyledButton
                         label={timerText}
                         onClick={handleResendClick}
+                        type="button"
                         uiType={StyledButtonTypes.PRIMARY}
                         disabled={countdown > 0 || isResending}
                     />
