@@ -10,13 +10,14 @@ import { TRootState } from "@store/index";
 import "./style.css";
 
 interface ISingFormProps {
-    onCodeSent: () => void;
+    onCodeSent: (isCodeWaiting: boolean) => void;
 }
 
 const SignInForm = ({ onCodeSent }: ISingFormProps): ReactElement => {
     const dispatch = useAppDispatch();
 
     const { currentEmail } = useAppSelector((state: TRootState) => state.user);
+
     const [localEmail, setLocalEmail] = useState<string>(currentEmail);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
@@ -41,7 +42,7 @@ const SignInForm = ({ onCodeSent }: ISingFormProps): ReactElement => {
             const response = await API.sendEmailRequest(localEmail);
             if (response.ok) {
                 console.log("Email successfully sent!");
-                onCodeSent();
+                onCodeSent(true);
             }
         } catch (error) {
             console.error("Error sending email:", error);

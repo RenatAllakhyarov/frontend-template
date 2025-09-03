@@ -1,15 +1,17 @@
-.auth-page {
-    position: relative;
-    padding: var(--main-layout-padding-y);
-    top: 20%;
-    left: 44%;
+.auth-page-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+}
+
+.auth-page {
+    padding: var(--main-layout-padding-y);
+    flex-direction: column;
+    align-items: center;
     color: var(--base-label-text-color-hover);
     background-color: var(--base-layout-bg, #ffffff);
-    max-width: 250px;
     max-height: 350px;
     border-radius: var(--button-border-radius);
     border: 1px solid var(--base-layout-bg-hover);

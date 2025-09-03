@@ -2,24 +2,16 @@ import API from "@api/index";
 import AlertBox from "@components/AlertBox";
 import CustomInput from "@components/CustomInput";
 import StyledButton from "@components/StyledButton";
+import { FormEvent, useState, useRef, useEffect, ReactElement } from "react";
 import { StyledButtonTypes } from "@components/StyledButton";
 import { useAppDispatch, useAppSelector } from "src/hooks";
-import { FormEvent, useState, ReactElement } from "react";
 import { setUserRegistered } from "@store/slices/User";
 import { AlertTypes } from "@utils/constants";
 import { redirect } from "next/navigation";
 import { TRootState } from "@store/index";
 import "./style.css";
 
-interface IVerificationCodeFormProps {
-    countdown: number;
-    onResendCode: () => void;
-}
-
-const VerificationCodeForm = ({
-    onResendCode,
-    countdown,
-}: IVerificationCodeFormProps): ReactElement => {
+const VerificationCodeForm = (): ReactElement => {
     const dispatch = useAppDispatch();
 
     const { currentEmail } = useAppSelector((state: TRootState) => state.user);
@@ -27,6 +19,8 @@ const VerificationCodeForm = ({
     const [verificationCode, setVerificationCode] = useState<string>("");
     const [isResending, setIsResending] = useState<boolean>(false);
     const [isCodeTrue, setIsCodeTrue] = useState<boolean | null>(null);
+    const [countdown, setCountdown] = useState<number>(0);
+    const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const timerText =
         countdown > 0
@@ -34,6 +28,26 @@ const VerificationCodeForm = ({
             : isResending
             ? "Resending..."
             : "Resend code";
+
+    const handleStartTimer = () => {
+        setCountdown(60);
+
+        if (timerIntervalRef.current) {
+            clearInterval(timerIntervalRef.current);
+        }
+
+        const interval = setInterval(() => {
+            setCountdown((prev) => {
+                if (prev <= 1) {
+                    clearInterval(interval);
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+
+        timerIntervalRef.current = interval;
+    };
 
     const handleCodeChange = (
         event: React.ChangeEvent<HTMLInputElement>
@@ -74,7 +88,7 @@ const VerificationCodeForm = ({
             const response = await API.sendEmailRequest(currentEmail);
             if (response.ok) {
                 console.log("Email successfully sent!");
-                onResendCode();
+                handleStartTimer();
                 setIsCodeTrue(null);
             }
         } catch (error) {
@@ -82,6 +96,16 @@ const VerificationCodeForm = ({
             setIsResending(false);
         }
     };
+
+    useEffect(() => {
+        handleStartTimer();
+
+        return () => {
+            if (timerIntervalRef.current) {
+                clearInterval(timerIntervalRef.current);
+            }
+        };
+    }, []);
 
     return (
         <div className="code-form-container">
