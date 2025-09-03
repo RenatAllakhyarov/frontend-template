@@ -1,0 +1,22 @@
+.product-counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--main-layout-bg);
+    border-radius: var(--button-border-radius);
+    padding: 4px 8px;
+}
+
+.product-counter .quantity {
+    font-weight: 600;
+    color: var(--base-layout-text-color);
+}
+
+.product-counter .counter-button {
+    padding: 4px;
+    background-color: transparent;
+}
+
+.product-counter .counter-button:hover {
+    background-color: var(--main-layout-bg);
+}
