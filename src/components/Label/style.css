@@ -7,3 +7,11 @@
 .label-wrapper.secondary span {
     color: var(--base-label-text-color, #858585);
 }
+
+.label-wrapper.success span {
+    color: var(--label-success-color, #7bac5b);
+}
+
+.label-wrapper.negative span {
+    color: var(--secondary-button-hover-text-color, #e1426c);
+}

@@ -5,7 +5,7 @@ import ImageSelector from "@components/ImagesSelector";
 import ProductDetails from "@components/ProductDetails";
 import ComplexRatingBlock from "@components/ComplexRatingBlock";
 import ProductDetailsManager from "@services/ProductDetailManager";
-import { IProductInfo, REVIEWS_WRAPPER_ID } from "@components/ProductInfoPage";
+import { IProductInfo, REVIEWS_WRAPPER_ID } from "@views/ProductInfoPage";
 import { allDetailsConfig, previewDetailsConfig } from "@domains/product";
 import { StyledButtonTypes } from "@components/StyledButton";
 import { IProductDetail } from "@components/ProductDetails";
@@ -39,7 +39,7 @@ const ProductInfo = ({ product }: IProductInfo) => {
                                 scrollToElementById(ANNOTATION_WRAPPER_ID)
                             }
                             label="Перейти к описанию"
-                            type={StyledButtonTypes.SECONDARY}
+                            uiType={StyledButtonTypes.SECONDARY}
                             className="button-small-text"
                         />
                     </div>
@@ -49,7 +49,7 @@ const ProductInfo = ({ product }: IProductInfo) => {
                     <StyledButton
                         onClick={() => scrollToElementById(FULL_DETAILS_ID)}
                         label="Перейти к характеристикам"
-                        type={StyledButtonTypes.LINK}
+                        uiType={StyledButtonTypes.LINK}
                         className="button-small-text"
                     />
                 </div>

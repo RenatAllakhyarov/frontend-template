@@ -1,4 +1,6 @@
+import { IEmailRequest, IEmailResponse } from "@domains/email";
 import { IProduct } from "@domains/product";
+import { IVerifyCodeRequest } from "@domains/verificationCode";
 
 const apiBaseUrl: string | undefined = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -11,13 +13,15 @@ export type TApiMethods = "GET" | "POST";
 export const enum ApiEndpoints {
     PRODUCTS = "products",
     TRANSACTIONS = "transactions",
+    AUTH_EMAIL_REQUEST = "auth/email/request",
+    AUTH_VERIFY_REQUEST = "auth/email/verify",
 }
 
 class API {
     public static request = async <T>(
         endpoint: ApiEndpoints,
         method: TApiMethods,
-        body?: BodyInit
+        body?: unknown
     ): Promise<T> => {
         const fullUrl: string = `${apiBaseUrl}${endpoint}`;
 
@@ -47,6 +51,31 @@ class API {
 
     public static getProducts = async (): Promise<IProduct[]> => {
         return this.request<IProduct[]>(ApiEndpoints.PRODUCTS, "GET");
+    };
+
+    public static sendEmailRequest = async (
+        email: string
+    ): Promise<IEmailResponse> => {
+        const emailData: IEmailRequest = { email };
+
+        return this.request<IEmailResponse>(
+            ApiEndpoints.AUTH_EMAIL_REQUEST,
+            "POST",
+            emailData
+        );
+    };
+
+    public static sendVerifyRequest = async (
+        email: string,
+        code: string
+    ): Promise<Response> => {
+        const verifyData: IVerifyCodeRequest = { email, code };
+
+        return this.request(
+            ApiEndpoints.AUTH_VERIFY_REQUEST,
+            "POST",
+            verifyData
+        );
     };
 }
 
