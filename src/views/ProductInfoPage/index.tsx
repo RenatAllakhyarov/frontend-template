@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Label from "@components/Label";
 import Indicator from "@components/Indicator";
-import ProductInfo from "@components/ProductInfo";
 import IconButton from "@components/IconButton";
+import ProductInfo from "@components/ProductInfo";
 import ComplexRatingLine from "@components/ComplexRatingLine";
 import salesCountIconSrc from "@public/icons/salesCountIcon.svg";
+import ProductPurchaseCard from "@components/ProductPurchaseCard";
 import reviewsLinkIconSrc from "@public/icons/reviewsLinkIcon.svg";
 import { IndicatorColorTypes } from "@components/Indicator";
 import { IconButtonTypes } from "@components/IconButton";
@@ -78,9 +79,14 @@ const ProductInfoPage = (): ReactElement => {
 
                 <Label label={formatBuyCount} src={salesCountIconSrc} />
             </div>
-
-            <ProductInfo product={product} />
-            {/* <ProductPurchaseCard product={product} /> */}
+            <div className="product-info-page-main-content">
+                <div className="info-section">
+                    <ProductInfo product={product} />
+                </div>
+                <div className="purchase-section">
+                    <ProductPurchaseCard product={product} />
+                </div>
+            </div>
         </div>
     );
 };
