@@ -1,5 +1,5 @@
 import ProductCounter from "@components/ProductCounter";
-import salesCountIcon from "@public/icons/salesCountIcon.svg";
+import trashIcon from "@public/icons/trashIcon.svg";
 import IconButton, { IconButtonTypes } from "@components/IconButton";
 import { useDispatch } from "react-redux";
 import { ReactElement } from "react";
@@ -43,7 +43,7 @@ const CartProductCardBar = ({
             />
 
             <IconButton
-                src={salesCountIcon}
+                src={trashIcon}
                 alt="remove product from cart"
                 onClick={handleRemoveProduct}
                 type={IconButtonTypes.GHOST}

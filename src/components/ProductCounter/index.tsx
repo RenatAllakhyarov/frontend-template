@@ -1,9 +1,9 @@
-import likeIcon from "@public/icons/likeIcon.svg";
-import dislikeIcon from "@public/icons/dislikeIcon.svg";
+import plusIcon from "@public/icons/plusIcon.svg";
+import minusIcon from "@public/icons/minusIcon.svg";
 import IconButton, { IconButtonTypes } from "@components/IconButton";
+import { ICartProduct } from "@domains/cart";
 import { ReactElement } from "react";
 import "./style.css";
-import { ICartProduct } from "@domains/cart";
 
 interface IProductCounterProps {
     productId: string;
@@ -24,7 +24,7 @@ const ProductCounter = ({
     return (
         <div className="product-counter">
             <IconButton
-                src={dislikeIcon}
+                src={minusIcon}
                 alt="minus icon"
                 onClick={onDecrease}
                 type={IconButtonTypes.GHOST}
@@ -35,7 +35,7 @@ const ProductCounter = ({
             <span className="counter-quantity">{product? product.quantity : quantity}</span>
 
             <IconButton
-                src={likeIcon}
+                src={plusIcon}
                 alt="plus icon"
                 onClick={onIncrease}
                 type={IconButtonTypes.GHOST}
