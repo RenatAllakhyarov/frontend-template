@@ -20,7 +20,6 @@ const RootLayout = ({
             <body>
                 <StoreWrapper>
                     <ApplicationLoadChecker/>
-
                     <div className="application">
                         <Header />
 

@@ -10,8 +10,8 @@ import { IndicatorColorTypes } from "@components/Indicator";
 import { IconButtonTypes } from "@components/IconButton";
 import { redirect, useParams } from "next/navigation";
 import { IProduct } from "src/domains/product";
-import { useSelector } from "react-redux";
 import { TRootState } from "@store/index";
+import { useSelector } from "react-redux";
 import { ReactElement } from "react";
 import {
     getFormatBuyCount,
