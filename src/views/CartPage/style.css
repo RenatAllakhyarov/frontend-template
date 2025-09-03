@@ -2,6 +2,23 @@
     border-radius: var(--widget-border-radius, 24px);
     background: var(--base-layout-bg, #FFFFFF);
     box-shadow: var(--widget-shadow, 0 8px 20px #0000000a);
-
     padding: var(--main-page-padding, 28px 36px);
+}
+
+.cart-page-content {
+    display: flex;
+    gap: 30px; 
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cart-page-content-left {
+    flex: 3; 
+}
+
+.cart-page-content-right {
+    display: flex; 
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 60px;
 }
