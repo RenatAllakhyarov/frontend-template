@@ -1,23 +1,26 @@
 :root {
     --scroll-button-gap: 36px;
-    --base-layout-bg: #FFFFFF;
+    --base-layout-bg: #ffffff;
     --base-layout-text-color: #161616;
-    --base-success-color: #D0ECA0;
-    --base-success-color-hover: #BCE582;
+    --base-success-color: #d0eca0;
+    --base-success-color-hover: #bce582;
+    --base-positive-color: #edffec;
     --secondary-button-hover-text-color: #e1426c;
     --base-accent-color: #ff5983;
+    --base-negative-color: #ffeae8;
     --total-black-text-color: #000000;
-    --base-layout-text-color-inverted: #FFFFFF;
-    --base-layout-text-color-inverted-hover: #9EE7F0;
+    --base-layout-text-color-inverted: #ffffff;
+    --base-layout-text-color-inverted-hover: #9ee7f0;
     --base-label-text-color: #858585;
-    --base-label-text-color-hover: #6A6A6A;
+    --base-label-text-color-hover: #6a6a6a;
     --image-gallery-bg: #dcf7fa;
     --common-badge-color: #b6b6b6;
     --base-layout-bg-hover: #87d4de;
-    --link-color: #33777E;
-    --link-color-hover: #2A6066;
-    --link-color-active: #1E4C52;
-    --header-bg-color: #33777E;
+    --link-color: #33777e;
+    --auth-background-color: rgb(71, 101, 235);
+    --link-color-hover: #2a6066;
+    --link-color-active: #1e4c52;
+    --header-bg-color: #33777e;
     --main-font: "Onest", sans-serif;
     --title-font: "Onest", sans-serif;
     --app-height: 100%;
@@ -27,11 +30,14 @@
     --main-layout-padding-y: 25px;
     --main-layout-page-wrapper-padding-top: 130px;
     --main-page-padding: 28px 36px;
+    --input-container-padding: 4px 5px;
 
     --button-border-radius: 8px;
     --widget-border-radius: 24px;
 
-    --default-ui-transition: .35s;
+    --widget-border: 2px solid #f1f1f1;
+
+    --default-ui-transition: 0.35s;
 
     --widget-shadow: 0 8px 20px #0000000a;
 }
@@ -46,21 +52,18 @@
     font-family: "Onest";
     font-weight: 500;
     src: url("/fonts/Onest/Onest-Regular.ttf");
-
 }
 
 @font-face {
     font-family: "Onest";
     font-weight: 600;
     src: url("/fonts/Onest/Onest-Medium.ttf");
-
 }
 
 @font-face {
     font-family: "Onest";
     font-weight: 700;
     src: url("/fonts/Onest/Onest-SemiBold.ttf");
-
 }
 
 * {
@@ -109,28 +112,26 @@ h5 {
 }
 
 .headline-2-text {
-  font-family: "Onest", sans-serif;
+    font-family: "Onest", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: -0.33px;
+}
+
+.headline-3-text {
+    font-family: "Onest", sans-serif;
     font-weight: 700;
     font-size: 24px;
     letter-spacing: -0.33px;
 }
 
-.title-text {
-    font-family: "Onest";
-    font-weight: 600;
-    font-size: var(--font-size-title, 20px);
-    line-height: 22px;
-    letter-spacing: -0.4px;
+.headline-4-text {
+    font-family: "Onest", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.33px;
 }
 
-.subtitle-text {
-    font-family: "Onest";
-    font-weight: 500;
-    font-size: var(--font-size-subtitle, 1.2rem);
-    line-height: 22px;
-    letter-spacing: -0.4px;
-}   
-    
 .primary-text {
     font-family: "Onest";
     font-weight: 600;
@@ -154,14 +155,6 @@ h5 {
     line-height: 24px;
 }
 
-.meta-text {
-    font-family: "Onest";
-    font-weight: 400;
-    font-size: var(--font-size-caption, 11px);
-    line-height: 100%;
-    letter-spacing: 0px;
-}
-
 .badge-text {
     font-family: "Onest";
     font-size: 13px;
@@ -169,9 +162,30 @@ h5 {
     line-height: 20px;
 }
 
+.badge-thin-text {
+    font-family: "Onest";
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
 .body-text {
     font-family: "Onest";
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 24px;
+}
+
+.body-small-text {
+    font-family: "Onest";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.button-small-text {
+    font-family: "Onest";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
 }

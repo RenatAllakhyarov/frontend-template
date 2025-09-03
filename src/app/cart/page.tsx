@@ -1,16 +1,11 @@
-"use client"
-
-import StyledButton from "@components/StyledButton";
-import { redirect } from "next/navigation";
+import ProtectedRoute from "@components/ProtectedRoute";
 
 const CartPage = () => {
-    return(
-        <div className="cart-page-container">
+    return (
+        <ProtectedRoute>
             <div>Cart page</div>
-
-            <StyledButton label="buy" onClick={()=>redirect("/transaction")}/>
-        </div>
-    )
+        </ProtectedRoute>
+    );
 };
 
 export default CartPage;

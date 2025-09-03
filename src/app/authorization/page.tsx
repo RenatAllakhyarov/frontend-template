@@ -1,5 +1,7 @@
-const AuthorizationPage = () => {
-    return <div>Authorization page</div>;
+import AuthorizationPage from "@views/AuthorizationPage";
+
+const Authorization = () => {
+    return <AuthorizationPage />;
 };
 
-export default AuthorizationPage;
+export default Authorization;
