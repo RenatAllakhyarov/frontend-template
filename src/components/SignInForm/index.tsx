@@ -54,6 +54,7 @@ const SignInForm = ({ onCodeSent }: ISingFormProps): ReactElement => {
 
     useEffect(() => {
         const validation = validateEmailWithMessage(localEmail);
+
         setIsEmailValid(validation);
     }, [localEmail]);
 

@@ -20,6 +20,7 @@ const VerificationCodeForm = (): ReactElement => {
     const [isResending, setIsResending] = useState<boolean>(false);
     const [isCodeTrue, setIsCodeTrue] = useState<boolean | null>(null);
     const [countdown, setCountdown] = useState<number>(0);
+    
     const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const timerText =
