@@ -39,7 +39,7 @@ const ProductInfo = ({ product }: IProductInfo) => {
                                 scrollToElementById(ANNOTATION_WRAPPER_ID)
                             }
                             label="Перейти к описанию"
-                            type={StyledButtonTypes.SECONDARY}
+                            uiType={StyledButtonTypes.SECONDARY}
                             className="button-small-text"
                         />
                     </div>
@@ -49,7 +49,7 @@ const ProductInfo = ({ product }: IProductInfo) => {
                     <StyledButton
                         onClick={() => scrollToElementById(FULL_DETAILS_ID)}
                         label="Перейти к характеристикам"
-                        type={StyledButtonTypes.LINK}
+                        uiType={StyledButtonTypes.LINK}
                         className="button-small-text"
                     />
                 </div>
