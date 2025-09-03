@@ -5,7 +5,7 @@ import ImageSelector from "@components/ImagesSelector";
 import ProductDetails from "@components/ProductDetails";
 import ComplexRatingBlock from "@components/ComplexRatingBlock";
 import ProductDetailsManager from "@services/ProductDetailManager";
-import { IProductInfo, REVIEWS_WRAPPER_ID } from "@components/ProductInfoPage";
+import { IProductInfo, REVIEWS_WRAPPER_ID } from "@views/ProductInfoPage";
 import { allDetailsConfig, previewDetailsConfig } from "@domains/product";
 import { StyledButtonTypes } from "@components/StyledButton";
 import { IProductDetail } from "@components/ProductDetails";

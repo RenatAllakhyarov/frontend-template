@@ -1,5 +1,5 @@
 import StyledButton from "@components/StyledButton";
-import { IProductInfo } from "@components/ProductInfoPage";
+import { IProductInfo } from "@views/ProductInfoPage";
 import { addProductToCart } from "@store/slices/Cart";
 import { CSSProperties, useState } from "react";
 import { redirect } from "next/navigation";

@@ -1,6 +1,6 @@
 "use client";
 
-import ProductInfoPage from "@components/ProductInfoPage";
+import ProductInfoPage from "@views/ProductInfoPage";
 
 const ProductPage = () => {
     return <ProductInfoPage/>;
