@@ -8,11 +8,11 @@ import { ReactNode } from "react";
 const ApplicationLoadChecker = (): ReactNode => {
     const isApplicationLoading = useSelector((state: TRootState) => state.application.isLoading);
 
-    if(isApplicationLoading) {
-        return <FullScreenLoader/>;
+    if(!isApplicationLoading) {
+        return null;
     }
 
-    return null;
+    return <FullScreenLoader/>;
 }
 
 export default ApplicationLoadChecker;
