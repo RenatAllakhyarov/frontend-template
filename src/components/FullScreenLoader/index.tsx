@@ -1,6 +1,7 @@
+import { ReactElement } from "react"
 import "./style.css"
 
-const FullScreenLoader = () => {
+const FullScreenLoader = (): ReactElement => {
     return(
         <div className="loader-overlay">
             <div className="spinner"/>
