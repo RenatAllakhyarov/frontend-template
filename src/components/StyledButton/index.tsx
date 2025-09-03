@@ -9,7 +9,7 @@ export const enum StyledButtonTypes {
 
 export interface IStyledButtonProps {
     label: string;
-    type?: string;
+    type?: "submit" | "reset" | "button" | undefined;
     onClick?: () => void;
     uiType?: StyledButtonTypes;
     isCompleted?: boolean;
@@ -20,6 +20,7 @@ export interface IStyledButtonProps {
 
 const StyledButton = ({
     label,
+    type,
     onClick,
     uiType = StyledButtonTypes.PRIMARY,
     style,
@@ -32,6 +33,7 @@ const StyledButton = ({
     return (
         <button
             className={`default-styled-button button-text ${uiType} ${completedClassname} ${className}`}
+            type={type}
             onClick={onClick}
             disabled={disabled}
             style={style}

@@ -2,8 +2,8 @@ import { ReactElement, ChangeEvent } from "react";
 import "./style.css";
 
 export interface InputProps {
-    value?: string;
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    value: string;
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
     type?: "text" | "email" | "password" | "number" | "tel";
     label?: string;

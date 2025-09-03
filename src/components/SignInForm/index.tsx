@@ -33,13 +33,8 @@ const SignInForm = ({ onCodeSent }: ISingFormProps): ReactElement => {
     const handleEmailSubmit = async (event: FormEvent) => {
         event.preventDefault();
 
-        const validation = validateEmailWithMessage(localEmail);
-
-        if (!validation) {
-            return;
-        }
-
         dispatch(setUserEmail(localEmail));
+
         setIsLoading(true);
 
         try {

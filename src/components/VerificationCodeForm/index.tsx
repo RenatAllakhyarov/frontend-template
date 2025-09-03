@@ -23,6 +23,7 @@ const VerificationCodeForm = ({
     const dispatch = useAppDispatch();
 
     const { currentEmail } = useAppSelector((state: TRootState) => state.user);
+
     const [verificationCode, setVerificationCode] = useState<string>("");
     const [isResending, setIsResending] = useState<boolean>(false);
     const [isCodeTrue, setIsCodeTrue] = useState<boolean | null>(null);
@@ -53,17 +54,9 @@ const VerificationCodeForm = ({
             );
 
             if (response.status === 200) {
-                const data = await response.json();
-
-                if (data.ok) {
-                    dispatch(setUserRegistered(true));
-                    console.log("Code verified successfully!");
-                    redirect("/market");
-                } else {
-                    setIsCodeTrue(false);
-                }
-            } else if (response.status === 401) {
-                setIsCodeTrue(false);
+                dispatch(setUserRegistered(true));
+                console.log("Code verified successfully!");
+                redirect("/market");
             } else {
                 setIsCodeTrue(false);
                 console.error("Unexpected server error:", response.status);
@@ -75,9 +68,8 @@ const VerificationCodeForm = ({
     };
 
     const handleResendClick = async () => {
-        if (countdown > 0) return;
-
         setIsResending(true);
+
         try {
             const response = await API.sendEmailRequest(currentEmail);
             if (response.ok) {
