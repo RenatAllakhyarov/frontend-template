@@ -2,9 +2,9 @@ import ProtectedRoute from "@components/ProtectedRoute";
 
 const CartPage = () => {
     return (
-        // <ProtectedRoute>
+        <ProtectedRoute>
             <div>Cart page</div>
-        // </ProtectedRoute>
+        </ProtectedRoute>
     );
 };
 

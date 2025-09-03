@@ -5,9 +5,9 @@ import ProtectedRoute from "@components/ProtectedRoute";
 
 const ProductPage = () => {
     return (
-        // <ProtectedRoute>
+        <ProtectedRoute>
             <ProductInfoPage />
-        // </ProtectedRoute>
+        </ProtectedRoute>
     );
 };
 
