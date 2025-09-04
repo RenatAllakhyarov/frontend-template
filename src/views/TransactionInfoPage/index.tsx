@@ -1,17 +1,20 @@
 "use client"
 
+import API from "@api/index";
 import Cart from "@domains/cart";
+import MockAPI from "src/mockApi";
 import mockProductsList from "src/mockApi/meta";
 import StyledButton from "@components/StyledButton";
-import { redirect } from "next/navigation";
-import { ApiEndpoints } from "@api/index";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import API from "@api/index";
-import "./style.css"
 import { setIsLoading } from "@store/slices/Application";
+import { redirect } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { ApiEndpoints } from "@api/index";
+import { useEffect, useState } from "react";
+import "./style.css"
 
 const TransactionInfoPage = () => {
+    const [isTransactionRequestValid, setIsTransactionRequestValid] = useState<boolean>()
+
     const cart = new Cart();
 
     if(cart === undefined) {
@@ -24,38 +27,51 @@ const TransactionInfoPage = () => {
         products: mockProductsList.map(items => items.id),
     }
 
+    const dispatch = useDispatch();
+
     useEffect(()=>{
-        const dispatch = useDispatch();
+        const fetchData = async () => {
+            try{
+                dispatch(setIsLoading(true));
 
-        try{
-            dispatch(setIsLoading(true));
+                await MockAPI.delay(3000);
 
-            API.request(ApiEndpoints.TRANSACTIONS, "POST", mockData);
+                await API.request(ApiEndpoints.TRANSACTIONS, "POST", mockData);
+
+                setIsTransactionRequestValid(true);
+            }
+            catch{
+                console.log(Error);
+
+                setIsTransactionRequestValid(false);
+            }
+            finally{
+                dispatch(setIsLoading(false));
+            }
         }
-        catch{
-            
-        }
-        finally{
-            dispatch(setIsLoading(false));
-        }
+
+        fetchData();
     }, [])
-
-    fetch('http://localhost:3000/transactions', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(mockData)
-    })
 
     const transactionDate = Date();
 
     return(
         <div className="transaction-page-container">
-            <div>Transaction page</div>
-            <div>THE TRANSACTION IS COMPLETED</div>
-            <div>Total price: {}</div>
-            <div>{transactionDate}</div>
+            {isTransactionRequestValid && (
+                <div>
+                    <div>Transaction page</div>
+                    <div>THE TRANSACTION IS COMPLETED</div>
+                    <div>Total price: {}</div>
+                    <div>{transactionDate}</div>
+                </div>
+            )}
+
+            {isTransactionRequestValid === false && (
+                <div>
+                    <div>Transaction error</div>
+                </div>
+            )}
+
             
             <StyledButton label="Continue shopping" onClick={()=>redirect("/market")}/>
         </div>
