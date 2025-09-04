@@ -6,10 +6,10 @@ import MockAPI from "src/mockApi";
 import mockProductsList from "src/mockApi/meta";
 import StyledButton from "@components/StyledButton";
 import { setIsLoading } from "@store/slices/Application";
+import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { ApiEndpoints } from "@api/index";
-import { useEffect, useState } from "react";
 import "./style.css"
 
 const TransactionInfoPage = () => {
