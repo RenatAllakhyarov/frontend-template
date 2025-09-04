@@ -71,7 +71,6 @@ const TransactionInfoPage = () => {
                     <div>Transaction error</div>
                 </div>
             )}
-
             
             <StyledButton label="Continue shopping" onClick={()=>redirect("/market")}/>
         </div>
