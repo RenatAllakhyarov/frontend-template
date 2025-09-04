@@ -8,7 +8,7 @@ import { ReactNode } from "react";
 const ApplicationLoadChecker = (): ReactNode => {
     const isApplicationLoading = useSelector((state: TRootState) => state.application.isLoading);
 
-    if(isApplicationLoading === false) {
+    if(!isApplicationLoading) {
         return null;
     }
 
