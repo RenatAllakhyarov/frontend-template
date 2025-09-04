@@ -8,9 +8,9 @@ import { redirect } from "next/navigation";
 const ProtectedRoute = ({ children }: PropsWithChildren): ReactNode => {
     const { isRegistered } = useSelector((state: TRootState) => state.user);
 
-    // if (!isRegistered) {
-    //     redirect("/authorization");
-    // }
+    if (!isRegistered) {
+        redirect("/authorization");
+    }
 
     return children;
 };
