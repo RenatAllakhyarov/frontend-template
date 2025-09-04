@@ -4,6 +4,8 @@ import "./style.css";
 
 export const enum LabelsTypes {
     SECONDARY = "secondary",
+    SUCCESS = "success",
+    NEGATIVE = "negative",
 }
 
 export interface ILabelProps {

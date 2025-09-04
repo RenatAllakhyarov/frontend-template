@@ -28,3 +28,15 @@
     align-items: center;
     margin-bottom: 30px;
 }
+
+.product-info-page .product-info-page-main-content {
+    display: flex;
+}
+
+.product-info-page .product-info-page-main-content .info-section {
+    flex: 2.5;
+}
+
+.product-info-page .product-info-page-main-content .purchase-section {
+    flex: 1;
+}
