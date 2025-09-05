@@ -13,7 +13,8 @@ import { ApiEndpoints } from "@api/index";
 import "./style.css"
 
 const TransactionInfoPage = () => {
-    const [isTransactionRequestValid, setIsTransactionRequestValid] = useState<boolean>()
+    const [isTransactionRequestComplete, setIsTransactionRequestComplete] = useState<boolean>()
+    const [transactionError, setTransactionError] = useState<string | null>();
 
     const cart = new Cart();
 
@@ -38,12 +39,12 @@ const TransactionInfoPage = () => {
 
                 await API.request(ApiEndpoints.TRANSACTIONS, "POST", mockData);
 
-                setIsTransactionRequestValid(true);
+                setIsTransactionRequestComplete(true);
             }
             catch{
-                console.log(Error);
+                setIsTransactionRequestComplete(false);
 
-                setIsTransactionRequestValid(false);
+                setTransactionError(Error.toString);
             }
             finally{
                 dispatch(setIsLoading(false));
@@ -57,7 +58,7 @@ const TransactionInfoPage = () => {
 
     return(
         <div className="transaction-page-container">
-            {isTransactionRequestValid && (
+            {isTransactionRequestComplete && transactionError === null && (
                 <div>
                     <div>Transaction page</div>
                     <div>THE TRANSACTION IS COMPLETED</div>
@@ -66,9 +67,9 @@ const TransactionInfoPage = () => {
                 </div>
             )}
 
-            {isTransactionRequestValid === false && (
+            {isTransactionRequestComplete === false && transactionError !== null && (
                 <div>
-                    <div>Transaction error</div>
+                    <div>Transaction error: {transactionError}</div>
                 </div>
             )}
             
