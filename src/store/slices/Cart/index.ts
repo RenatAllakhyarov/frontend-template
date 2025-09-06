@@ -1,26 +1,53 @@
+import Cart from "@domains/cart";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IProduct } from "src/domains/product";
-import { createSlice } from "@reduxjs/toolkit";
 
 interface ICartState {
-    items: IProduct[]
+    cart: Cart;
 }
 
 const initialState: ICartState = {
-    items: []
+    cart: new Cart(),
 };
 
 export const cartSlice = createSlice({
-    name: 'cart',
+    name: "cart",
     initialState,
     reducers: {
-        addProductToCart: (state, action) => {
-            state.items.push(action.payload);
-        }
-    }
-})
+        addProductToCart: (state, action: PayloadAction<IProduct>) => {
+            state.cart = new Cart(state.cart.getProducts());
 
-export const { addProductToCart } = cartSlice.actions;
+            state.cart.addProduct(action.payload);
+        },
+        removeProductFromCart: (state, action: PayloadAction<string>) => {
+            state.cart = new Cart(state.cart.getProducts());
+
+            state.cart.deleteProduct(action.payload);
+        },
+        increaseProductQuantity: (state, action: PayloadAction<string>) => {
+            state.cart = new Cart(state.cart.getProducts());
+
+            state.cart.increaseQuantity(action.payload);
+        },
+        decreaseProductQuantity: (state, action: PayloadAction<string>) => {
+            state.cart = new Cart(state.cart.getProducts());
+
+            state.cart.decreaseQuantity(action.payload);
+        },
+        clearCart: (state) => {
+            state.cart = new Cart(state.cart.getProducts());
+
+            state.cart.clearCart();
+        },
+    },
+});
+
+export const {
+    addProductToCart,
+    removeProductFromCart,
+    increaseProductQuantity,
+    decreaseProductQuantity,
+    clearCart,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
-
-export const selectCartItems = (state: { cart: ICartState }) => state.cart.items;

@@ -1,5 +1,5 @@
-import { IProductDetail } from "@components/ProductDetails";
 import { IDetailLabelData, IProduct, TDetailsConfig } from "@domains/product";
+import { IProductDetail } from "@components/ProductDetails";
 
 class ProductDetailsManager {
     public static getDetailsData = (

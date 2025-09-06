@@ -1,0 +1,26 @@
+.cart-product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.cart-product-list .title {
+    margin: 0;
+    color: var(--base-layout-text-color);
+}
+
+.cart-product-list .empty-cart-message {
+    color: var(--base-label-text-color);
+    text-align: center;
+    padding: 40px 0;
+    border: var(--widget-border, 2px solid #F1F1F1);
+    border-radius: var(--button-border-radius);
+    background-color: var(--base-layout-bg);
+}
+
+.cart-product-list .product-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

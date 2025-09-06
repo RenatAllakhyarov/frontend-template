@@ -1,0 +1,60 @@
+"use client";
+
+import { ICartProduct } from "@domains/cart";
+import { CURRENCY } from "@utils/constants";
+import { TRootState } from "@store/index";
+import { useSelector } from "react-redux";
+import { ReactElement } from "react";
+import "./style.css";
+
+const CartSideBarInfo = (): ReactElement => {
+    const cartProducts: ICartProduct[] = useSelector((state: TRootState) =>
+        state.cart.cart.getProducts()
+    );
+
+    const productsCount: number = useSelector((state: TRootState) =>
+        state.cart.cart.getProductsCount()
+    );
+
+    const totalPrice: number = useSelector((state: TRootState) =>
+        state.cart.cart.getTotalPrice()
+    );
+
+    const calculateTotalDiscount = (): number => {
+        return cartProducts.reduce((total, product) => {
+            const productOriginalPrice: number =
+                product.price * product.quantity;
+
+            const discountAmount: number =
+                productOriginalPrice * (product.discount / 100);
+
+            return total + discountAmount;
+        }, 0);
+    };
+
+    const totalDiscount: number = calculateTotalDiscount();
+    const discountDifference: string = totalDiscount.toFixed(2);
+    const finalPrice: number = totalPrice - totalDiscount;
+    const finalPriceFixed: string = finalPrice.toFixed(2);
+
+    return (
+        <div className="cart-side-bar-info">
+            <div className="info-row">
+                <span className="info-label body-text">Кол-во товаров:</span>
+                <span className="info-value primary-text">{productsCount}</span>
+            </div>
+            <div className="info-row">
+                <span className="info-label body-text">Скидка:</span>
+                <span className="info-value discount-value primary-text">{`- ${discountDifference}${CURRENCY}`}</span>
+            </div>
+            <div className="info-row total-row">
+                <span className="info-label headline-4-text">Итого</span>
+                <span className="info-value headline-4-text">
+                    {`${finalPriceFixed}${CURRENCY}`}
+                </span>
+            </div>
+        </div>
+    );
+};
+
+export default CartSideBarInfo;

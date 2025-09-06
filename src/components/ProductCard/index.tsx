@@ -6,8 +6,8 @@ import Indicator from "@components/Indicator";
 import ImageWrapper from "@components/ImageWrapper";
 import CompactNumber from "@components/CompactNumber";
 import reviewIconSrc from "@public/icons/reviewIcon.svg";
-import type { IProduct } from "@domains/product";
 import { PERCENT_SYMBOL } from "@utils/constants";
+import type { IProduct } from "@domains/product";
 import { ReactElement } from "react";
 import "./style.css";
 

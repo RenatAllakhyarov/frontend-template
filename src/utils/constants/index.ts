@@ -43,37 +43,24 @@ export function getFormatCount(count: number): string {
     return count.toString();
 }
 
-export const getFormatRatingsCount = (ratingsCount: number): string => {
-    const labelPrefix: string = `${ratingsCount} оцен`;
+export function getFormatProductCounts(count: number, forms: string[]): string {
+    const lastDigit = count % 10;
+    const lastTwoDigits = count % 100;
 
-    const lastNumber: number = ratingsCount % 10;
-
-    if (lastNumber === 1) {
-        return `${labelPrefix}ка`;
+    if (lastDigit === 1) {
+        return `${count} ${forms[0]}`;
     }
 
-    if (lastNumber > 1 && lastNumber < 5) {
-        return `${labelPrefix}ки`;
+    if (lastDigit >= 2 && lastDigit <= 4) {
+        return `${count} ${forms[1]}`;
     }
 
-    return `${labelPrefix}ок`;
-};
-
-export const getFormatReviewsCount = (reviewsCount: number): string => {
-    const labelPrefix: string = `${reviewsCount} отзыв`;
-
-    const lastNumber: number = reviewsCount % 10;
-
-    if (lastNumber === 1) {
-        return labelPrefix;
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+        return `${count} ${forms[2]}`;
     }
 
-    if (lastNumber > 1 && lastNumber < 5) {
-        return `${labelPrefix}а`;
-    }
-
-    return `${labelPrefix}ов`;
-};
+    return `${count} ${forms[2]}`;
+}
 
 export const getFormatBuyCount = (buyCount: number): string => {
     const units = [1e9, 1e6, 1e3];

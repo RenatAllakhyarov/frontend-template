@@ -1,12 +1,12 @@
-import { ReactElement } from "react"
-import "./style.css"
+import { ReactElement } from "react";
+import "./style.css";
 
 const FullScreenLoader = (): ReactElement => {
-    return(
+    return (
         <div className="loader-overlay">
-            <div className="spinner"/>
+            <div className="spinner" />
         </div>
-    )
-}
+    );
+};
 
-export default FullScreenLoader
+export default FullScreenLoader;

@@ -11,9 +11,10 @@ const ServerError = (): ReactElement => {
                 width={350}
                 height={400}
             />
-
-            <h1 className="error-primary-text-message">Что-то пошло не так</h1>
-            <p className="error-secondary-text-message">
+            <h1 className="error-primary-text-message headline-3-text">
+                Что-то пошло не так
+            </h1>
+            <p className="error-secondary-text-message badge-text">
                 Кажется, на сайте ведутся технические работы!
             </p>
         </div>

@@ -1,6 +1,6 @@
 import { IEmailRequest, IEmailResponse } from "@domains/email";
-import { IProduct } from "@domains/product";
 import { IVerifyCodeRequest } from "@domains/verificationCode";
+import { IProduct } from "@domains/product";
 
 const apiBaseUrl: string | undefined = process.env.NEXT_PUBLIC_API_BASE_URL;
 

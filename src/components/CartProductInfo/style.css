@@ -1,0 +1,11 @@
+.cart-product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cart-product-info .product-price-wrapper {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-end;
+}
