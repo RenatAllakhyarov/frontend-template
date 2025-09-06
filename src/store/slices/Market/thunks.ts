@@ -1,4 +1,3 @@
-// import API from "@api/index";
 import MockAPI from "src/mockApi";
 import { IProduct } from "@domains/product";
 import { createAsyncThunk } from "@reduxjs/toolkit";

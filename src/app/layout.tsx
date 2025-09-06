@@ -19,7 +19,7 @@ const RootLayout = ({
         <html lang="en">
             <body>
                 <StoreWrapper>
-                    <ApplicationLoadChecker/>
+                    <ApplicationLoadChecker />
                     <div className="application">
                         <Header />
 

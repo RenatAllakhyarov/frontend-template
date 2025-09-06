@@ -1,6 +1,5 @@
 "use client";
 
-// import API from "@api/index";
 import ServerError from "@components/ServerError";
 import ProductsList from "@components/ProductList";
 import ProductListSkeleton from "@components/ProductListSkeleton";

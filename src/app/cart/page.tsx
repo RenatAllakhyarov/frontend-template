@@ -1,11 +1,13 @@
+import CartPage from "@views/CartPage";
 import ProtectedRoute from "@components/ProtectedRoute";
+import { ReactElement } from "react";
 
-const CartPage = () => {
+const Cart = (): ReactElement => {
     return (
         <ProtectedRoute>
-            <div>Cart page</div>
+            <CartPage />
         </ProtectedRoute>
     );
 };
 
-export default CartPage;
+export default Cart;

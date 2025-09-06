@@ -1,0 +1,14 @@
+.cart-product-card-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.cart-product-card-bar .remove-button {
+    color: var(--base-label-text-color); 
+}
+
+.cart-product-card-bar .remove-button:hover {
+    color: var(--base-accent-color);
+}

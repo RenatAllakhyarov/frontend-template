@@ -1,5 +1,5 @@
-import { CURRENCY } from "@utils/constants";
 import { CSSProperties, ReactElement } from "react";
+import { CURRENCY } from "@utils/constants";
 import "./style.css";
 
 export interface IPriceProps {
