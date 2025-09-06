@@ -12,10 +12,8 @@
 
 .publisher-list {
     display: grid;
-    grid-template-columns: repeat(4, max-content);
-    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 32px;
     padding: 32px;
     max-width: 900px;
-    margin: 0 auto;
 }
