@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Cart from "@domains/cart";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IProduct } from "src/domains/product";
 
 interface ICartState {
@@ -16,22 +16,27 @@ export const cartSlice = createSlice({
     reducers: {
         addProductToCart: (state, action: PayloadAction<IProduct>) => {
             state.cart = new Cart(state.cart.getProducts());
+
             state.cart.addProduct(action.payload);
         },
         removeProductFromCart: (state, action: PayloadAction<string>) => {
             state.cart = new Cart(state.cart.getProducts());
+
             state.cart.deleteProduct(action.payload);
         },
         increaseProductQuantity: (state, action: PayloadAction<string>) => {
             state.cart = new Cart(state.cart.getProducts());
+
             state.cart.increaseQuantity(action.payload);
         },
         decreaseProductQuantity: (state, action: PayloadAction<string>) => {
             state.cart = new Cart(state.cart.getProducts());
+
             state.cart.decreaseQuantity(action.payload);
         },
         clearCart: (state) => {
             state.cart = new Cart(state.cart.getProducts());
+
             state.cart.clearCart();
         },
     },

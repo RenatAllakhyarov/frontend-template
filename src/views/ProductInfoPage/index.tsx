@@ -42,10 +42,13 @@ const ProductInfoPage = (): ReactElement => {
         redirect("/market");
     }
 
+    const wordForms = ["отзыв", "отзыва", "отзывов"];
+
     const formatReviewsCount: string = getFormatProductCounts(
         product.reviews.length,
-        ["отзыв", "отзыва", "отзывов"]
+        wordForms
     );
+
     const formatBuyCount: string = getFormatBuyCount(product.salesCount);
 
     return (

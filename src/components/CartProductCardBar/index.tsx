@@ -1,5 +1,5 @@
-import ProductCounter from "@components/ProductCounter";
 import trashIconSrc from "@public/icons/trashIcon.svg";
+import ProductCounter from "@components/ProductCounter";
 import IconButton, { IconButtonTypes } from "@components/IconButton";
 import { useDispatch } from "react-redux";
 import { ReactElement } from "react";
@@ -41,7 +41,6 @@ const CartProductCardBar = ({
                 onIncrease={handleIncreaseQuantity}
                 onDecrease={handleDecreaseQuantity}
             />
-
             <IconButton
                 src={trashIconSrc}
                 alt="remove product from cart"

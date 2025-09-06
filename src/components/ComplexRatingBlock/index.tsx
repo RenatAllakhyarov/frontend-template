@@ -12,11 +12,12 @@ const ComplexRatingBlock = ({
     rating,
     ratingsCount,
 }: IComplexRatingBlockProps): ReactElement => {
-    const formatRatingsCount: string = getFormatProductCounts(ratingsCount, [
-        "оценка",
-        "оценки",
-        "оценок",
-    ]);
+    const wordForms = ["оценка", "оценки", "оценок"];
+
+    const formatRatingsCount: string = getFormatProductCounts(
+        ratingsCount,
+        wordForms
+    );
 
     return (
         <div className="complex-rating-block">

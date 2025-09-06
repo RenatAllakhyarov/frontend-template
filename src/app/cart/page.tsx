@@ -4,9 +4,9 @@ import { ReactElement } from "react";
 
 const Cart = (): ReactElement => {
     return (
-        // <ProtectedRoute>
+        <ProtectedRoute>
             <CartPage />
-        // </ProtectedRoute>
+        </ProtectedRoute>
     );
 };
 

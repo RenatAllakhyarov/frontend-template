@@ -1,3 +1,4 @@
+import EmptyCart from "@components/EmptyCart";
 import CartProductCard from "@components/CartProductCard";
 import { ICartProduct } from "@domains/cart";
 import { useSelector } from "react-redux";
@@ -12,9 +13,7 @@ const CartProductList = (): ReactElement => {
 
     return (
         <div className="cart-product-list">
-            {cartProducts.length === 0 && (
-                <p className="empty-cart">Ваша корзина пуста</p>
-            )}
+            {cartProducts.length === 0 && <EmptyCart />}
 
             {cartProducts.length > 0 && (
                 <div className="product-cards-wrapper">
@@ -25,6 +24,6 @@ const CartProductList = (): ReactElement => {
             )}
         </div>
     );
-};   
+};
 
 export default CartProductList;

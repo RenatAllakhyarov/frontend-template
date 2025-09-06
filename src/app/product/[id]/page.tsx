@@ -1,13 +1,13 @@
 "use client";
 
-import ProtectedRoute from "@components/ProtectedRoute";
 import ProductInfoPage from "@views/ProductInfoPage";
+import ProtectedRoute from "@components/ProtectedRoute";
 
 const ProductPage = () => {
     return (
-        // <ProtectedRoute>
+        <ProtectedRoute>
             <ProductInfoPage />
-        // </ProtectedRoute>
+        </ProtectedRoute>
     );
 };
 

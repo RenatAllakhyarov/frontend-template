@@ -19,11 +19,12 @@ const CartPageHeader = (): ReactElement => {
         dispatch(clearCart());
     };
 
-    const formattedProductsCount = getFormatProductCounts(productsCount, [
-        "товар",
-        "товара",
-        "товаров",
-    ]);
+    const wordForms = ["товар", "товара", "товаров"];
+
+    const formattedProductsCount = getFormatProductCounts(
+        productsCount,
+        wordForms
+    );
 
     return (
         <div className="cart-page-header">
@@ -34,7 +35,6 @@ const CartPageHeader = (): ReactElement => {
                         {formattedProductsCount}
                     </span>
                 </h1>
-
                 <StyledButton
                     label="Очистить корзину"
                     onClick={handleClearCart}

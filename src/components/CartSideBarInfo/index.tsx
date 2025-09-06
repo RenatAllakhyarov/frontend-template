@@ -32,6 +32,7 @@ const CartSideBarInfo = (): ReactElement => {
     };
 
     const totalDiscount: number = calculateTotalDiscount();
+    const discountDifference = totalDiscount.toFixed(2);
     const finalPrice: number = totalPrice - totalDiscount;
 
     return (
@@ -42,9 +43,7 @@ const CartSideBarInfo = (): ReactElement => {
             </div>
             <div className="info-row">
                 <span className="info-label body-text">Скидка:</span>
-                <span className="info-value discount-value primary-text">{`- ${totalDiscount.toFixed(
-                    2
-                )}${CURRENCY}`}</span>
+                <span className="info-value discount-value primary-text">{`- ${discountDifference}${CURRENCY}`}</span>
             </div>
             <div className="info-row total-row">
                 <span className="info-label headline-4-text">Итого</span>

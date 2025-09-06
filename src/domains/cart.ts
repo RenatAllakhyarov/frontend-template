@@ -22,8 +22,9 @@ class Cart {
     }
 
     public addProduct(addingProduct: IProduct): void {
-        const cartProduct: ICartProduct | undefined =
-            this.cartProducts.get(addingProduct.id);
+        const cartProduct: ICartProduct | undefined = this.cartProducts.get(
+            addingProduct.id
+        );
 
         if (!!cartProduct) return;
 
@@ -49,16 +50,24 @@ class Cart {
     public getTotalPrice(): number {
         if (!this.cartProducts.size) return 0;
 
-        return Array.from(this.cartProducts.values())
-            .map((p) => p.price * p.quantity)
-            .reduce((sum, price) => sum + price, 0);
+        const products = Array.from(this.cartProducts.values());
+
+        const productPrices = products.map((p) => p.price * p.quantity);
+
+        const totalPrice = productPrices.reduce((sum, price) => sum + price, 0);
+
+        return totalPrice;
     }
 
     public getProductsCount(): number {
-        return Array.from(this.cartProducts.values()).reduce(
+        const products = Array.from(this.cartProducts.values());
+
+        const totalCount = products.reduce(
             (sum, product) => sum + product.quantity,
             0
         );
+
+        return totalCount;
     }
 
     public clearCart(): void {
@@ -77,6 +86,7 @@ class Cart {
         const cartProduct = this.cartProducts.get(productId);
 
         if (!cartProduct) return;
+
         if (cartProduct.quantity !== 1) {
             cartProduct.quantity = cartProduct.quantity - 1;
             return;

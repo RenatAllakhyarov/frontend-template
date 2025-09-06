@@ -43,10 +43,7 @@ export function getFormatCount(count: number): string {
     return count.toString();
 }
 
-export function getFormatProductCounts(
-    count: number,
-    forms: [string, string, string]
-): string {
+export function getFormatProductCounts(count: number, forms: string[]): string {
     const lastDigit = count % 10;
     const lastTwoDigits = count % 100;
 

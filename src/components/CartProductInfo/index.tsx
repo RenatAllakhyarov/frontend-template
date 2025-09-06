@@ -20,7 +20,6 @@ const CartProductInfo = ({ product }: ICartProductInfoProps): ReactElement => {
     return (
         <div className="cart-product-info">
             <ProductDetails details={details} isWithoutTitle={isWithoutTitle} />
-
             <div className="product-price headline-4-text">
                 <Price
                     price={product.price * product.quantity}

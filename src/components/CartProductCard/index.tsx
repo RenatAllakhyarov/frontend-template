@@ -20,7 +20,6 @@ const CartProductCard = ({ product }: ICartProductCardProps): ReactElement => {
                     height={100}
                 />
             </div>
-
             <div className="cart-product-details">
                 <CartProductInfo product={product} />
                 <CartProductCardBar

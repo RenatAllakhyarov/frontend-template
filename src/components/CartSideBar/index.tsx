@@ -18,7 +18,9 @@ const CartSideBar = (): ReactElement => {
             <CartSideBarInfo />
             <StyledButton
                 label="Перейти к оформлению"
-                onClick={()=>{redirect("/transaction")}}
+                onClick={() => {
+                    redirect("/transaction");
+                }}
                 disabled={productsCount === 0}
                 className="checkout-button"
             />

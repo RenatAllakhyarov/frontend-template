@@ -30,7 +30,7 @@ const ProductCounter = ({
                 iconSize={16}
                 className="counter-minus-button"
             />
-            <span className="counter-quantity">
+            <span className="counter-quantity primary-text">
                 {product ? product.quantity : quantity}
             </span>
             <IconButton
