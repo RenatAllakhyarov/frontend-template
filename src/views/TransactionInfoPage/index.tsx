@@ -1,95 +1,112 @@
-"use client"
+"use client";
 
 import API from "@api/index";
 import MockAPI from "src/mockApi";
-import mockProductsList from "src/mockApi/meta";
+import Cart from "@domains/cart";
 import StyledButton from "@components/StyledButton";
+import { ITransaction, TTransactionInfo } from "@domains/transaction";
+import { getFormatDateToHHmmssDDmmYY } from "@utils/constants";
 import { setIsLoading } from "@store/slices/Application";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "@store/slices/Cart";
+import { ICartProduct } from "@domains/cart";
 import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 import { ApiEndpoints } from "@api/index";
 import { TRootState } from "@store/index";
-import "./style.css"
+import "./style.css";
 
 const TransactionInfoPage = () => {
-    const [isTransactionRequestComplete, setIsTransactionRequestComplete] = useState<boolean>()
+    const [isTransactionRequestComplete, setIsTransactionRequestComplete] =
+        useState<boolean>();
     const [transactionError, setTransactionError] = useState<string | null>();
+    const [transactionInfo, setTransactionInfo] =
+        useState<TTransactionInfo | null>();
 
     const dispatch = useDispatch();
-    
-    const cart = useSelector((state: TRootState) => state.cart);
 
-    const userId = useSelector((state: TRootState) => state.user.id);   
-   
-    const mockData = {
-        amount: 1200,
+    const cart: Cart = useSelector((state: TRootState) => state.cart.cart);
+
+    const userId = useSelector((state: TRootState) => state.user.id);
+    const cartProductsIdList: string[] = cart.getProducts().map((cartProduct: ICartProduct) => cartProduct.id);
+
+    const transactionRequestData = {
+        amount: cart.getTotalPrice(),
         userId: userId,
-        products: mockProductsList.map(items => items.id),
-    }
+        products: cartProductsIdList,
+    };
 
     const handleContinueShopping = (): void => {
-        dispatch(clearCart());
-
         redirect("/market");
-    }
+    };
 
-    useEffect(()=>{
+    useEffect(() => {
         const fetchData = async () => {
-            try{
-                dispatch(setIsLoading(true))
+            try {
+                dispatch(setIsLoading(true));
 
                 await MockAPI.delay(1000);
 
-                await API.request(ApiEndpoints.TRANSACTIONS, "POST", mockData);
+                const transactionResponse: ITransaction =
+                    await API.request<ITransaction>(
+                        ApiEndpoints.TRANSACTIONS,
+                        "POST",
+                        transactionRequestData
+                    );
 
+                const formattedDate: string = getFormatDateToHHmmssDDmmYY(
+                    transactionResponse.createdAt
+                );
+
+                dispatch(clearCart());
+
+                setTransactionInfo({
+                    createdAt: formattedDate,
+                    amount: transactionResponse.amount,
+                });
                 setIsTransactionRequestComplete(true);
 
                 setTransactionError(null);
-            }
-            catch{
+            } catch {
                 setIsTransactionRequestComplete(false);
 
                 setTransactionError(Error.toString);
-            }
-            finally{
+            } finally {
                 dispatch(setIsLoading(false));
             }
-        }
-        
+        };
+
         fetchData();
-    }, [])
-    
-    const transactionDate = Date();
-    
-    if(cart === undefined) {
-        return <div>ERROR</div>
-    }
+    }, []);
 
-    return(
+    return (
         <div className="transaction-page-container">
-            {isTransactionRequestComplete && transactionError === null && (
-                <div>
-                    <div>Transaction page</div>
-                    <div>THE TRANSACTION IS COMPLETED</div>
-                    <div>Total price: {}</div>
-                    <div>{transactionDate}</div>
-                </div>
-            )}
-
-            {isTransactionRequestComplete === false && transactionError !== null && (
-                <div>
-                    <div>Transaction error: {transactionError}</div>
-                </div>
-            )}
-            
+            <div className="info">
+                {!!transactionInfo &&
+                    isTransactionRequestComplete &&
+                    transactionError === null && (
+                        <div>
+                            <div>Transaction page</div>
+                            <div>THE TRANSACTION IS COMPLETED</div>
+                            <div>Total price: {transactionInfo.amount}</div>
+                            <div>{transactionInfo.createdAt}</div>
+                        </div>
+                    )}
+                {isTransactionRequestComplete === false &&
+                    transactionError !== null && (
+                        <div>
+                            <div>Transaction error: {transactionError}</div>
+                        </div>
+                    )}
+            </div>
             <StyledButton
-                label="Continue shopping" 
-                onClick={()=>{handleContinueShopping()}}
+                label="Continue shopping"
+                onClick={() => {
+                    handleContinueShopping();
+                }}
             />
         </div>
-    )
-}
+    );
+};
 
 export default TransactionInfoPage;

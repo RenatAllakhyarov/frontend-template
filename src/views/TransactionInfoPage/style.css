@@ -5,3 +5,7 @@
 
     padding: var(--main-page-padding, 28px 36px);
 }
+
+.transaction-page-container .info {
+    margin-bottom: 20px;
+}
