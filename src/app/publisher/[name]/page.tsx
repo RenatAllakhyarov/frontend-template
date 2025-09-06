@@ -1,5 +1,6 @@
 "use client";
 
+import PublisherPage from "@views/PublisherPage";
 import { useParams } from "next/navigation";
 import { ReactElement } from "react";
 
@@ -12,7 +13,7 @@ const Publisher = (): ReactElement => {
         return <div>Publisher not found</div>;
     }
 
-    return <h1>{`PUBLISHER INFO PAGE: ${decodingName}`}</h1>;
+    return <PublisherPage publisher={decodingName} />;
 };
 
 export default Publisher;
