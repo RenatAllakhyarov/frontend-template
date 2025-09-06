@@ -5,9 +5,9 @@ import ProductInfoPage from "@views/ProductInfoPage";
 
 const ProductPage = () => {
     return (
-        <ProtectedRoute>
+        // <ProtectedRoute>
             <ProductInfoPage />
-        </ProtectedRoute>
+        // </ProtectedRoute>
     );
 };
 

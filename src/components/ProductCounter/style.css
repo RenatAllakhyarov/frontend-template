@@ -8,7 +8,7 @@
 }
 
 .product-counter .quantity {
-    font-weight: 600;
+    font-weight: var(--product-counter-quantity-font-weight, 600);
     color: var(--base-layout-text-color);
 }
 

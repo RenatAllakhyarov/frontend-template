@@ -1,9 +1,9 @@
-.cart-page-head {
+.cart-page-header {
     width: 100%;
     padding: 16px 0;
 }
 
-.cart-page-head-content {
+.cart-page-header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,4 +1,5 @@
 import Price from "@components/Price";
+import ProductDetails, { IProductDetail } from "@components/ProductDetails";
 import { ICartProduct } from "@domains/cart";
 import { ReactElement } from "react";
 import "./style.css";
@@ -8,17 +9,24 @@ export interface ICartProductInfoProps {
 }
 
 const CartProductInfo = ({ product }: ICartProductInfoProps): ReactElement => {
+    const details: IProductDetail[] = [
+        { title: "Название", value: product.title },
+        { title: "Автор", value: product.publisher },
+        { title: "Вес", value: `${product.weight} г` },
+    ];
+
+    const isWithoutTitle = true;
+
     return (
         <div className="cart-product-info">
-            <span className="product-title">{product.title}</span>
-            <span className="product-author">{product.publisher}</span>
-            <span className="product-weight">{product.weight}</span>
-            <span className="product-price">
+            <ProductDetails details={details} isWithoutTitle={isWithoutTitle} />
+
+            <div className="product-price headline-4-text">
                 <Price
                     price={product.price * product.quantity}
                     discount={product.discount}
                 />
-            </span>
+            </div>
         </div>
     );
 };

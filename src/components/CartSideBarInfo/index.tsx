@@ -16,12 +16,9 @@ const CartSideBarInfo = (): ReactElement => {
         state.cart.cart.getProductsCount()
     );
 
-    const calculateTotalPrice = (): number => {
-        return cartProducts.reduce(
-            (total, product) => total + product.price * product.quantity,
-            0
-        );
-    };
+    const totalPrice: number = useSelector((state: TRootState) =>
+        state.cart.cart.getTotalPrice()
+    );
 
     const calculateTotalDiscount = (): number => {
         return cartProducts.reduce((total, product) => {
@@ -34,7 +31,6 @@ const CartSideBarInfo = (): ReactElement => {
         }, 0);
     };
 
-    const totalPrice: number = calculateTotalPrice();
     const totalDiscount: number = calculateTotalDiscount();
     const finalPrice: number = totalPrice - totalDiscount;
 

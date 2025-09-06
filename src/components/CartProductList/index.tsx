@@ -12,8 +12,6 @@ const CartProductList = (): ReactElement => {
 
     return (
         <div className="cart-product-list">
-            <span className="cart-product-list-title">Товары в наличии</span>
-
             {cartProducts.length === 0 && (
                 <p className="empty-cart">Ваша корзина пуста</p>
             )}

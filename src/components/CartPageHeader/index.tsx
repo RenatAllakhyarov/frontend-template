@@ -1,6 +1,6 @@
 "use client";
 
-import StyledButton, { StyledButtonTypes } from "@components/StyledButton";
+import StyledButton from "@components/StyledButton";
 import { getFormatProductsCount } from "@utils/constants";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "@store/slices/Cart";
@@ -8,7 +8,7 @@ import { TRootState } from "@store/index";
 import { ReactElement } from "react";
 import "./style.css";
 
-const CartPageHead = (): ReactElement => {
+const CartPageHeader = (): ReactElement => {
     const dispatch = useDispatch();
 
     const cart = useSelector((state: TRootState) => state.cart.cart);
@@ -23,19 +23,19 @@ const CartPageHead = (): ReactElement => {
         getFormatProductsCount(productsCount);
 
     return (
-        <div className="cart-page-head">
-            <div className="cart-page-head-content">
+        <div className="cart-page-header">
+            <div className="cart-page-header-content">
                 <h1 className="cart-page-title-primary headline-2-text">
                     Корзина
                     <span className="cart-page-title-secondary badge-text">
                         {formattedProductsCount}
                     </span>
                 </h1>
-                
+
                 <StyledButton
                     label="Очистить корзину"
                     onClick={handleClearCart}
-                    type={StyledButtonTypes.SECONDARY}
+                    type="reset"
                     disabled={productsCount === 0}
                 />
             </div>
@@ -43,4 +43,4 @@ const CartPageHead = (): ReactElement => {
     );
 };
 
-export default CartPageHead;
+export default CartPageHeader;

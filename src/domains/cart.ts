@@ -7,8 +7,14 @@ export interface ICartProduct extends IProduct {
 class Cart {
     private cartProducts: Map<string, ICartProduct>;
 
-    constructor() {
+    constructor(products?: ICartProduct[]) {
         this.cartProducts = new Map();
+
+        if (!products) return;
+
+        products.forEach((product) => {
+            this.cartProducts.set(product.id, { ...product });
+        });
     }
 
     public getProducts(): ICartProduct[] {
@@ -16,13 +22,10 @@ class Cart {
     }
 
     public addProduct(addingProduct: IProduct): void {
-        const cartProduct: ICartProduct | undefined = this.cartProducts.get(
-            addingProduct.id
-        );
+        const cartProduct: ICartProduct | undefined =
+            this.cartProducts.get(addingProduct.id);
 
-        if (cartProduct) {
-            return;
-        }
+        if (!!cartProduct) return;
 
         this.cartProducts.set(addingProduct.id, {
             ...addingProduct,
@@ -38,53 +41,32 @@ class Cart {
         const cartProduct: ICartProduct | undefined =
             this.cartProducts.get(productId);
 
-        if (!cartProduct) {
-            console.log("We don`t have this product in your cart...");
+        if (!cartProduct) return 0;
 
-            return 0;
-        }
-
-        const productTotalPrice: number =
-            cartProduct.price * cartProduct.quantity;
-
-        return productTotalPrice;
+        return cartProduct.price * cartProduct.quantity;
     }
 
     public getTotalPrice(): number {
-        if (this.cartProducts.size === 0) {
-            return 0;
-        }
+        if (!this.cartProducts.size) return 0;
 
-        const prices: number[] = Array.from(this.cartProducts.values()).map(
-            (product: ICartProduct) => product.price * product.quantity
-        );
-
-        const cartTotalPrice: number = prices.reduce(
-            (sum: number, price: number) => sum + price,
-            0
-        );
-
-        return cartTotalPrice;
+        return Array.from(this.cartProducts.values())
+            .map((p) => p.price * p.quantity)
+            .reduce((sum, price) => sum + price, 0);
     }
 
     public getProductsCount(): number {
-        const products: ICartProduct[] = Array.from(this.cartProducts.values());
-
-        const totalProducts: number = products.reduce(
-            (sum: number, product: ICartProduct) => sum + product.quantity,
+        return Array.from(this.cartProducts.values()).reduce(
+            (sum, product) => sum + product.quantity,
             0
         );
-
-        return totalProducts;
     }
 
-    public clearCart() {
+    public clearCart(): void {
         this.cartProducts.clear();
     }
 
     public increaseQuantity(productId: string): void {
-        const cartProduct: ICartProduct | undefined =
-            this.cartProducts.get(productId);
+        const cartProduct = this.cartProducts.get(productId);
 
         if (!cartProduct) return;
 
@@ -92,18 +74,15 @@ class Cart {
     }
 
     public decreaseQuantity(productId: string): void {
-        const cartProduct: ICartProduct | undefined =
-            this.cartProducts.get(productId);
+        const cartProduct = this.cartProducts.get(productId);
 
         if (!cartProduct) return;
-
-        if (cartProduct.quantity === 1) {
-            this.deleteProduct(productId);
-
+        if (cartProduct.quantity !== 1) {
+            cartProduct.quantity = cartProduct.quantity - 1;
             return;
         }
 
-        cartProduct.quantity = cartProduct.quantity - 1;
+        this.deleteProduct(productId);
     }
 }
 

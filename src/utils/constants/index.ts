@@ -43,37 +43,36 @@ export function getFormatCount(count: number): string {
     return count.toString();
 }
 
-export const getFormatRatingsCount = (ratingsCount: number): string => {
-    const labelPrefix: string = `${ratingsCount} оцен`;
+export function formsForCounts(
+    count: number,
+    forms: [string, string, string]
+): string {
+    const lastDigit = count % 10;
+    const lastTwoDigits = count % 100;
 
-    const lastNumber: number = ratingsCount % 10;
-
-    if (lastNumber === 1) {
-        return `${labelPrefix}ка`;
+    if (lastDigit === 1) {
+        return `${count} ${forms[0]}`;
     }
 
-    if (lastNumber > 1 && lastNumber < 5) {
-        return `${labelPrefix}ки`;
+    if (lastDigit >= 2 && lastDigit <= 4) {
+        return `${count} ${forms[1]}`;
     }
 
-    return `${labelPrefix}ок`;
-};
-
-export const getFormatReviewsCount = (reviewsCount: number): string => {
-    const labelPrefix: string = `${reviewsCount} отзыв`;
-
-    const lastNumber: number = reviewsCount % 10;
-
-    if (lastNumber === 1) {
-        return labelPrefix;
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+        return `${count} ${forms[2]}`;
     }
 
-    if (lastNumber > 1 && lastNumber < 5) {
-        return `${labelPrefix}а`;
-    }
+    return `${count} ${forms[2]}`;
+}
 
-    return `${labelPrefix}ов`;
-};
+export const getFormatProductsCount = (count: number): string =>
+    formsForCounts(count, ["товар", "товара", "товаров"]);
+
+export const getFormatReviewsCount = (count: number): string =>
+    formsForCounts(count, ["отзыв", "отзыва", "отзывов"]);
+
+export const getFormatRatingsCount = (count: number): string =>
+    formsForCounts(count, ["оценка", "оценки", "оценок"]);
 
 export const getFormatBuyCount = (buyCount: number): string => {
     const units = [1e9, 1e6, 1e3];
@@ -91,32 +90,6 @@ export const getFormatBuyCount = (buyCount: number): string => {
     }
 
     return `Купили более ${buyCount} человек`;
-};
-
-export const getFormatProductsCount = (productsCount: number): string => {
-    if (productsCount === 0) {
-        return "0 товаров";
-    }
-
-    const labelPrefix: string = `${productsCount} товар`;
-
-    const lastDigit: number = productsCount % 10;
-
-    const lastTwoDigits: number = productsCount % 100;
-
-    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
-        return `${labelPrefix}ов`;
-    };
-
-    if (lastDigit === 1) {
-        return `${labelPrefix}`;
-    };
-
-    if (lastDigit >= 2 && lastDigit <= 4) {
-        return `${labelPrefix}а`;
-    };
-
-    return `${labelPrefix}ов`;
 };
 
 export const scrollToElementById = (id: string): void => {

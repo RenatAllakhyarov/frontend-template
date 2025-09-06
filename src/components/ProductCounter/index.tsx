@@ -1,5 +1,5 @@
-import plusIcon from "@public/icons/plusIcon.svg";
-import minusIcon from "@public/icons/minusIcon.svg";
+import plusIconSrc from "@public/icons/plusIcon.svg";
+import minusIconSrc from "@public/icons/minusIcon.svg";
 import IconButton, { IconButtonTypes } from "@components/IconButton";
 import { ICartProduct } from "@domains/cart";
 import { ReactElement } from "react";
@@ -10,7 +10,7 @@ interface IProductCounterProps {
     quantity: number;
     onIncrease: () => void;
     onDecrease: () => void;
-    product?: ICartProduct
+    product?: ICartProduct;
 }
 
 const ProductCounter = ({
@@ -18,24 +18,23 @@ const ProductCounter = ({
     quantity,
     onDecrease,
     onIncrease,
-    product
+    product,
 }: IProductCounterProps): ReactElement => {
-
     return (
         <div className="product-counter">
             <IconButton
-                src={minusIcon}
+                src={minusIconSrc}
                 alt="minus icon"
                 onClick={onDecrease}
                 type={IconButtonTypes.GHOST}
                 iconSize={16}
                 className="counter-minus-button"
             />
-
-            <span className="counter-quantity">{product? product.quantity : quantity}</span>
-
+            <span className="counter-quantity">
+                {product ? product.quantity : quantity}
+            </span>
             <IconButton
-                src={plusIcon}
+                src={plusIconSrc}
                 alt="plus icon"
                 onClick={onIncrease}
                 type={IconButtonTypes.GHOST}

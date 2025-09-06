@@ -1,21 +1,24 @@
 "use client";
 
-import CartPageHead from "@components/CartPageHead";
+import CartSideBar from "@components/CartSideBar";
+import CartPageHeader from "@components/CartPageHeader";
 import CartProductList from "@components/CartProductList";
 import { ReactElement } from "react";
 import "./style.css";
-import CartSideBar from "@components/CartSideBar";
 
 const CartPage = (): ReactElement => {
     return (
         <div className="cart-page">
-            <CartPageHead />
+            <CartPageHeader />
             <div className="cart-page-content">
                 <div className="cart-page-content-left">
+                    <span className="cart-product-list-title">
+                        Товары в наличии
+                    </span>
                     <CartProductList />
                 </div>
                 <div className="cart-page-content-right">
-                    <CartSideBar/>
+                    <CartSideBar />
                 </div>
             </div>
         </div>
