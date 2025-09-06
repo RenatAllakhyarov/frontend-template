@@ -11,6 +11,7 @@ import { redirect } from "next/navigation";
 import { ApiEndpoints } from "@api/index";
 import { TRootState } from "@store/index";
 import "./style.css"
+import { clearCart } from "@store/slices/Cart";
 
 const TransactionInfoPage = () => {
     const [isTransactionRequestComplete, setIsTransactionRequestComplete] = useState<boolean>()
@@ -21,11 +22,17 @@ const TransactionInfoPage = () => {
     const cart = useSelector((state: TRootState) => state.cart);
 
     const userId = useSelector((state: TRootState) => state.user.id);   
-
+   
     const mockData = {
         amount: 1200,
         userId: userId,
         products: mockProductsList.map(items => items.id),
+    }
+
+    const handleContinueShopping = (): void => {
+        dispatch(clearCart());
+
+        redirect("/market");
     }
 
     useEffect(()=>{
@@ -38,6 +45,8 @@ const TransactionInfoPage = () => {
                 await API.request(ApiEndpoints.TRANSACTIONS, "POST", mockData);
 
                 setIsTransactionRequestComplete(true);
+
+                setTransactionError(null);
             }
             catch{
                 setIsTransactionRequestComplete(false);
@@ -48,12 +57,12 @@ const TransactionInfoPage = () => {
                 dispatch(setIsLoading(false));
             }
         }
-
+        
         fetchData();
     }, [])
-
+    
     const transactionDate = Date();
-
+    
     if(cart === undefined) {
         return <div>ERROR</div>
     }
@@ -75,7 +84,10 @@ const TransactionInfoPage = () => {
                 </div>
             )}
             
-            <StyledButton label="Continue shopping" onClick={()=>redirect("/market")}/>
+            <StyledButton
+                label="Continue shopping" 
+                onClick={()=>{handleContinueShopping()}}
+            />
         </div>
     )
 }
