@@ -102,6 +102,20 @@ export const getFormatDateToDDMMYYYY = (defaultDateString: string): string => {
     return `${day}.${month}.${year}`;
 };
 
+export const getFormatDateToHHmmssDDmmYY = (defaultDateString: string): string => {
+    const date = new Date(defaultDateString);
+
+    const hours = String(date.getUTCHours()).padStart(2, "0");
+    const minutes = String(date.getUTCMinutes()).padStart(2, "0");
+    const seconds = String(date.getUTCSeconds()).padStart(2, "0");
+
+    const day = String(date.getUTCDate()).padStart(2, "0");
+    const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+    const year = String(date.getUTCFullYear()).slice(-2);
+
+    return `${hours}:${minutes}:${seconds} ${day}.${month}.${year}`;
+};
+
 export const getFullClassnameByList = (...list: string[]): string => {
     return list.filter(Boolean).join(" ");
 };
@@ -111,4 +125,11 @@ export const EMAIL_REGEX =
 
 export const validateEmailWithMessage = (email: string) => {
     return EMAIL_REGEX.test(email);
+};
+
+export const getRandomId = (): string => {
+    return (
+        Date.now().toString(36) +
+        Math.random().toString(36).substring(2).toString()
+    );
 };

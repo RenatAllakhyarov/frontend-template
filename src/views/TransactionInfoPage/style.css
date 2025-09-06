@@ -1,0 +1,11 @@
+.transaction-page-container {
+    border-radius: var(--widget-border-radius, 24px);
+    background: var(--base-layout-bg, #FFFFFF);
+    box-shadow: var(--widget-shadow, 0 8px 20px #0000000a);
+
+    padding: var(--main-page-padding, 28px 36px);
+}
+
+.transaction-page-container .info {
+    margin-bottom: 20px;
+}

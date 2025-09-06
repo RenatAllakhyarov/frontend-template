@@ -1,5 +1,3 @@
-"use client";
-
 import ProductInfoPage from "@views/ProductInfoPage";
 import ProtectedRoute from "@components/ProtectedRoute";
 

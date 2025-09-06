@@ -45,7 +45,7 @@ class API {
                 `[HTTP] Error: ${response.status} ${response.statusText}`
             );
         }
-
+        
         return (await response.json()) as T;
     };
 
