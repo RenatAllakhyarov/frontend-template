@@ -21,22 +21,21 @@ const CartProductCardBar = ({
 }: ICartProductCardBarProps): ReactElement => {
     const dispatch = useDispatch();
 
-    const handleIncreaseQuantity = () => {
+    const handleIncreaseQuantity = (): void => {
         dispatch(increaseProductQuantity(productId));
     };
 
-    const handleDecreaseQuantity = () => {
+    const handleDecreaseQuantity = (): void => {
         dispatch(decreaseProductQuantity(productId));
     };
 
-    const handleRemoveProduct = () => {
+    const handleRemoveProduct = (): void => {
         dispatch(removeProductFromCart(productId));
     };
 
     return (
         <div className="cart-product-card-bar">
             <ProductCounter
-                productId={productId}
                 quantity={quantity}
                 onIncrease={handleIncreaseQuantity}
                 onDecrease={handleDecreaseQuantity}

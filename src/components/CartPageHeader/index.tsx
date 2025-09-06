@@ -1,5 +1,6 @@
 "use client";
 
+import Cart from "@domains/cart";
 import StyledButton from "@components/StyledButton";
 import { getFormatProductCounts } from "@utils/constants";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,17 +12,17 @@ import "./style.css";
 const CartPageHeader = (): ReactElement => {
     const dispatch = useDispatch();
 
-    const cart = useSelector((state: TRootState) => state.cart.cart);
+    const cart: Cart = useSelector((state: TRootState) => state.cart.cart);
 
-    const productsCount = cart.getProductsCount();
+    const productsCount: number = cart.getProductsCount();
 
-    const handleClearCart = () => {
+    const handleClearCart = (): void => {
         dispatch(clearCart());
     };
 
-    const wordForms = ["товар", "товара", "товаров"];
+    const wordForms: string[] = ["товар", "товара", "товаров"];
 
-    const formattedProductsCount = getFormatProductCounts(
+    const formattedProductsCount: string = getFormatProductCounts(
         productsCount,
         wordForms
     );

@@ -22,9 +22,10 @@ const CartSideBarInfo = (): ReactElement => {
 
     const calculateTotalDiscount = (): number => {
         return cartProducts.reduce((total, product) => {
-            const productOriginalPrice = product.price * product.quantity;
+            const productOriginalPrice: number =
+                product.price * product.quantity;
 
-            const discountAmount =
+            const discountAmount: number =
                 productOriginalPrice * (product.discount / 100);
 
             return total + discountAmount;
@@ -32,8 +33,9 @@ const CartSideBarInfo = (): ReactElement => {
     };
 
     const totalDiscount: number = calculateTotalDiscount();
-    const discountDifference = totalDiscount.toFixed(2);
+    const discountDifference: string = totalDiscount.toFixed(2);
     const finalPrice: number = totalPrice - totalDiscount;
+    const finalPriceFixed: string = finalPrice.toFixed(2);
 
     return (
         <div className="cart-side-bar-info">
@@ -48,7 +50,7 @@ const CartSideBarInfo = (): ReactElement => {
             <div className="info-row total-row">
                 <span className="info-label headline-4-text">Итого</span>
                 <span className="info-value headline-4-text">
-                    {`${finalPrice.toFixed(2)}${CURRENCY}`}
+                    {`${finalPriceFixed}${CURRENCY}`}
                 </span>
             </div>
         </div>

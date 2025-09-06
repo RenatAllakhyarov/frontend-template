@@ -15,7 +15,7 @@ const CartProductInfo = ({ product }: ICartProductInfoProps): ReactElement => {
         { title: "Вес", value: `${product.weight} г` },
     ];
 
-    const isWithoutTitle = true;
+    const isWithoutTitle: boolean = true;
 
     return (
         <div className="cart-product-info">

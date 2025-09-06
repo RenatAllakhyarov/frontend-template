@@ -4,13 +4,14 @@ import EmptyCart from "@components/EmptyCart";
 import CartSideBar from "@components/CartSideBar";
 import CartPageHeader from "@components/CartPageHeader";
 import CartProductList from "@components/CartProductList";
+import { ICartProduct } from "@domains/cart";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/index";
 import { ReactElement } from "react";
 import "./style.css";
 
 const CartPage = (): ReactElement => {
-    const cartProducts = useSelector((state: TRootState) =>
+    const cartProducts: ICartProduct[] = useSelector((state: TRootState) =>
         state.cart.cart.getProducts()
     );
 
