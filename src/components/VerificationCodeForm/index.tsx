@@ -81,7 +81,7 @@ const VerificationCodeForm = (): ReactElement => {
             setIsCodeTrue(false);
         }
     };
-
+ 
     const handleResendClick = async () => {
         setIsResending(true);
 
