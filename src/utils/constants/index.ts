@@ -43,7 +43,7 @@ export function getFormatCount(count: number): string {
     return count.toString();
 }
 
-export function formsForCounts(
+export function getFormatProductCounts(
     count: number,
     forms: [string, string, string]
 ): string {
@@ -64,15 +64,6 @@ export function formsForCounts(
 
     return `${count} ${forms[2]}`;
 }
-
-export const getFormatProductsCount = (count: number): string =>
-    formsForCounts(count, ["товар", "товара", "товаров"]);
-
-export const getFormatReviewsCount = (count: number): string =>
-    formsForCounts(count, ["отзыв", "отзыва", "отзывов"]);
-
-export const getFormatRatingsCount = (count: number): string =>
-    formsForCounts(count, ["оценка", "оценки", "оценок"]);
 
 export const getFormatBuyCount = (buyCount: number): string => {
     const units = [1e9, 1e6, 1e3];

@@ -1,5 +1,5 @@
 import Rating from "@components/Rating";
-import { getFormatRatingsCount } from "@utils/constants";
+import { getFormatProductCounts } from "@utils/constants";
 import { ReactElement } from "react";
 import "./style.css";
 
@@ -12,7 +12,11 @@ const ComplexRatingBlock = ({
     rating,
     ratingsCount,
 }: IComplexRatingBlockProps): ReactElement => {
-    const formatRatingsCount: string = getFormatRatingsCount(ratingsCount);
+    const formatRatingsCount: string = getFormatProductCounts(ratingsCount, [
+        "оценка",
+        "оценки",
+        "оценок",
+    ]);
 
     return (
         <div className="complex-rating-block">

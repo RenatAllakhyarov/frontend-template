@@ -16,7 +16,7 @@ import { useSelector } from "react-redux";
 import { ReactElement } from "react";
 import {
     getFormatBuyCount,
-    getFormatReviewsCount,
+    getFormatProductCounts,
     scrollToElementById,
 } from "@utils/constants";
 import "./style.css";
@@ -42,8 +42,9 @@ const ProductInfoPage = (): ReactElement => {
         redirect("/market");
     }
 
-    const formatReviewsCount: string = getFormatReviewsCount(
-        product.reviews.length
+    const formatReviewsCount: string = getFormatProductCounts(
+        product.reviews.length,
+        ["отзыв", "отзыва", "отзывов"]
     );
     const formatBuyCount: string = getFormatBuyCount(product.salesCount);
 
