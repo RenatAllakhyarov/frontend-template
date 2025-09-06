@@ -125,3 +125,10 @@ export const EMAIL_REGEX =
 export const validateEmailWithMessage = (email: string) => {
     return EMAIL_REGEX.test(email);
 };
+
+export const getRandomId = (): string => {
+    return (
+        Date.now().toString(36) +
+        Math.random().toString(36).substring(2).toString()
+    );
+};

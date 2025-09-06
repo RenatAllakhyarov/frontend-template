@@ -1,41 +1,41 @@
 "use client"
 
 import API from "@api/index";
-import Cart from "@domains/cart";
 import MockAPI from "src/mockApi";
 import mockProductsList from "src/mockApi/meta";
 import StyledButton from "@components/StyledButton";
 import { setIsLoading } from "@store/slices/Application";
+import { useDispatch, useSelector } from "react-redux";
+import cart, { ICartProduct } from "@domains/cart";
 import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
-import { useDispatch } from "react-redux";
 import { ApiEndpoints } from "@api/index";
 import "./style.css"
+import { TRootState } from "@store/index";
 
 const TransactionInfoPage = () => {
     const [isTransactionRequestComplete, setIsTransactionRequestComplete] = useState<boolean>()
     const [transactionError, setTransactionError] = useState<string | null>();
 
-    const cart = new Cart();
+    const dispatch = useDispatch();
+    
+    const cart = useSelector((state: TRootState) => state.cart);
 
-    if(cart === undefined) {
-        return <div>ERROR</div>
-    }
+    const userId = useSelector((state: TRootState) => state.user.id);
 
     const mockData = {
         amount: 1200,
-        userId: 666,
+        userId: userId,
         products: mockProductsList.map(items => items.id),
     }
 
-    const dispatch = useDispatch();
 
     useEffect(()=>{
         const fetchData = async () => {
             try{
-                dispatch(setIsLoading(true));
+                dispatch(setIsLoading(true))
 
-                await MockAPI.delay(3000);
+                await MockAPI.delay(1000);
 
                 await API.request(ApiEndpoints.TRANSACTIONS, "POST", mockData);
 
@@ -44,7 +44,7 @@ const TransactionInfoPage = () => {
             catch{
                 setIsTransactionRequestComplete(false);
 
-                setTransactionError(Error.toString);
+                setTransactionError("Error.toString");
             }
             finally{
                 dispatch(setIsLoading(false));
@@ -55,6 +55,10 @@ const TransactionInfoPage = () => {
     }, [])
 
     const transactionDate = Date();
+
+    if(cart === undefined) {
+        return <div>ERROR</div>
+    }
 
     return(
         <div className="transaction-page-container">

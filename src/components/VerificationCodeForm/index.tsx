@@ -6,9 +6,11 @@ import { FormEvent, useState, useRef, useEffect, ReactElement } from "react";
 import { StyledButtonTypes } from "@components/StyledButton";
 import { useAppDispatch, useAppSelector } from "src/hooks";
 import { setUserRegistered } from "@store/slices/User";
+import { getRandomId } from "@utils/constants";
+import { setUserId } from "@store/slices/User";
 import { AlertTypes } from "@utils/constants";
-import { TRootState } from "@store/index";
 import { useRouter } from "next/navigation";
+import { TRootState } from "@store/index";
 import "./style.css";
 
 const VerificationCodeForm = (): ReactElement => {
@@ -69,11 +71,14 @@ const VerificationCodeForm = (): ReactElement => {
 
             dispatch(setUserRegistered(true));
 
+            dispatch(setUserId(getRandomId()));
+            
             console.log("Code verified successfully!");
 
             router.push("/market");
         } catch (error) {
             console.error("Error verifying code:", error);
+            
             setIsCodeTrue(false);
         }
     };
