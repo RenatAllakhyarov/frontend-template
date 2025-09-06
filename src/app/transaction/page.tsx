@@ -1,5 +1,3 @@
-'use client'
-
 import TransactionInfoPage from "@views/TransactionInfoPage";
 
 const TransactionPage = () => {
