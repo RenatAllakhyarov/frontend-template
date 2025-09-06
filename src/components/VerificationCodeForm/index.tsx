@@ -94,7 +94,6 @@ const VerificationCodeForm = (): ReactElement => {
 
             setIsCodeTrue(null);
         } catch (error) {
-            
         } finally {
             setIsResending(false);
         }
