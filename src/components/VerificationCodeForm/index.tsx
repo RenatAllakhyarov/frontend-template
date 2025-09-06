@@ -5,10 +5,9 @@ import StyledButton from "@components/StyledButton";
 import { FormEvent, useState, useRef, useEffect, ReactElement } from "react";
 import { StyledButtonTypes } from "@components/StyledButton";
 import { useAppDispatch, useAppSelector } from "src/hooks";
+import { AlertTypes, getRandomId } from "@utils/constants";
 import { setUserRegistered } from "@store/slices/User";
-import { getRandomId } from "@utils/constants";
 import { setUserId } from "@store/slices/User";
-import { AlertTypes } from "@utils/constants";
 import { useRouter } from "next/navigation";
 import { TRootState } from "@store/index";
 import "./style.css";
@@ -69,10 +68,10 @@ const VerificationCodeForm = (): ReactElement => {
         try {
             await API.sendVerifyRequest(currentEmail, verificationCode);
 
-            dispatch(setUserRegistered(true));
+            await dispatch(setUserRegistered(true));
 
-            dispatch(setUserId(getRandomId()));
-            
+            await dispatch(setUserId(getRandomId().toString()));
+
             console.log("Code verified successfully!");
 
             router.push("/market");
@@ -95,6 +94,7 @@ const VerificationCodeForm = (): ReactElement => {
 
             setIsCodeTrue(null);
         } catch (error) {
+            console.error("Error verifying code:", error);
         } finally {
             setIsResending(false);
         }

@@ -6,12 +6,11 @@ import mockProductsList from "src/mockApi/meta";
 import StyledButton from "@components/StyledButton";
 import { setIsLoading } from "@store/slices/Application";
 import { useDispatch, useSelector } from "react-redux";
-import cart, { ICartProduct } from "@domains/cart";
 import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 import { ApiEndpoints } from "@api/index";
-import "./style.css"
 import { TRootState } from "@store/index";
+import "./style.css"
 
 const TransactionInfoPage = () => {
     const [isTransactionRequestComplete, setIsTransactionRequestComplete] = useState<boolean>()
@@ -21,14 +20,13 @@ const TransactionInfoPage = () => {
     
     const cart = useSelector((state: TRootState) => state.cart);
 
-    const userId = useSelector((state: TRootState) => state.user.id);
+    const userId = useSelector((state: TRootState) => state.user.id);   
 
     const mockData = {
         amount: 1200,
         userId: userId,
         products: mockProductsList.map(items => items.id),
     }
-
 
     useEffect(()=>{
         const fetchData = async () => {
@@ -44,7 +42,7 @@ const TransactionInfoPage = () => {
             catch{
                 setIsTransactionRequestComplete(false);
 
-                setTransactionError("Error.toString");
+                setTransactionError(Error.toString);
             }
             finally{
                 dispatch(setIsLoading(false));
