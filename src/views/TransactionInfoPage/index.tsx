@@ -6,12 +6,12 @@ import mockProductsList from "src/mockApi/meta";
 import StyledButton from "@components/StyledButton";
 import { setIsLoading } from "@store/slices/Application";
 import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "@store/slices/Cart";
 import { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 import { ApiEndpoints } from "@api/index";
 import { TRootState } from "@store/index";
 import "./style.css"
-import { clearCart } from "@store/slices/Cart";
 
 const TransactionInfoPage = () => {
     const [isTransactionRequestComplete, setIsTransactionRequestComplete] = useState<boolean>()
