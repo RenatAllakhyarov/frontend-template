@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Book Store 📚
 
-## Getting Started
+### Your online destination for bestsellers and rare finds from publishers big and small. The indispensable assistant for true bibliophiles.
 
-First, run the development server:
+![Book Store Hero Image](./public/images/marketpage.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   **Extensive Catalog:** Discover books from popular and indie publishers.
+-   **Seamless Purchase:** Find and buy your desired book in just a few clicks.
+-   **Detailed Previews:** Make informed decisions with detailed book pages.
+-   **Secure Checkout:** A smooth and safe cart & transaction process.
+-   **Fully Responsive:** A perfect shopping experience on any device.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📖 Table of Contents
 
-## Learn More
+-   [Book Store 📚](#book-store-)
+    -   [Your online destination for bestsellers and rare finds from publishers big and small. The indispensable assistant for true bibliophiles.](#your-online-destination-for-bestsellers-and-rare-finds-from-publishers-big-and-small-the-indispensable-assistant-for-true-bibliophiles)
+    -   [✨ Key Features](#-key-features)
+    -   [📖 Table of Contents](#-table-of-contents)
+    -   [🧐 About The Project](#-about-the-project)
+    -   [🛠 Technologies Used](#-technologies-used)
+    -   [🚀 Getting Started](#-getting-started)
+        -   [Prerequisites](#prerequisites)
+        -   [Installation](#installation)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧐 About The Project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This web application solves a modern problem: finding and purchasing rare, often out-of-stock books that are unavailable in local stores. It simplifies the search and buying process, making it possible to get your next great read in just a couple of clicks.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠 Technologies Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   **Frontend:** [Next.js](https://nextjs.org/)
+-   **Backend:** Node.js, [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction)
+-   **Database:** MongoDB
+-   **Styling:** CSS Modules
+
+---
+
+## 🚀 Getting Started
+
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed on your machine:
+
+-   **[Node.js](https://nodejs.org/) (v18 or higher)** - JavaScript runtime
+-   **[npm](https://www.npmjs.com/)** - Package manager (npm comes with Node.js)
+-   **[MongoDB](https://www.mongodb.com/)** - Database server. You can either:
+    -   Install [MongoDB Community Server](https://www.mongodb.com/try/download/community) locally
+    -   Use [MongoDB Atlas](https://www.mongodb.com/atlas/database) cloud database (free tier available).
+        (If you live in the territory of the RU region, then you will need a VPN to operate the site.)
+
+### Installation
+
+1.  **Clone the repository**
+
+    ```bash
+    git clone https://github.com/RenatAllakhyarov/frontend-template.git
+    cd book-store
+    ```
+
+2.  **Install dependencies**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Environment Setup**
+
+-   To make the site work, you need to unpack the archive with .env in the root of the project, access to which is only available to developers.
+
+4.  **Run the development server**
+
+    ```bash
+    npm run dev
+    ```
+
+5.  **Open your browser**
+    Navigate to [http://localhost:5173](http://localhost:5173) to view the application.
+
+---
