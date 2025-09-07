@@ -16,15 +16,15 @@
 
 ## 📖 Table of Contents
 
-- [Book Store 📚](#book-store-)
-    - [Your online destination for bestsellers and rare finds from publishers big and small. The indispensable assistant for true bibliophiles.](#your-online-destination-for-bestsellers-and-rare-finds-from-publishers-big-and-small-the-indispensable-assistant-for-true-bibliophiles)
-  - [✨ Key Features](#-key-features)
-  - [📖 Table of Contents](#-table-of-contents)
-  - [🧐 About The Project](#-about-the-project)
-  - [🛠 Technologies Used](#-technologies-used)
-  - [🚀 Getting Started](#-getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
+-   [Book Store 📚](#book-store-)
+    -   [Your online destination for bestsellers and rare finds from publishers big and small. The indispensable assistant for true bibliophiles.](#your-online-destination-for-bestsellers-and-rare-finds-from-publishers-big-and-small-the-indispensable-assistant-for-true-bibliophiles)
+    -   [✨ Key Features](#-key-features)
+    -   [📖 Table of Contents](#-table-of-contents)
+    -   [🧐 About The Project](#-about-the-project)
+    -   [🛠 Technologies Used](#-technologies-used)
+    -   [🚀 Getting Started](#-getting-started)
+        -   [Prerequisites](#prerequisites)
+        -   [Installation](#installation)
 
 ---
 
@@ -49,11 +49,14 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### Prerequisites
 
-Before you begin, ensure you have the following installed:
+Before you begin, ensure you have the following installed on your machine:
 
--   **Next.js**
--   **npm** package manager
--   **MongoDB**
+-   **[Node.js](https://nodejs.org/) (v18 or higher)** - JavaScript runtime
+-   **[npm](https://www.npmjs.com/)** - Package manager (npm comes with Node.js)
+-   **[MongoDB](https://www.mongodb.com/)** - Database server. You can either:
+    -   Install [MongoDB Community Server](https://www.mongodb.com/try/download/community) locally
+    -   Use [MongoDB Atlas](https://www.mongodb.com/atlas/database) cloud database (free tier available).
+        (If you live in the territory of the RU region, then you will need a VPN to operate the site.)
 
 ### Installation
 
@@ -72,7 +75,7 @@ Before you begin, ensure you have the following installed:
 
 3.  **Environment Setup**
 
-    Set up environment variables. Create a .env file and fill it `NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/`
+-   To make the site work, you need to unpack the archive with .env in the root of the project, access to which is only available to developers.
 
 4.  **Run the development server**
 
