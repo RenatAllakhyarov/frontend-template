@@ -51,9 +51,9 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 Before you begin, ensure you have the following installed:
 
--   **Next.js** (v18 or higher)
--   **npm** or **yarn** package manager
--   **MongoDB** (either locally or a connection string to a cloud instance like Atlas)
+-   **Next.js**
+-   **npm** package manager
+-   **MongoDB**
 
 ### Installation
 
@@ -68,22 +68,16 @@ Before you begin, ensure you have the following installed:
 
     ```bash
     npm install
-    # or
-    yarn install
     ```
 
 3.  **Environment Setup**
 
-    -   Duplicate the `.env.example` file and rename it to `.env.local`.
-    -   Fill in your environment variables (like `MONGODB_URI`, `NEXTAUTH_SECRET` for auth if used).
-    -   For now, you can set: `NEXT_PUBLIC_API_BASE_URL=http://localhost:3000`
+    Set up environment variables. Create a .env file and fill it `NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/`
 
 4.  **Run the development server**
 
     ```bash
     npm run dev
-    # or
-    yarn dev
     ```
 
 5.  **Open your browser**
