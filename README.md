@@ -2,7 +2,7 @@
 
 ### Your online destination for bestsellers and rare finds from publishers big and small. The indispensable assistant for true bibliophiles.
 
-![Book Store Hero Image](./public/images/marketpage.png) <!-- Можно добавить общий, "герой" скриншот -->
+![Book Store Hero Image](./public/images/marketpage.png)
 
 ## ✨ Key Features
 
