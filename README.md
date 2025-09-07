@@ -1,89 +1,92 @@
-# Book-store.
+# Book Store 📚
 
-### _Bookstore is a useful website for online purchase of books from various popular and less popular publishers. This website is an indispensable assistant for true book lovers._
+### Your online destination for bestsellers and rare finds from publishers big and small. The indispensable assistant for true bibliophiles.
+
+![Book Store Hero Image](./public/images/marketpage.png) <!-- Можно добавить общий, "герой" скриншот -->
+
+## ✨ Key Features
+
+-   **Extensive Catalog:** Discover books from popular and indie publishers.
+-   **Seamless Purchase:** Find and buy your desired book in just a few clicks.
+-   **Detailed Previews:** Make informed decisions with detailed book pages.
+-   **Secure Checkout:** A smooth and safe cart & transaction process.
+-   **Fully Responsive:** A perfect shopping experience on any device.
 
 ---
 
-Market page:
-![Market Page](./public/mockImagesData/marketpage.png)
+## 📖 Table of Contents
 
-Book detail page:
-![Book Page](./public/mockImagesData/bookdetailpage.png)
+- [Book Store 📚](#book-store-)
+    - [Your online destination for bestsellers and rare finds from publishers big and small. The indispensable assistant for true bibliophiles.](#your-online-destination-for-bestsellers-and-rare-finds-from-publishers-big-and-small-the-indispensable-assistant-for-true-bibliophiles)
+  - [✨ Key Features](#-key-features)
+  - [📖 Table of Contents](#-table-of-contents)
+  - [🧐 About The Project](#-about-the-project)
+  - [🛠 Technologies Used](#-technologies-used)
+  - [🚀 Getting Started](#-getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
 
-Cart page:
-![Cart Page](./public/mockImagesData/cartpage.png)
+---
 
-## 📖 Оглавление
+## 🧐 About The Project
 
--   [About project](#-about-project)
--   [Technologies](#-technologies)
--   [Launch](#-launch)
--   [Functionality](#-functionality)
--   [Commands](#-commands)
+This web application solves a modern problem: finding and purchasing rare, often out-of-stock books that are unavailable in local stores. It simplifies the search and buying process, making it possible to get your next great read in just a couple of clicks.
 
-## 🧐 About project
+---
 
-This site is designed to solve one of the main problems of today - buying rare, often sold-out copies of books that are not available in the stores of your city. This site will also help you simplify the search and purchase of the desired book, doing it in just a couple of clicks.
+## 🛠 Technologies Used
 
-## 🛠 Technologies
+-   **Frontend:** [Next.js](https://nextjs.org/)
+-   **Backend:** Node.js, [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction)
+-   **Database:** MongoDB
+-   **Styling:** CSS Modules
 
--   **Frontend:** Next.js
--   **Backend:** Node.js
--   **Data base:** MongoDB
+---
 
-## 🚀 Launch
+## 🚀 Getting Started
 
-This instruction will help you to start restoring a project on your local computer.
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
--   Next.js
--   npm
--   MongoDB
+Before you begin, ensure you have the following installed:
+
+-   **Next.js** (v18 or higher)
+-   **npm** or **yarn** package manager
+-   **MongoDB** (either locally or a connection string to a cloud instance like Atlas)
 
 ### Installation
 
-1. Clone the repository
+1.  **Clone the repository**
 
-```bash
-git clone https://github.com/RenatAllakhyarov/frontend-template
-cd your-project
-```
+    ```bash
+    git clone https://github.com/RenatAllakhyarov/frontend-template.git
+    cd book-store
+    ```
 
-2. Install NPM dependencies
+2.  **Install dependencies**
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-3. Set up environment variables. Create a .env file and fill it NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/
+3.  **Environment Setup**
 
-4. Start the development server
+    -   Duplicate the `.env.example` file and rename it to `.env.local`.
+    -   Fill in your environment variables (like `MONGODB_URI`, `NEXTAUTH_SECRET` for auth if used).
+    -   For now, you can set: `NEXT_PUBLIC_API_BASE_URL=http://localhost:3000`
 
-```bash
-npm run dev
-```
+4.  **Run the development server**
 
-5. Open http://localhost:5173
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-## ✨ Functionality
+5.  **Open your browser**
+    Navigate to [http://localhost:5173](http://localhost:5173) to view the application.
 
-✅ User registration and login
-
-✅ Detailed view of books
-
-✅ Adding books to cart and creating a transaction
-
-✅ Responsive design
-
-⏳ Implementation of work with an array of products that came from the backend instead of the mock one
-
-## 📜 Commands
-
--   npm run dev - Run in development mode
-
--   npm run build - Build the project
-
--   npm start - Run the production build
-
--   npm test - Run tests
+---
