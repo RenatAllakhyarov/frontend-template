@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Book-store.
 
-## Getting Started
+### _Bookstore is a useful website for online purchase of books from various popular and less popular publishers. This website is an indispensable assistant for true book lovers._
 
-First, run the development server:
+---
+
+Market page:
+![Market Page](./public/mockImagesData/marketpage.png)
+
+Book detail page:
+![Book Page](./public/mockImagesData/bookdetailpage.png)
+
+Cart page:
+![Cart Page](./public/mockImagesData/cartpage.png)
+
+## 📖 Оглавление
+
+-   [About project](#-about-project)
+-   [Technologies](#-technologies)
+-   [Launch](#-launch)
+-   [Functionality](#-functionality)
+-   [Commands](#-commands)
+
+## 🧐 About project
+
+This site is designed to solve one of the main problems of today - buying rare, often sold-out copies of books that are not available in the stores of your city. This site will also help you simplify the search and purchase of the desired book, doing it in just a couple of clicks.
+
+## 🛠 Technologies
+
+-   **Frontend:** Next.js
+-   **Backend:** Node.js
+-   **Data base:** MongoDB
+
+## 🚀 Launch
+
+This instruction will help you to start restoring a project on your local computer.
+
+### Prerequisites
+
+-   Next.js
+-   npm
+-   MongoDB
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/RenatAllakhyarov/frontend-template
+cd your-project
+```
+
+2. Install NPM dependencies
+
+```bash
+npm install
+```
+
+3. Set up environment variables. Create a .env file and fill it NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/
+
+4. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open http://localhost:5173
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Functionality
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✅ User registration and login
 
-## Learn More
+✅ Detailed view of books
 
-To learn more about Next.js, take a look at the following resources:
+✅ Adding books to cart and creating a transaction
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+✅ Responsive design
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+⏳ Implementation of work with an array of products that came from the backend instead of the mock one
 
-## Deploy on Vercel
+## 📜 Commands
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-   npm run dev - Run in development mode
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   npm run build - Build the project
+
+-   npm start - Run the production build
+
+-   npm test - Run tests
